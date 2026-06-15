@@ -10,6 +10,7 @@ body {
     color: #333;
     background: #fff;
     line-height: 1.6;
+    padding-top: 108px;
     -webkit-font-smoothing: antialiased;
 }
 a { text-decoration: none; color: inherit; transition: color 0.2s; }
@@ -71,6 +72,11 @@ ul { list-style: none; }
    TOP BAR
    ============================================ */
 .top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
     background: var(--primary-dark);
     color: rgba(255,255,255,0.8);
     font-size: 13px;
@@ -98,8 +104,10 @@ ul { list-style: none; }
    HEADER
    ============================================ */
 .header {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 36px;
+    left: 0;
+    width: 100%;
     z-index: 1000;
     background: rgba(255,255,255,0.95);
     backdrop-filter: blur(12px);
