@@ -222,13 +222,15 @@ ul { list-style: none; }
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(10,22,40,0.85) 0%, rgba(10,22,40,0.5) 50%, rgba(10,22,40,0.1) 100%);
+    background: linear-gradient(90deg, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.7) 35%, rgba(10,22,40,0.2) 60%, transparent 100%);
 }
 .hero-content {
     position: relative;
     z-index: 1;
-    max-width: 700px;
-    padding: 80px 0;
+    max-width: 560px;
+    padding: 40px 0 80px;
+    margin-left: -270px;
+    transform: translateX(-151px);
 }
 .hero-badge {
     display: inline-block;
@@ -288,8 +290,8 @@ ul { list-style: none; }
 
 /* Hero Stats */
 .hero-stats { display: flex; gap: 0; align-items: center; }
-.stat-item { text-align: center; padding: 0 28px; }
-.stat-number { font-size: 36px; font-weight: 800; color: #fff; }
+.stat-item { text-align: center; padding: 0 16px; }
+.stat-number { font-size: 32px; font-weight: 800; color: #fff; }
 .stat-suffix { font-size: 24px; font-weight: 700; color: var(--accent); }
 .stat-label { display: block; font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
 .stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.15); }
