@@ -107,4 +107,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // --- Product Gallery Carousel ---
+    var gallery = document.querySelector('.product-gallery');
+    if (gallery) {
+        var images = gallery.querySelectorAll('img');
+        var dots = gallery.querySelectorAll('.gallery-dot');
+        var prevBtn = gallery.querySelector('.gallery-prev');
+        var nextBtn = gallery.querySelector('.gallery-next');
+        var current = 0;
+
+        function showImage(index) {
+            images.forEach(function(img) { img.classList.remove('active'); });
+            dots.forEach(function(dot) { dot.classList.remove('active'); });
+            if (images[index]) images[index].classList.add('active');
+            if (dots[index]) dots[index].classList.add('active');
+            current = index;
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function() {
+            showImage(current > 0 ? current - 1 : images.length - 1);
+        });
+        if (nextBtn) nextBtn.addEventListener('click', function() {
+            showImage(current < images.length - 1 ? current + 1 : 0);
+        });
+        dots.forEach(function(dot, i) {
+            dot.addEventListener('click', function() { showImage(i); });
+        });
+
+        // Auto-rotate every 4 seconds
+        setInterval(function() {
+            showImage(current < images.length - 1 ? current + 1 : 0);
+        }, 4000);
+    }
+
 });

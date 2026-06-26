@@ -334,6 +334,66 @@ ul { list-style: none; }
 .product-card-accent { border: 2px solid var(--accent); }
 .product-card-accent .product-card-img { background: linear-gradient(135deg, rgba(232,108,44,0.05), rgba(232,108,44,0.1)); }
 
+/* Product Detail Image Gallery */
+.product-gallery {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-light);
+    height: 400px;
+}
+.product-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+}
+.product-gallery img.active { display: block; }
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+    z-index: 2;
+}
+.gallery-nav:hover { background: #fff; box-shadow: var(--shadow-md); }
+.gallery-prev { left: 12px; }
+.gallery-next { right: 12px; }
+.gallery-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 2;
+}
+.gallery-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+.gallery-dot.active { background: var(--accent); transform: scale(1.2); }
+
+/* Product List Image */
+.product-item-img { height: 220px; background: var(--bg-light); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.product-item-img img { width: 100%; height: 100%; object-fit: contain; }
+
 /* ============================================
    WHY SECTION
    ============================================ */
