@@ -550,6 +550,22 @@ ul { list-style: none; }
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .footer-logo { display: block; width: 150px; max-width: 100%; height: auto; margin-bottom: 16px; }
+/* Footer logo icon override: keep footer brand text intact while replacing only the icon artwork. */
+.footer .footer-logo .logo-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    background: url('/assets/images/logo.svg') center center / contain no-repeat;
+}
+
+.footer .footer-logo .logo-icon svg,
+.footer .footer-logo .logo-icon img {
+    display: none;
+}
+
+.footer img.footer-logo {
+    content: url('/assets/images/logo.svg');
+}
 .footer-about { font-size: 14px; line-height: 1.7; }
 .footer-col h4 {
     font-size: 16px;
