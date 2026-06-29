@@ -549,9 +549,7 @@ ul { list-style: none; }
     padding-bottom: 48px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-.footer-logo .logo-name { color: #fff; }
-.footer-logo .logo-sub { color: rgba(255,255,255,0.5); }
+.footer-logo { display: block; width: 150px; max-width: 100%; height: auto; margin-bottom: 16px; }
 .footer-about { font-size: 14px; line-height: 1.7; }
 .footer-col h4 {
     font-size: 16px;
