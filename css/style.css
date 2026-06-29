@@ -550,6 +550,7 @@ ul { list-style: none; }
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.footer-logo-icon { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; display: block; }
 .footer-logo .logo-name { color: #fff; }
 .footer-logo .logo-sub { color: rgba(255,255,255,0.5); }
 .footer-about { font-size: 14px; line-height: 1.7; }
