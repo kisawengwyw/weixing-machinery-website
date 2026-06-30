@@ -19,14 +19,12 @@
         .about-image-hero { min-height: 300px; display: flex; align-items: center; justify-content: center; position: relative; background-image: linear-gradient(rgba(10, 35, 66, 0.58), rgba(10, 35, 66, 0.58)), url('../../assets/images/about.webp'); background-size: cover; background-position: center 42%; }
         .about-image-hero h1 { position: relative; z-index: 1; margin: 0; color: #fff; font-size: clamp(42px, 6vw, 76px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; text-align: center; text-shadow: 0 8px 24px rgba(0,0,0,0.28); }
         .about-content-band { position: relative; z-index: 2; background: #fff; margin-top: -52px; padding: 46px 0 42px; box-shadow: 0 -18px 45px rgba(10,35,66,0.12), 0 18px 45px rgba(10,35,66,0.08); }
-        .about-content-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.75fr); gap: 44px; align-items: center; }
+        .about-content-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.65fr); gap: 44px; align-items: center; }
         .about-text h2 { font-size: 34px; font-weight: 800; color: var(--primary); margin-bottom: 18px; letter-spacing: -0.02em; }
         .about-text p { font-size: 15.5px; color: var(--text-light); margin-bottom: 13px; line-height: 1.72; }
         .about-text p:last-child { margin-bottom: 0; }
-        .about-highlights { display: grid; grid-template-columns: 1fr; gap: 14px; text-align: left; }
-        .highlight-item { padding: 18px 20px; background: var(--bg-light); border-left: 4px solid var(--accent); border-radius: var(--radius); box-shadow: 0 10px 26px rgba(10,35,66,0.06); }
-        .highlight-item h4 { font-size: 17px; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
-        .highlight-item p { font-size: 14px; color: var(--text-light); margin: 0; line-height: 1.5; }
+        .about-visual { width: 100%; display: flex; justify-content: center; }
+        .about-visual img { width: 100%; max-width: 460px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; display: block; border-radius: var(--radius-lg); box-shadow: 0 18px 45px rgba(10,35,66,0.14); }
         .about-stats-band { position: relative; padding: 46px 0; background-image: linear-gradient(rgba(10, 35, 66, 0.88), rgba(10, 35, 66, 0.88)), url('../../assets/images/about.webp'); background-size: cover; background-position: center 70%; }
         .about-stats-band .hero-stats { justify-content: center; }
         .about-stats-band .stat-item { min-width: 170px; }
@@ -64,10 +62,8 @@
                             <p>凭借稳定的加工能力、严格的质量控制和灵活的定制服务，我们持续为工程机械、农业机械、汽车、船舶、能源及工业设备领域客户提供可靠的液压连接解决方案。多年来，我们的产品已服务于东亚、欧洲及北美多个国家和地区的企业，赢得了客户的长期信赖。</p>
                             <p>我们始终坚持以质量为核心，以客户需求为导向，为全球客户提供高精度、高稳定性和高性价比的液压管件产品。</p>
                         </div>
-                        <div class="about-highlights" aria-label="公司亮点">
-                            <div class="highlight-item"><h4>20+ 年</h4><p>制造经验积淀</p></div>
-                            <div class="highlight-item"><h4>500+ 家</h4><p>全球合作伙伴</p></div>
-                            <div class="highlight-item"><h4>10,000+ 种</h4><p>产品型号规格</p></div>
+                        <div class="about-visual">
+                            <img src="../../assets/images/about-who-we-are.webp" alt="威兴机械现代 CNC 加工车间代表形象" width="800" height="1000" loading="lazy">
                         </div>
                     </div>
                 </div>

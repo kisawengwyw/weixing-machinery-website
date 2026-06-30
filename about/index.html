@@ -19,14 +19,12 @@
         .about-image-hero { min-height: 300px; display: flex; align-items: center; justify-content: center; position: relative; background-image: linear-gradient(rgba(10, 35, 66, 0.58), rgba(10, 35, 66, 0.58)), url('../assets/images/about.webp'); background-size: cover; background-position: center 42%; }
         .about-image-hero h1 { position: relative; z-index: 1; margin: 0; color: #fff; font-size: clamp(42px, 6vw, 76px); line-height: 1; font-weight: 800; letter-spacing: -0.04em; text-align: center; text-shadow: 0 8px 24px rgba(0,0,0,0.28); }
         .about-content-band { position: relative; z-index: 2; background: #fff; margin-top: -52px; padding: 46px 0 42px; box-shadow: 0 -18px 45px rgba(10,35,66,0.12), 0 18px 45px rgba(10,35,66,0.08); }
-        .about-content-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.75fr); gap: 44px; align-items: center; }
+        .about-content-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(300px, 0.65fr); gap: 44px; align-items: center; }
         .about-text h2 { font-size: 34px; font-weight: 800; color: var(--primary); margin-bottom: 18px; letter-spacing: -0.02em; }
         .about-text p { font-size: 15.5px; color: var(--text-light); margin-bottom: 13px; line-height: 1.72; }
         .about-text p:last-child { margin-bottom: 0; }
-        .about-highlights { display: grid; grid-template-columns: 1fr; gap: 14px; text-align: left; }
-        .highlight-item { padding: 18px 20px; background: var(--bg-light); border-left: 4px solid var(--accent); border-radius: var(--radius); box-shadow: 0 10px 26px rgba(10,35,66,0.06); }
-        .highlight-item h4 { font-size: 17px; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
-        .highlight-item p { font-size: 14px; color: var(--text-light); margin: 0; line-height: 1.5; }
+        .about-visual { width: 100%; display: flex; justify-content: center; }
+        .about-visual img { width: 100%; max-width: 460px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; display: block; border-radius: var(--radius-lg); box-shadow: 0 18px 45px rgba(10,35,66,0.14); }
         .about-stats-band { position: relative; padding: 46px 0; background-image: linear-gradient(rgba(10, 35, 66, 0.88), rgba(10, 35, 66, 0.88)), url('../assets/images/about.webp'); background-size: cover; background-position: center 70%; }
         .about-stats-band .hero-stats { justify-content: center; }
         .about-stats-band .stat-item { min-width: 170px; }
@@ -91,19 +89,8 @@
                             <p>With stable manufacturing capability, strict quality control, and flexible customization services, we provide reliable hydraulic connection solutions for customers in construction machinery, agricultural equipment, automotive, marine, energy, and industrial applications. Over the years, our products have served companies across East Asia, Europe, and North America, earning long-term trust from global customers.</p>
                             <p>We are committed to quality, customer-focused service, and delivering high-precision, stable, and cost-effective hydraulic fitting products worldwide.</p>
                         </div>
-                        <div class="about-highlights" aria-label="Company highlights">
-                            <div class="highlight-item">
-                                <h4>20+ Years</h4>
-                                <p>Manufacturing Excellence</p>
-                            </div>
-                            <div class="highlight-item">
-                                <h4>500+ Partners</h4>
-                                <p>Worldwide Trust</p>
-                            </div>
-                            <div class="highlight-item">
-                                <h4>10,000+ SKUs</h4>
-                                <p>Product Range</p>
-                            </div>
+                        <div class="about-visual">
+                            <img src="../assets/images/about-who-we-are.webp" alt="Wei Xing Machinery representative in modern CNC workshop" width="800" height="1000" loading="lazy">
                         </div>
                     </div>
                 </div>
