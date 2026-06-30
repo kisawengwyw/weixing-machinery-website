@@ -14,11 +14,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-img { border-radius: var(--radius-lg); overflow: hidden; background: var(--bg-light); height: 400px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+        .about-intro-section { padding: 0; background: #fff; }
+        .about-bands { display: grid; grid-template-rows: repeat(3, minmax(260px, 1fr)); min-height: 1020px; }
+        .about-bg-band { position: relative; overflow: hidden; background: #fff; }
+        .about-bg-band::before { content: ''; position: absolute; inset: 0; background-image: url('../assets/images/about-us.png'); background-size: cover; background-position: center; opacity: 0.2; }
+        .about-content-band { display: flex; align-items: center; justify-content: center; background: #fff; padding: 60px 0; position: relative; z-index: 1; }
+        .about-text { max-width: 900px; margin: 0 auto; text-align: center; }
         .about-text h2 { font-size: 32px; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
         .about-text p { font-size: 16px; color: var(--text-light); margin-bottom: 16px; line-height: 1.8; }
-        .about-highlights { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 32px; }
+        .about-highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; text-align: left; }
         .highlight-item { padding: 20px; background: var(--bg-light); border-radius: var(--radius); }
         .highlight-item h4 { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
         .highlight-item p { font-size: 14px; color: var(--text-light); margin: 0; }
@@ -35,7 +39,9 @@
         .value-card h3 { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
         .value-card p { font-size: 15px; color: var(--text-light); line-height: 1.7; }
         @media (max-width: 768px) {
-            .about-grid { grid-template-columns: 1fr; gap: 32px; }
+            .about-bands { grid-template-rows: 120px auto 120px; min-height: auto; }
+            .about-content-band { padding: 40px 0; }
+            .about-text { text-align: left; }
             .about-highlights { grid-template-columns: 1fr; }
             .values-grid { grid-template-columns: 1fr; }
         }
@@ -72,11 +78,12 @@
     </section>
 
     <!-- About Content -->
-    <section class="section">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-img"><img src="../assets/images/about-us.png" alt="Wei Xing Machinery Factory" style="width:100%;height:100%;object-fit:cover;"></div>
-                <div class="about-text">
+    <section class="section about-intro-section">
+        <div class="about-bands" aria-label="About Wei Xing Machinery introduction">
+            <div class="about-bg-band" aria-hidden="true"></div>
+            <div class="about-content-band">
+                <div class="container">
+                    <div class="about-text">
                     <h2>Who We Are</h2>
                     <p>We are a professional hydraulic fittings manufacturer based in China, with more than 20 years of industry experience. We specialize in the development and production of hydraulic fittings, adapters, hose fittings, welded tube assemblies, valve bodies, and custom CNC machined components.</p>
                     <p>With stable manufacturing capability, strict quality control, and flexible customization services, we provide reliable hydraulic connection solutions for customers in construction machinery, agricultural equipment, automotive, marine, energy, and industrial applications. Over the years, our products have served companies across East Asia, Europe, and North America, earning long-term trust from global customers.</p>
@@ -95,8 +102,10 @@
                             <p>Product Range</p>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
+            <div class="about-bg-band" aria-hidden="true"></div>
         </div>
     </section>
 
