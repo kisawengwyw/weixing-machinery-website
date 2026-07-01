@@ -445,6 +445,19 @@ ul { list-style: none; }
 /* ============================================
    PROCESS SECTION
    ============================================ */
+.process-section {
+    position: relative;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.84), rgba(255,255,255,0.84)),
+        url('../assets/images/process/process-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.process-section .container {
+    position: relative;
+    z-index: 1;
+}
 .process-timeline {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
