@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css?v=20260701-values-banner-merge">
     <style>
         .about-intro-section { padding: 0; background: #fff; }
         .about-showcase { position: relative; overflow: hidden; background: var(--primary); }
@@ -36,8 +36,10 @@
         .timeline-item h3 { font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
         .timeline-item p { font-size: 15px; color: var(--text-light); }
         .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-        .value-card { text-align: center; padding: 40px 24px; }
-        .value-icon { font-size: 48px; margin-bottom: 16px; }
+        .value-card { text-align: center; padding: 0; background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); overflow: hidden; }
+        .value-image { width: 100%; max-width: none; height: 190px; margin: 0; border-radius: var(--radius-lg) var(--radius-lg) 0 0; overflow: hidden; background: var(--bg-light); }
+        .value-image img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+        .value-content { padding: 24px 32px 40px; }
         .value-card h3 { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
         .value-card p { font-size: 15px; color: var(--text-light); line-height: 1.7; }
         @media (max-width: 768px) { .about-image-hero { min-height: 220px; } .about-content-band { margin-top: 0; padding: 34px 0; } .about-content-grid { grid-template-columns: 1fr; gap: 26px; } .about-text h2 { font-size: 28px; } .about-stats-band { padding: 34px 0; } .about-stats-band .hero-stats { flex-wrap: wrap; gap: 20px; } .about-stats-band .stat-item { min-width: 130px; } .values-grid { grid-template-columns: 1fr; } }
@@ -88,9 +90,9 @@
         <div class="container">
             <div class="section-header"><span class="section-tag">核心价值观</span><h2 class="section-title">驱动我们前行的力量</h2></div>
             <div class="values-grid">
-                <div class="value-card"><div class="value-icon">🎯</div><h3>精密</h3><p>每个零部件都按精确规格制造。我们持续投入最先进的CNC技术，确保每批次产品的质量一致性。</p></div>
-                <div class="value-card"><div class="value-icon">🤝</div><h3>伙伴</h3><p>我们不只是销售零部件——我们建立合作关系。工程团队与客户紧密协作，共同解决技术难题、优化设计方案。</p></div>
-                <div class="value-card"><div class="value-icon">✅</div><h3>可靠</h3><p>承诺的交期，我们一定兑现。高效的生产流程确保准时交付率超过98%。</p></div>
+                <div class="value-card"><div class="value-image"><img src="../../assets/images/about-values/precision.webp" alt="威兴机械精密制造" width="640" height="380" loading="lazy"></div><div class="value-content"><h3>精密</h3><p>每个零部件都按精确规格制造。我们持续投入最先进的CNC技术，确保每批次产品的质量一致性。</p></div></div>
+                <div class="value-card"><div class="value-image"><img src="../../assets/images/about-values/partnership.webp" alt="威兴机械合作伙伴与技术支持" width="640" height="380" loading="lazy"></div><div class="value-content"><h3>伙伴</h3><p>我们不只是销售零部件——我们建立合作关系。工程团队与客户紧密协作，共同解决技术难题、优化设计方案。</p></div></div>
+                <div class="value-card"><div class="value-image"><img src="../../assets/images/about-values/reliability.webp" alt="威兴机械可靠质量控制" width="640" height="380" loading="lazy"></div><div class="value-content"><h3>可靠</h3><p>承诺的交期，我们一定兑现。高效的生产流程确保准时交付率超过98%。</p></div></div>
             </div>
         </div>
     </section>
