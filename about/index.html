@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=20260701-values-images">
     <style>
         .about-intro-section { padding: 0; background: #fff; }
         .about-showcase { position: relative; overflow: hidden; background: var(--primary); }
@@ -36,8 +36,10 @@
         .timeline-item h3 { font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
         .timeline-item p { font-size: 15px; color: var(--text-light); }
         .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-        .value-card { text-align: center; padding: 40px 24px; }
-        .value-icon { font-size: 48px; margin-bottom: 16px; }
+        .value-card { text-align: center; padding: 40px 24px; background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+        .value-image { width: 100%; max-width: 320px; height: 190px; margin: 0 auto 24px; border-radius: 18px; overflow: hidden; background: var(--bg-light); }
+        .value-image img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 18px; }
+        .value-content { padding: 0 24px; }
         .value-card h3 { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
         .value-card p { font-size: 15px; color: var(--text-light); line-height: 1.7; }
         @media (max-width: 768px) {
@@ -120,19 +122,31 @@
             </div>
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">🎯</div>
-                    <h3>Precision</h3>
-                    <p>Every component is manufactured to exact specifications. We invest in the latest CNC technology to ensure consistent quality across every batch.</p>
+                    <div class="value-image">
+                        <img src="../assets/images/why-weixing/precision-manufacturing.webp" alt="Precision manufacturing at Wei Xing Machinery" width="640" height="380" loading="lazy">
+                    </div>
+                    <div class="value-content">
+                        <h3>Precision</h3>
+                        <p>Every component is manufactured to exact specifications. We invest in the latest CNC technology to ensure consistent quality across every batch.</p>
+                    </div>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">🤝</div>
-                    <h3>Partnership</h3>
-                    <p>We don't just sell parts — we build relationships. Our engineering team works closely with clients to solve technical challenges and optimize designs.</p>
+                    <div class="value-image">
+                        <img src="../assets/images/why-weixing/technical-support.webp" alt="Wei Xing Machinery partnership and technical support" width="640" height="380" loading="lazy">
+                    </div>
+                    <div class="value-content">
+                        <h3>Partnership</h3>
+                        <p>We don't just sell parts — we build relationships. Our engineering team works closely with clients to solve technical challenges and optimize designs.</p>
+                    </div>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">✅</div>
-                    <h3>Reliability</h3>
-                    <p>When we commit to a delivery date, we honor it. Our streamlined production process ensures consistent on-time delivery rates above 98%.</p>
+                    <div class="value-image">
+                        <img src="../assets/images/why-weixing/material-guarantee.webp" alt="Reliable hydraulic component quality control" width="640" height="380" loading="lazy">
+                    </div>
+                    <div class="value-content">
+                        <h3>Reliability</h3>
+                        <p>When we commit to a delivery date, we honor it. Our streamlined production process ensures consistent on-time delivery rates above 98%.</p>
+                    </div>
                 </div>
             </div>
         </div>
