@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/style.css?v=20260701-values-banner-final">
+    <link rel="stylesheet" href="../../css/style.css?v=20260701-values-hover">
     <style>
         .about-intro-section { padding: 0; background: #fff; }
         .about-showcase { position: relative; overflow: hidden; background: var(--primary); }
@@ -43,7 +43,9 @@
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-sm);
             overflow: hidden;
+            transition: all var(--transition);
         }
+        .value-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
         .value-image {
             width: 100%;
             max-width: none;
