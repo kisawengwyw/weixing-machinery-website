@@ -102,12 +102,6 @@ document.addEventListener('DOMContentLoaded', function() {
         el.classList.add('fade-in');
     });
 
-    // Stagger value cards to match the homepage image-card reveal rhythm.
-    document.querySelectorAll('.values-grid .value-card').forEach(function(el, index) {
-        const delay = index * 0.15;
-        el.dataset.fadeDelay = delay.toString();
-        el.style.transitionDelay = delay + 's';
-    });
 
     window.addEventListener('scroll', handleFadeIn);
     handleFadeIn(); // Initial check
