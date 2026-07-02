@@ -81,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleFadeIn() {
         const elements = document.querySelectorAll('.fade-in');
         elements.forEach(function(el) {
+            if (el.classList.contains('visible')) return;
+
             const rect = el.getBoundingClientRect();
             if (rect.top < window.innerHeight - 80) {
                 el.classList.add('visible');
@@ -89,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add fade-in class to sections
-    document.querySelectorAll('.product-card, .why-card, .process-step, .app-card, .cert-item').forEach(function(el) {
+    document.querySelectorAll('.product-card, .why-card, .process-step, .app-card, .cert-item, .value-card').forEach(function(el) {
         el.classList.add('fade-in');
     });
 
