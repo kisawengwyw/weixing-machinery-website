@@ -81,16 +81,32 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleFadeIn() {
         const elements = document.querySelectorAll('.fade-in');
         elements.forEach(function(el) {
+            if (el.classList.contains('visible')) return;
+
             const rect = el.getBoundingClientRect();
             if (rect.top < window.innerHeight - 80) {
                 el.classList.add('visible');
+
+                if (el.dataset.fadeDelay) {
+                    const transitionDelay = parseFloat(el.dataset.fadeDelay) * 1000;
+                    window.setTimeout(function() {
+                        el.style.transitionDelay = '';
+                    }, transitionDelay + 700);
+                }
             }
         });
     }
 
     // Add fade-in class to sections
-    document.querySelectorAll('.product-card, .why-card, .process-step, .app-card, .cert-item').forEach(function(el) {
+    document.querySelectorAll('.product-card, .why-card, .process-step, .app-card, .cert-item, .value-card').forEach(function(el) {
         el.classList.add('fade-in');
+    });
+
+    // Stagger value cards to match the homepage image-card reveal rhythm.
+    document.querySelectorAll('.values-grid .value-card').forEach(function(el, index) {
+        const delay = index * 0.15;
+        el.dataset.fadeDelay = delay.toString();
+        el.style.transitionDelay = delay + 's';
     });
 
     window.addEventListener('scroll', handleFadeIn);
