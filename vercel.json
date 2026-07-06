@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/weixingcom/bk_28644028.html",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/weixingcom/products/58377038.html",
+      "destination": "/products/",
+      "permanent": true
+    }
+  ]
+}
