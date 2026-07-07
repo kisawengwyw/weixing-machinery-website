@@ -722,6 +722,93 @@ ul { list-style: none; }
 }
 .whatsapp-float:hover { transform: scale(1.1); }
 
+/* --- Production Process --- */
+.production-process {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+.production-process .section-header {
+    max-width: 760px;
+    margin: 0 auto 48px;
+}
+.production-process .section-desc { max-width: 760px; }
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.process-step {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid rgba(15, 38, 64, 0.10);
+    border-radius: 18px;
+    padding: 28px 22px;
+    box-shadow: 0 12px 28px rgba(15, 38, 64, 0.06);
+    transition: opacity 0.75s ease-out, transform 0.75s ease-out, box-shadow 0.3s ease;
+}
+.process-step::after {
+    content: '';
+    position: absolute;
+    top: 48px;
+    right: -18px;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid rgba(232, 108, 44, 0.45);
+    border-right: 2px solid rgba(232, 108, 44, 0.45);
+    transform: rotate(45deg);
+}
+.process-step:nth-child(5)::after,
+.process-step:nth-child(10)::after { display: none; }
+.process-step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(15, 38, 64, 0.10);
+}
+.process-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--primary-dark);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+.process-icon {
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 16px;
+    filter: grayscale(1);
+}
+.process-step h3 {
+    color: var(--primary);
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 12px;
+}
+.process-step p {
+    color: #6b7280;
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0;
+}
+@media (max-width: 1100px) {
+    .process-grid { grid-template-columns: repeat(3, 1fr); }
+    .process-step::after { display: none; }
+}
+@media (max-width: 768px) {
+    .production-process { padding: 56px 0; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .process-step { padding: 24px 20px; }
+}
+@media (max-width: 520px) {
+    .process-grid { grid-template-columns: 1fr; }
+}
+
 /* ============================================
    ANIMATIONS
    ============================================ */
