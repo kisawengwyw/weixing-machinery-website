@@ -246,6 +246,9 @@ ul { list-style: none; }
     display: block;
     object-fit: cover;
     object-position: center center;
+    animation: none;
+    transform: none;
+    transition: none;
 }
 .hero-overlay {
     position: absolute;
