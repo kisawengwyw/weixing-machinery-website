@@ -321,7 +321,8 @@ ul { list-style: none; }
 /* Hero Stats */
 .hero-stats { display: flex; gap: 0; align-items: center; }
 .stat-item { text-align: center; padding: 0 16px; }
-.stat-number { font-size: 32px; font-weight: 800; color: #fff; }
+.stat-number { font-size: 32px; font-weight: 800; color: #fff; font-variant-numeric: tabular-nums; min-width: 3ch; display: inline-block; }
+.hero-stats .stat-number { min-width: 5ch; }
 .stat-suffix { font-size: 24px; font-weight: 700; color: var(--accent); }
 .stat-label { display: block; font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
 .stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.15); }
