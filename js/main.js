@@ -41,9 +41,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Animated counters ---
     function animateCounters() {
+        document.querySelectorAll('.hero .stat-number[data-target]').forEach(function(counter) {
+            if (counter.dataset.animated) return;
+
+            const target = parseInt(counter.dataset.target);
+            counter.textContent = target >= 1000 ? target.toLocaleString() : target;
+            counter.dataset.animated = 'true';
+        });
+
         const counters = document.querySelectorAll('.stat-number[data-target]');
         counters.forEach(function(counter) {
-            if (counter.dataset.animated) return;
+            if (counter.closest('.hero') || counter.dataset.animated) return;
 
             const rect = counter.getBoundingClientRect();
             if (rect.top > window.innerHeight || rect.bottom < 0) return;
