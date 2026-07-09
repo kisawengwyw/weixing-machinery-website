@@ -82,6 +82,27 @@ ul { list-style: none; }
     margin: 0 auto;
 }
 
+.summary-box {
+    padding: 24px;
+    background: var(--bg-light);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary);
+    margin: 20px 0 24px;
+}
+
+.summary-box h3 {
+    font-size: 18px;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.summary-box p {
+    font-size: 15px;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin: 0;
+}
+
 .exhibitions-section { background: #fff; }
 .exhibitions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .exhibition-card { border-radius: var(--radius-lg); overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); transition: all var(--transition); }
