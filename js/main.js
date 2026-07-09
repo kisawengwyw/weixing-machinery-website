@@ -41,38 +41,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Animated counters ---
     function animateCounters() {
-        document.querySelectorAll('.hero .stat-number[data-target]').forEach(function(counter) {
-            if (counter.dataset.animated) return;
-
-            const target = parseInt(counter.dataset.target);
-            counter.textContent = target >= 1000 ? target.toLocaleString() : target;
-            counter.dataset.animated = 'true';
-        });
-
         const counters = document.querySelectorAll('.stat-number[data-target]');
         counters.forEach(function(counter) {
-            if (counter.closest('.hero') || counter.dataset.animated) return;
+            if (counter.dataset.animated) return;
 
             const rect = counter.getBoundingClientRect();
             if (rect.top > window.innerHeight || rect.bottom < 0) return;
 
             counter.dataset.animated = 'true';
-            const target = parseInt(counter.dataset.target);
+            const target = parseInt(counter.dataset.target, 10);
             const duration = 2000;
             const start = performance.now();
+
+            function formatValue(value) {
+                return target >= 1000 ? value.toLocaleString() : value;
+            }
+
+            counter.textContent = formatValue(0);
 
             function update(now) {
                 const elapsed = now - start;
                 const progress = Math.min(elapsed / duration, 1);
                 // Ease out cubic
                 const eased = 1 - Math.pow(1 - progress, 3);
-                const value = Math.floor(eased * target);
+                const value = progress === 1 ? target : Math.floor(eased * target);
 
-                if (target >= 1000) {
-                    counter.textContent = value.toLocaleString();
-                } else {
-                    counter.textContent = value;
-                }
+                counter.textContent = formatValue(value);
 
                 if (progress < 1) {
                     requestAnimationFrame(update);
