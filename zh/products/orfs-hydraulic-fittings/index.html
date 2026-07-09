@@ -31,6 +31,8 @@
         .spec-table th, .spec-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
         .spec-table th { background: var(--bg-light); color: var(--primary); font-weight: 600; width: 40%; }
         .spec-table td { color: var(--text-light); }
+        .comparison-table th { width: auto; }
+        .comparison-table th, .comparison-table td { vertical-align: top; }
         .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
         .feature-item { padding: 20px; background: var(--bg-light); border-radius: var(--radius); }
         .feature-item h4 { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
@@ -39,7 +41,10 @@
         .app-list li { font-size: 15px; color: var(--text-light); margin-bottom: 8px; line-height: 1.6; }
         .product-actions { display: flex; gap: 12px; margin-top: 24px; }
         .selection-advice { padding: 32px; background: var(--bg-light); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); margin-top: 24px; }
-        .selection-advice p { font-size: 15px; color: var(--text-light); line-height: 1.8; margin: 0; }
+        .selection-advice p { font-size: 15px; color: var(--text-light); line-height: 1.8; margin: 0 0 12px; }
+        .summary-box { padding: 24px; background: var(--bg-light); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); margin: 20px 0 24px; }
+        .summary-box h3 { font-size: 18px; color: var(--primary); margin-bottom: 10px; }
+        .summary-box p { font-size: 15px; color: var(--text-light); line-height: 1.8; margin: 0; }
         @media (max-width: 768px) { .product-detail { grid-template-columns: 1fr; } .features-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -77,6 +82,10 @@
                 </div>
                 <div class="product-info">
                     <h2>ORFS 液压管接头</h2>
+                    <div class="summary-box">
+                        <h3>产品摘要</h3>
+                        <p>ORFS 液压接头是一类用于高压液压系统的 O 形圈端面密封接头，可参考 SAE J1453 / ISO 8434-3 结构。其密封方式是在接头平面端面压紧 O 形圈，而不是依赖螺纹本身密封。威兴机械可提供 ORFS 接头、过渡接头及相关液压连接件的 CNC 定制加工，支持按图纸确定尺寸、螺纹、材质和表面处理。</p>
+                    </div>
                     <p>ORFS 液压管接头适用于对密封稳定性和防泄漏性能要求较高的高压液压系统。其 O 型圈端面密封结构将密封件安装在接头端面，可有效降低振动、压力波动和重复装配造成的泄漏风险。该类接头广泛用于移动机械、液压动力单元、油缸连接和工业液压管路，适合需要长期可靠运行的工况。</p>
                     <div class="product-actions">
                         <a href="../../../contact/?product=orfs-hydraulic-fittings" class="btn btn-primary">立即询价</a>
@@ -89,19 +98,33 @@
 
     <section class="section" style="background: var(--bg-light);">
         <div class="container">
-            <div class="section-header"><span class="section-tag">产品规格</span><h2 class="section-title">ORFS 液压管接头</h2></div>
+            <div class="section-header"><span class="section-tag">关键规格</span><h2 class="section-title">ORFS 液压接头规格</h2></div>
             <table class="spec-table">
                 <tbody>
-                    <tr><td>产品类型</td><td>ORFS 液压管接头及 O 型圈端面密封过渡接头</td></tr>
-                    <tr><td>螺纹标准</td><td>SAE J1453 ORFS 结构，可参考 ISO 8434-3</td></tr>
-                    <tr><td>连接形式</td><td>直通、弯头、三通、穿板接头和内螺纹旋转接头</td></tr>
-                    <tr><td>密封方式</td><td>端面槽内安装 NBR 或 FKM O 型圈实现平面密封</td></tr>
-                    <tr><td>材质选择</td><td>常规为碳钢，可按需求提供不锈钢</td></tr>
-                    <tr><td>表面处理</td><td>三价铬镀锌、锌镍合金镀层或不锈钢抛光</td></tr>
-                    <tr><td>尺寸范围</td><td>常用液压规格 1/4 英寸至 2 英寸，可定制</td></tr>
-                    <tr><td>工作压力</td><td>适用于中高压液压回路，具体压力取决于规格</td></tr>
-                    <tr><td>加工方式</td><td>精密 CNC 加工、螺纹检测和端面密封面控制</td></tr>
-                    <tr><td>定制方式</td><td>可按图纸、样品、材质要求或表面处理需求生产</td></tr>
+                    <tr><th>产品类型</th><td>ORFS 液压接头、O 形圈端面密封过渡接头及定制液压连接件</td></tr>
+                    <tr><th>标准</th><td>SAE J1453 / ISO 8434-3</td></tr>
+                    <tr><th>螺纹类型</th><td>UNF / ORFS 螺纹选项</td></tr>
+                    <tr><th>材质</th><td>碳钢、不锈钢 304/316、黄铜</td></tr>
+                    <tr><th>表面处理</th><td>三价铬镀锌、镀镍、发黑、定制处理</td></tr>
+                    <tr><th>O 形圈材质</th><td>NBR / FKM</td></tr>
+                    <tr><th>定制选项</th><td>尺寸、螺纹、材质、表面处理及按图生产</td></tr>
+                    <tr><th>应用领域</th><td>工程机械、农业机械、矿山设备、工业液压系统</td></tr>
+                    <tr><th>压力要求</th><td>根据应用工况要求定制</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">结构对比</span><h2 class="section-title">ORFS 与 JIC / BSP / NPT 接头对比</h2></div>
+            <table class="spec-table comparison-table">
+                <tbody>
+                    <tr><th>接头类型</th><th>密封方式</th><th>防泄漏能力</th><th>典型用途</th></tr>
+                    <tr><td>ORFS</td><td>O 形圈在平面端面压缩密封</td><td>较高，适合高压、防泄漏和振动工况</td><td>移动机械、液压动力单元及高要求液压管路</td></tr>
+                    <tr><td>JIC</td><td>37° 金属扩口密封</td><td>正确装配时表现良好，但对扩口密封面状态较敏感</td><td>常规液压软管和硬管连接</td></tr>
+                    <tr><td>BSP</td><td>根据结构采用螺纹密封或组合垫密封</td><td>取决于螺纹和密封垫结构</td><td>工业液压设备及区域性维修替换</td></tr>
+                    <tr><td>NPT</td><td>锥螺纹干涉密封，通常配合密封剂</td><td>受工况影响较大，重复拆装可能影响密封</td><td>通用流体连接和老旧设备</td></tr>
                 </tbody>
             </table>
         </div>
@@ -165,26 +188,27 @@
 
     <section class="section" style="background: var(--bg-light);">
         <div class="container">
-            <div class="section-header"><span class="section-tag">应用场景</span><h2 class="section-title">ORFS 液压管接头</h2></div>
-            <ul class="app-list">
-                            <li>工程机械液压系统</li>
-                            <li>农业机械及移动设备</li>
-                            <li>液压动力单元和泵站</li>
-                            <li>油缸进油与回油管路连接</li>
-                            <li>工业制造设备液压管路</li>
-                            <li>矿山、起重及重载机械</li>
-                            <li>船舶液压控制系统</li>
-                            <li>OEM 液压设备装配</li>
-                            <li>易泄漏管路连接的维修替换</li>
-                            <li>高压流体输送与控制回路</li>
-            </ul>
+            <div class="section-header"><span class="section-tag">应用场景</span><h2 class="section-title">ORFS 液压接头应用场景</h2></div>
+            <div class="features-grid">
+                <div class="feature-item"><h4>工程机械</h4><p>用于挖掘机、装载机和起重设备等液压管路，帮助应对振动和重载工况下的泄漏风险。</p></div>
+                <div class="feature-item"><h4>农业设备</h4><p>适用于拖拉机、收割机及农机具，在户外和粉尘环境中提供便于维护的液压连接。</p></div>
+                <div class="feature-item"><h4>矿山设备</h4><p>用于钻机、输送设备和移动矿山机械的液压回路，稳定密封有助于减少停机维护。</p></div>
+                <div class="feature-item"><h4>工业液压系统</h4><p>适用于液压动力单元、泵站、压机和生产设备中对清洁油路连接有要求的场景。</p></div>
+                <div class="feature-item"><h4>船舶 / 油气设备</h4><p>可根据腐蚀环境和现场工况选择合适材质及表面处理，用于要求更高的流体连接。</p></div>
+            </div>
         </div>
     </section>
 
     <section class="section">
         <div class="container">
-            <div class="section-header"><span class="section-tag">选型建议</span><h2 class="section-title">ORFS 液压管接头</h2></div>
+            <div class="section-header"><span class="section-tag">选型建议</span><h2 class="section-title">如何选择 ORFS 液压接头</h2></div>
             <div class="selection-advice">
+                    <p><strong>1. 确认螺纹尺寸。</strong>先核对 UNF / ORFS 螺纹规格及配套油口尺寸。</p>
+                    <p><strong>2. 确认密封端面和 O 形圈材质。</strong>检查端面状态，并根据介质和温度选择 NBR 或 FKM。</p>
+                    <p><strong>3. 选择接头形式。</strong>根据管路走向选择直通、弯头、三通、穿板或旋转结构。</p>
+                    <p><strong>4. 选择本体材质。</strong>结合使用环境选择碳钢、不锈钢 304/316 或黄铜。</p>
+                    <p><strong>5. 确认表面处理。</strong>根据防腐要求选择三价铬镀锌、镀镍、发黑或定制处理。</p>
+                    <p><strong>6. 提供图纸或样品进行定制生产。</strong>非标尺寸或特殊连接组合建议提供图纸、样品或装配要求。</p>
                     <p>当液压系统需要比普通锥螺纹或金属硬密封更强的防泄漏能力时，建议选择 ORFS 接头。</p>
                     <p>对于存在振动、压力冲击或频繁维护的设备，端面密封结构可提供更稳定的密封方案。</p>
                     <p>普通工业场景可选择三价铬镀锌碳钢，腐蚀或户外环境可选择不锈钢。</p>
@@ -238,7 +262,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">采购指南</span>
-                <h2 class="section-title">如何选择 ORFS 液压接头</h2>
+                <h2 class="section-title">询价前需要确认的信息</h2>
             </div>
             <div class="selection-advice">
                 <p>采购或工程选型时，应先确认螺纹标准、管径尺寸、工作压力、O 形圈材质、密封端面状态、安装空间和连接形式。这些信息有助于避免规格混用，并保证接头在液压管路和设备框架中的装配可靠性。</p>
@@ -260,53 +284,161 @@
         </div>
     </section>
 
+
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">制造与质量控制</span><h2 class="section-title">ORFS 接头加工流程</h2></div>
+            <div class="features-grid">
+                <div class="feature-item"><h4>原材料检验</h4><p>加工前核对棒料或锻件的材质及订单要求。</p></div>
+                <div class="feature-item"><h4>CNC 车削与加工</h4><p>对螺纹、六角体、密封端面和连接轮廓进行 CNC 加工，保证尺寸一致性。</p></div>
+                <div class="feature-item"><h4>螺纹检测</h4><p>检查螺纹牙型和配合情况，确保能与对应液压元件正确装配。</p></div>
+                <div class="feature-item"><h4>表面处理</h4><p>根据防腐要求和客户需求选择镀层或其他表面处理方式。</p></div>
+                <div class="feature-item"><h4>O 形圈槽检验</h4><p>检查端面密封槽尺寸，确保 O 形圈在装配和使用中正确就位。</p></div>
+                <div class="feature-item"><h4>最终尺寸检验</h4><p>包装前复核关键尺寸，以支持按图生产的一致性。</p></div>
+                <div class="feature-item"><h4>出口包装</h4><p>成品接头进行防护包装，便于国际运输和仓储周转。</p></div>
+            </div>
+        </div>
+    </section>
+
     <section class="section" style="background: var(--bg-light);">
         <div class="container">
             <div class="section-header"><span class="section-tag">常见问题</span><h2 class="section-title">常见问题</h2></div>
             <div class="selection-advice">
-                    <p><strong>ORFS 液压接头可以按照图纸定制加工吗？</strong><br>可以。威兴机械可根据图纸、样品、材质要求和表面处理要求定制ORFS 液压接头及相关 CNC 零部件。</p>
-                    <p><strong>下单前需要确认哪些参数？</strong><br>建议确认O 形圈端面密封结构、规格尺寸、工作压力、材质、密封方式和实际应用环境。</p>
-                    <p><strong>可以选择哪些材质？</strong><br>常用材质包括碳钢、不锈钢、铝、黄铜或球墨铸铁，具体取决于产品类型和使用环境。</p>
-                    <p><strong>可以提供哪些表面处理？</strong><br>可根据需求提供三价铬镀锌、锌镍合金、发黑、抛光或其他指定表面处理。</p>
+                    <p><strong>什么是 ORFS 液压接头？</strong><br>ORFS 液压接头是采用 O 形圈端面密封的液压连接件，用于连接软管、硬管、油口和过渡接头。</p>
+                    <p><strong>ORFS 接头如何实现密封？</strong><br>O 形圈安装在端面加工槽内，装配时在两个平整密封面之间被压缩，从而形成密封，而不是依赖螺纹本身密封。</p>
+                    <p><strong>ORFS 与 JIC 接头有什么区别？</strong><br>ORFS 采用 O 形圈端面密封，JIC 采用 37° 金属扩口密封。对于高压、振动或防泄漏要求较高的系统，ORFS 通常更合适。</p>
+                    <p><strong>可以选择哪些材质？</strong><br>威兴机械可根据应用要求提供碳钢、不锈钢 304/316 和黄铜等材质。</p>
+                    <p><strong>威兴机械可以提供哪些表面处理？</strong><br>可提供三价铬镀锌、镀镍、发黑以及客户指定的定制表面处理。</p>
+                    <p><strong>可以按照图纸生产 ORFS 接头吗？</strong><br>可以。可根据图纸、样品、螺纹组合、材质要求和表面处理要求进行 CNC 定制加工。</p>
+                    <p><strong>哪些行业会使用 ORFS 液压接头？</strong><br>常见应用包括工程机械、农业设备、矿山设备、工业液压系统、船舶设备及油气设备。</p>
+                    <p><strong>如何获取报价？</strong><br>请通过询价表或 WhatsApp 提供图纸、样品信息、螺纹规格、材质、表面处理和预计数量。</p>
             </div>
         </div>
     </section>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "ORFS 液压接头可以按照图纸定制加工吗？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "可以。威兴机械可根据图纸、样品、材质要求和表面处理要求定制ORFS 液压接头及相关 CNC 零部件。"
-      }
+      "@type": "Product",
+      "name": "ORFS 液压接头",
+      "description": "按图 CNC 加工的 ORFS 液压接头，采用 SAE J1453 / ISO 8434-3 O 形圈端面密封结构，适用于高压液压系统。",
+      "brand": {
+        "@type": "Brand",
+        "name": "Wei Xing Machinery"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "Yuyao Wei Xing Machinery Co., Ltd."
+      },
+      "category": "Hydraulic Fittings",
+      "material": [
+        "碳钢",
+        "不锈钢 304/316",
+        "黄铜"
+      ],
+      "application": [
+        "工程机械",
+        "农业机械",
+        "矿山设备",
+        "工业液压系统",
+        "船舶设备",
+        "油气设备"
+      ],
+      "image": "https://www.weixingmachinery.com/assets/images/products/orfs-hydraulic-fittings/orfs-hydraulic-fittings-1.webp",
+      "url": "https://www.weixingmachinery.com/zh/products/orfs-hydraulic-fittings/"
     },
     {
-      "@type": "Question",
-      "name": "下单前需要确认哪些参数？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "建议确认O 形圈端面密封结构、规格尺寸、工作压力、材质、密封方式和实际应用环境。"
-      }
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://www.weixingmachinery.com/zh/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "产品中心",
+          "item": "https://www.weixingmachinery.com/zh/products/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ORFS 液压接头",
+          "item": "https://www.weixingmachinery.com/zh/products/orfs-hydraulic-fittings/"
+        }
+      ]
     },
     {
-      "@type": "Question",
-      "name": "可以选择哪些材质？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "常用材质包括碳钢、不锈钢、铝、黄铜或球墨铸铁，具体取决于产品类型和使用环境。"
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "可以提供哪些表面处理？",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "可根据需求提供三价铬镀锌、锌镍合金、发黑、抛光或其他指定表面处理。"
-      }
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "什么是 ORFS 液压接头？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ORFS 液压接头是采用 O 形圈端面密封的液压连接件，用于连接软管、硬管、油口和过渡接头。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ORFS 接头如何实现密封？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O 形圈安装在端面加工槽内，装配时在两个平整密封面之间被压缩，从而形成密封，而不是依赖螺纹本身密封。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ORFS 与 JIC 接头有什么区别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ORFS 采用 O 形圈端面密封，JIC 采用 37° 金属扩口密封。对于高压、振动或防泄漏要求较高的系统，ORFS 通常更合适。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以选择哪些材质？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "威兴机械可根据应用要求提供碳钢、不锈钢 304/316 和黄铜等材质。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "威兴机械可以提供哪些表面处理？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可提供三价铬镀锌、镀镍、发黑以及客户指定的定制表面处理。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以按照图纸生产 ORFS 接头吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。可根据图纸、样品、螺纹组合、材质要求和表面处理要求进行 CNC 定制加工。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "哪些行业会使用 ORFS 液压接头？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "常见应用包括工程机械、农业设备、矿山设备、工业液压系统、船舶设备及油气设备。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何获取报价？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "请通过询价表或 WhatsApp 提供图纸、样品信息、螺纹规格、材质、表面处理和预计数量。"
+          }
+        }
+      ]
     }
   ]
 }
