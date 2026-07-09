@@ -103,6 +103,15 @@ ul { list-style: none; }
     margin: 0;
 }
 
+.comparison-table th {
+    width: auto;
+}
+
+.comparison-table th,
+.comparison-table td {
+    vertical-align: top;
+}
+
 .exhibitions-section { background: #fff; }
 .exhibitions-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .exhibition-card { border-radius: var(--radius-lg); overflow: hidden; background: #fff; box-shadow: var(--shadow-sm); transition: all var(--transition); }
