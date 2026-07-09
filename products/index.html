@@ -76,6 +76,25 @@
             transition: all var(--transition);
         }
         .filter-btn:hover, .filter-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(232,108,44,0.05); }
+        .summary-box, .content-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm); }
+        .summary-box { margin-bottom: 32px; border-left: 4px solid var(--accent); }
+        .summary-box p, .product-item-desc, .content-card p, .content-card li { color: var(--text-light); line-height: 1.7; }
+        .product-item-desc { font-size: 14px; margin: 0 0 14px; }
+        .hub-section { padding: 56px 0; }
+        .hub-section.alt { background: var(--bg-light); }
+        .hub-section h2 { font-size: clamp(24px, 4vw, 34px); color: var(--primary); margin-bottom: 18px; }
+        .table-wrap { overflow-x: auto; background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--border); }
+        .spec-table { width: 100%; border-collapse: collapse; min-width: 820px; }
+        .spec-table th, .spec-table td { padding: 14px 16px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+        .spec-table th { background: var(--primary); color: #fff; font-weight: 700; }
+        .spec-table tr:last-child td { border-bottom: 0; }
+        .spec-table a { color: var(--accent); font-weight: 600; }
+        .selection-advice { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; border-left: 4px solid var(--accent); }
+        .feature-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; padding-left: 0; list-style: none; }
+        .feature-list li { background: var(--bg-light); border-radius: var(--radius); padding: 12px 14px; }
+        .faq-list details { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 12px; }
+        .faq-list summary { cursor: pointer; font-weight: 700; color: var(--primary); }
+
     </style>
 </head>
 <body>
@@ -155,6 +174,7 @@
     <!-- Product Grid -->
     <section class="section" style="padding-top: 20px;">
         <div class="container">
+            <div class="summary-box"><p>Wei Xing Machinery supplies hydraulic fittings, adapters, welded tube assemblies, manifold blocks, valve bodies, valve spools, cylinder parts and custom CNC machined components for hydraulic equipment and OEM machinery.</p></div>
             <div class="product-detail-grid">
                 <div class="product-item" data-category="hydraulic">
                     <div class="product-item-img"><img src="../assets/images/products/orfs-hydraulic-fittings/orfs-hydraulic-fittings-1.webp" alt="ORFS Hydraulic Fittings"></div>
@@ -163,6 +183,7 @@
                         <div class="product-item-specs">
                             <span>Material: SS316</span><span>Size: 1/4&quot; - 2&quot;</span><span>Pressure: 6000 PSI</span>
                         </div>
+                        <p class="product-item-desc">Leak-resistant O-ring face seal fittings for high-pressure hydraulic lines, mobile machinery and equipment requiring reliable sealing.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="orfs-hydraulic-fittings/" class="btn-detail">Details</a>
@@ -176,6 +197,7 @@
                         <div class="product-item-specs">
                             <span>Material: Carbon Steel</span><span>Size: 1/8&quot; - 3&quot;</span><span>Pressure: 5000 PSI</span>
                         </div>
+                        <p class="product-item-desc">BSP threaded adapters for connecting hydraulic ports, hoses and tube systems used in industrial and construction equipment.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="bsp-hydraulic-adapters/" class="btn-detail">Details</a>
@@ -189,6 +211,7 @@
                         <div class="product-item-specs">
                             <span>Material: Steel/SS</span><span>Size: 1/4&quot; - 1-1/2&quot;</span><span>Pressure: 5000 PSI</span>
                         </div>
+                        <p class="product-item-desc">37-degree flare fittings for metal-to-metal hydraulic connections where vibration resistance and serviceability are important.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="jic-flare-fittings/" class="btn-detail">Details</a>
@@ -202,6 +225,7 @@
                         <div class="product-item-specs">
                             <span>Material: Brass/Steel</span><span>Size: 1/8&quot; - 2&quot;</span><span>Pressure: 3000 PSI</span>
                         </div>
+                        <p class="product-item-desc">Tapered pipe thread fittings for hydraulic, pneumatic and general fluid power connections in compact piping layouts.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="npt-pipe-fittings/" class="btn-detail">Details</a>
@@ -215,6 +239,7 @@
                         <div class="product-item-specs">
                             <span>Material: SS304/316</span><span>Size: 1/4&quot; - 1&quot;</span><span>Pressure: 6000 PSI</span>
                         </div>
+                        <p class="product-item-desc">Panel-through connectors for routing hydraulic lines through plates, frames and machine walls while keeping a secure connection.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="bulkhead-connectors/" class="btn-detail">Details</a>
@@ -228,6 +253,7 @@
                         <div class="product-item-specs">
                             <span>Material: Carbon Steel</span><span>Size: 1/4&quot; - 2&quot;</span><span>Thread: Wire/Barbed</span>
                         </div>
+                        <p class="product-item-desc">Hose end fittings and couplings for hydraulic hose assemblies used on mobile equipment, machinery and service systems.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="hydraulic-hose-fittings/" class="btn-detail">Details</a>
@@ -241,6 +267,7 @@
                         <div class="product-item-specs">
                             <span>Material: Carbon/SS</span><span>Size: Custom</span><span>Application: TIG/MIG</span>
                         </div>
+                        <p class="product-item-desc">Custom welded tube and pipe assemblies for hydraulic circuits, structural routing and OEM equipment installation.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="welded-tube-assemblies/" class="btn-detail">Details</a>
@@ -254,6 +281,7 @@
                         <div class="product-item-specs">
                             <span>Material: Steel/Aluminum</span><span>Size: Custom</span><span>Application: CNC+Weld</span>
                         </div>
+                        <p class="product-item-desc">CNC-machined manifold blocks that integrate oil passages, ports and valve interfaces into compact hydraulic systems.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="hydraulic-manifold-blocks/" class="btn-detail">Details</a>
@@ -267,6 +295,7 @@
                         <div class="product-item-specs">
                             <span>Material: Carbon Steel</span><span>Size: Custom</span><span>Tolerance: Precision</span>
                         </div>
+                        <p class="product-item-desc">Machined cylinder components such as glands, pistons, rods and end parts for hydraulic cylinder manufacturing and repair.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="hydraulic-cylinder-parts/" class="btn-detail">Details</a>
@@ -280,6 +309,7 @@
                         <div class="product-item-specs">
                             <span>Material: Ductile Iron</span><span>Size: Custom</span><span>Application: CNC Machined</span>
                         </div>
+                        <p class="product-item-desc">Precision valve bodies with machined cavities, ports and oil channels for directional, control and custom hydraulic valves.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="hydraulic-valve-bodies/" class="btn-detail">Details</a>
@@ -293,6 +323,7 @@
                         <div class="product-item-specs">
                             <span>Material: Hardened Steel</span><span>Surface: Precision</span><span>Tolerance: ±0.005mm</span>
                         </div>
+                        <p class="product-item-desc">High-precision spools and pistons for hydraulic valves, cylinders and motion control components requiring tight tolerances.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Inquire</a>
                             <a href="valve-spools-pistons/" class="btn-detail">Details</a>
@@ -306,6 +337,7 @@
                         <div class="product-item-specs">
                             <span>Material: Any Material</span><span>Application: From Drawing</span><span>Size: No MOQ</span>
                         </div>
+                        <p class="product-item-desc">Drawing-based CNC machined components for OEM machinery, hydraulic systems and non-standard industrial applications.</p>
                         <div class="product-item-actions">
                             <a href="../contact/" class="btn-inquiry">Get Quote</a>
                             <a href="custom-cnc-parts/" class="btn-detail">Details</a>
@@ -315,6 +347,25 @@
             </div>
         </div>
     </section>
+
+
+    <section class="hub-section alt"><div class="container"><h2>Product Category Comparison Table</h2><div class="table-wrap"><table class="spec-table comparison-table"><thead><tr><th>Product Category</th><th>Main Function</th><th>Typical Applications</th><th>Related Product Page</th></tr></thead><tbody><tr><td>ORFS Hydraulic Fittings</td><td>Leak-resistant O-ring face seal fittings</td><td>Leak-resistant O-ring face seal fittings for high-pressure hydraulic lines, mobile machinery and equipment requiring reliable sealing.</td><td><a href="orfs-hydraulic-fittings/">View details</a></td></tr>
+<tr><td>BSP Hydraulic Adapters</td><td>BSP threaded adapters</td><td>BSP threaded adapters for connecting hydraulic ports, hoses and tube systems used in industrial and construction equipment.</td><td><a href="bsp-hydraulic-adapters/">View details</a></td></tr>
+<tr><td>JIC 37° Flare Fittings</td><td>37-degree flare fittings</td><td>37-degree flare fittings for metal-to-metal hydraulic connections where vibration resistance and serviceability are important.</td><td><a href="jic-flare-fittings/">View details</a></td></tr>
+<tr><td>NPT Pipe Fittings</td><td>Tapered pipe thread fittings</td><td>Tapered pipe thread fittings for hydraulic, pneumatic and general fluid power connections in compact piping layouts.</td><td><a href="npt-pipe-fittings/">View details</a></td></tr>
+<tr><td>Bulkhead Connectors</td><td>Panel-through connectors</td><td>Panel-through connectors for routing hydraulic lines through plates, frames and machine walls while keeping a secure connection.</td><td><a href="bulkhead-connectors/">View details</a></td></tr>
+<tr><td>Hydraulic Hose Fittings</td><td>Hose end fittings and couplings</td><td>Hose end fittings and couplings for hydraulic hose assemblies used on mobile equipment, machinery and service systems.</td><td><a href="hydraulic-hose-fittings/">View details</a></td></tr>
+<tr><td>Welded Tube Assemblies</td><td>Custom welded tube and pipe assemblies</td><td>Custom welded tube and pipe assemblies for hydraulic circuits, structural routing and OEM equipment installation.</td><td><a href="welded-tube-assemblies/">View details</a></td></tr>
+<tr><td>Hydraulic Manifold Blocks</td><td>CNC-machined manifold blocks that integrate oil passages, ports and valve interfaces into compact hydraulic systems.</td><td>CNC-machined manifold blocks that integrate oil passages, ports and valve interfaces into compact hydraulic systems.</td><td><a href="hydraulic-manifold-blocks/">View details</a></td></tr>
+<tr><td>Hydraulic Cylinder Parts</td><td>Machined cylinder components such as glands, pistons, rods and end parts</td><td>Machined cylinder components such as glands, pistons, rods and end parts for hydraulic cylinder manufacturing and repair.</td><td><a href="hydraulic-cylinder-parts/">View details</a></td></tr>
+<tr><td>Hydraulic Valve Bodies</td><td>Precision valve bodies with machined cavities, ports and oil channels</td><td>Precision valve bodies with machined cavities, ports and oil channels for directional, control and custom hydraulic valves.</td><td><a href="hydraulic-valve-bodies/">View details</a></td></tr>
+<tr><td>Valve Spools & Pistons</td><td>High-precision spools and pistons</td><td>High-precision spools and pistons for hydraulic valves, cylinders and motion control components requiring tight tolerances.</td><td><a href="valve-spools-pistons/">View details</a></td></tr>
+<tr><td>Custom CNC Parts</td><td>Drawing-based CNC machined components</td><td>Drawing-based CNC machined components for OEM machinery, hydraulic systems and non-standard industrial applications.</td><td><a href="custom-cnc-parts/">View details</a></td></tr></tbody></table></div></div></section>
+    <section class="hub-section"><div class="container"><h2>How to Choose Hydraulic Components</h2><div class="selection-advice"><ul><li>Confirm the thread standard or connection type, such as ORFS, BSP, JIC or NPT.</li><li>Confirm the sealing method required by the hydraulic circuit and working conditions.</li><li>Confirm material and surface treatment based on corrosion resistance, strength and appearance needs.</li><li>Confirm working pressure, temperature, vibration and application environment.</li><li>Send drawings or samples when custom CNC parts or non-standard components are required.</li></ul></div></div></section>
+    <section class="hub-section alt"><div class="container"><h2>Custom Manufacturing Capability</h2><div class="content-card"><ul class="feature-list"><li>CNC turning</li><li>CNC milling</li><li>Drilling / tapping / boring</li><li>Welding coordination</li><li>Surface treatment</li><li>Drawing-based custom manufacturing</li><li>Sample-based development</li></ul></div></div></section>
+    <section class="hub-section"><div class="container"><h2>Materials and Surface Treatment Overview</h2><div class="content-card"><ul class="feature-list"><li>Carbon steel</li><li>Stainless steel</li><li>Alloy steel</li><li>Aluminum</li><li>Brass</li><li>Trivalent zinc plating</li><li>Zinc nickel</li><li>Black oxide</li><li>Phosphating</li><li>Passivation</li><li>Polishing</li></ul></div></div></section>
+    <section class="hub-section alt"><div class="container"><h2>Products FAQ</h2><div class="faq-list"><details><summary>What hydraulic products does Wei Xing Machinery supply?</summary><p>We supply hydraulic fittings, adapters, welded tube assemblies, manifold blocks, valve bodies, valve spools, cylinder parts and custom CNC machined components.</p></details><details><summary>Can products be customized by drawing?</summary><p>Yes. We can manufacture non-standard parts according to customer drawings, specifications and technical requirements.</p></details><details><summary>Which thread standards are available?</summary><p>Common options include ORFS, BSP, JIC and NPT connections, with custom interfaces reviewed according to drawings or samples.</p></details><details><summary>What materials are available?</summary><p>Available materials include carbon steel, stainless steel, alloy steel, aluminum and brass, selected according to pressure, corrosion and machining requirements.</p></details><details><summary>What surface treatments are available?</summary><p>Surface treatment options include trivalent zinc plating, zinc nickel, black oxide, phosphating, passivation and polishing.</p></details><details><summary>How do I choose between fittings, manifolds and valve components?</summary><p>Choose fittings for line connections, manifold blocks for integrated hydraulic circuits, and valve components for flow control or motion-control assemblies.</p></details><details><summary>Can samples be used for quotation?</summary><p>Yes. Samples can help confirm dimensions, structure, material and surface treatment when drawings are not complete.</p></details><details><summary>How do I request a quote?</summary><p>Send drawings, samples, material requirements, quantities and application information through the contact page or WhatsApp.</p></details></div></div></section>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://www.weixingmachinery.com/products/","url":"https://www.weixingmachinery.com/products/","name":"Products | Wei Xing Machinery","description":"Hydraulic fittings, adapters, welded tube assemblies, manifold blocks, valve bodies, valve spools, cylinder parts and custom CNC machined components."},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.weixingmachinery.com/"},{"@type":"ListItem","position":2,"name":"Products","item":"https://www.weixingmachinery.com/products/"}]},{"@type":"ItemList","name":"Wei Xing Machinery Product Categories","itemListElement":[{"@type":"ListItem","position":1,"url":"https://www.weixingmachinery.com/products/orfs-hydraulic-fittings/","name":"ORFS Hydraulic Fittings"},{"@type":"ListItem","position":2,"url":"https://www.weixingmachinery.com/products/bsp-hydraulic-adapters/","name":"BSP Hydraulic Adapters"},{"@type":"ListItem","position":3,"url":"https://www.weixingmachinery.com/products/jic-flare-fittings/","name":"JIC 37° Flare Fittings"},{"@type":"ListItem","position":4,"url":"https://www.weixingmachinery.com/products/npt-pipe-fittings/","name":"NPT Pipe Fittings"},{"@type":"ListItem","position":5,"url":"https://www.weixingmachinery.com/products/bulkhead-connectors/","name":"Bulkhead Connectors"},{"@type":"ListItem","position":6,"url":"https://www.weixingmachinery.com/products/hydraulic-hose-fittings/","name":"Hydraulic Hose Fittings"},{"@type":"ListItem","position":7,"url":"https://www.weixingmachinery.com/products/welded-tube-assemblies/","name":"Welded Tube Assemblies"},{"@type":"ListItem","position":8,"url":"https://www.weixingmachinery.com/products/hydraulic-manifold-blocks/","name":"Hydraulic Manifold Blocks"},{"@type":"ListItem","position":9,"url":"https://www.weixingmachinery.com/products/hydraulic-cylinder-parts/","name":"Hydraulic Cylinder Parts"},{"@type":"ListItem","position":10,"url":"https://www.weixingmachinery.com/products/hydraulic-valve-bodies/","name":"Hydraulic Valve Bodies"},{"@type":"ListItem","position":11,"url":"https://www.weixingmachinery.com/products/valve-spools-pistons/","name":"Valve Spools & Pistons"},{"@type":"ListItem","position":12,"url":"https://www.weixingmachinery.com/products/custom-cnc-parts/","name":"Custom CNC Parts"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What hydraulic products does Wei Xing Machinery supply?","acceptedAnswer":{"@type":"Answer","text":"We supply hydraulic fittings, adapters, welded tube assemblies, manifold blocks, valve bodies, valve spools, cylinder parts and custom CNC machined components."}},{"@type":"Question","name":"Can products be customized by drawing?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can manufacture non-standard parts according to customer drawings, specifications and technical requirements."}},{"@type":"Question","name":"Which thread standards are available?","acceptedAnswer":{"@type":"Answer","text":"Common options include ORFS, BSP, JIC and NPT connections, with custom interfaces reviewed according to drawings or samples."}},{"@type":"Question","name":"What materials are available?","acceptedAnswer":{"@type":"Answer","text":"Available materials include carbon steel, stainless steel, alloy steel, aluminum and brass, selected according to pressure, corrosion and machining requirements."}},{"@type":"Question","name":"What surface treatments are available?","acceptedAnswer":{"@type":"Answer","text":"Surface treatment options include trivalent zinc plating, zinc nickel, black oxide, phosphating, passivation and polishing."}},{"@type":"Question","name":"How do I choose between fittings, manifolds and valve components?","acceptedAnswer":{"@type":"Answer","text":"Choose fittings for line connections, manifold blocks for integrated hydraulic circuits, and valve components for flow control or motion-control assemblies."}},{"@type":"Question","name":"Can samples be used for quotation?","acceptedAnswer":{"@type":"Answer","text":"Yes. Samples can help confirm dimensions, structure, material and surface treatment when drawings are not complete."}},{"@type":"Question","name":"How do I request a quote?","acceptedAnswer":{"@type":"Answer","text":"Send drawings, samples, material requirements, quantities and application information through the contact page or WhatsApp."}}]}]}</script>
 
     <!-- CTA -->
     <section class="cta-section">
