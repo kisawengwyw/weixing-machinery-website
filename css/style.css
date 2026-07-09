@@ -931,3 +931,35 @@ ul { list-style: none; }
     .stat-number { font-size: 28px; }
     .stat-suffix { font-size: 20px; }
 }
+
+/* --- Product Comparison Tables --- */
+.spec-table.comparison-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.spec-table.comparison-table th,
+.spec-table.comparison-table td {
+    width: auto;
+    vertical-align: top;
+}
+
+.spec-table.comparison-table th:nth-child(1),
+.spec-table.comparison-table td:nth-child(1) {
+    width: 12%;
+}
+
+.spec-table.comparison-table th:nth-child(2),
+.spec-table.comparison-table td:nth-child(2) {
+    width: 31%;
+}
+
+.spec-table.comparison-table th:nth-child(3),
+.spec-table.comparison-table td:nth-child(3) {
+    width: 30%;
+}
+
+.spec-table.comparison-table th:nth-child(4),
+.spec-table.comparison-table td:nth-child(4) {
+    width: 27%;
+}
