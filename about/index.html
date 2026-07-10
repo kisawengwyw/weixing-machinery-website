@@ -7,9 +7,11 @@
     <title>About Us | Wei Xing Machinery</title>
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="description" content="Learn about Yuyao Wei Xing Machinery Co., Ltd - 20+ years of precision manufacturing expertise in hydraulic fittings and components.">
+    <meta name="description" content="About Yuyao Wei Xing Machinery Co., Ltd., a precision manufacturer of hydraulic fittings, adapters, welded tube assemblies, manifold blocks, valve components, hydraulic cylinder parts and custom CNC machined components.">
+    <link rel="canonical" href="https://www.weixingmachinery.com/about/">
     <link rel="alternate" hreflang="en" href="https://www.weixingmachinery.com/about/">
-    <link rel="alternate" hreflang="zh" href="https://www.weixingmachinery.com/zh/about/">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.weixingmachinery.com/zh/about/">
+    <link rel="alternate" hreflang="x-default" href="https://www.weixingmachinery.com/about/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -75,7 +77,29 @@
         }
         .value-card h3 { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
         .value-card p { font-size: 15px; color: var(--text-light); line-height: 1.7; }
+
+        .about-geo-section { padding-top: 72px; padding-bottom: 72px; }
+        .about-seo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+        .about-product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+        .about-product-card, .about-info-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm); transition: transform .25s ease, box-shadow .25s ease; }
+        .about-product-card:hover, .about-info-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .about-product-card h3, .about-info-card h3 { font-size: 19px; color: var(--primary); margin-bottom: 10px; }
+        .about-product-card h3 a { color: inherit; text-decoration: none; }
+        .about-product-card h3 a:hover { color: var(--accent); }
+        .about-product-card p, .about-info-card p, .about-info-card li { color: var(--text-light); font-size: 15px; line-height: 1.7; }
+        .about-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; }
+        .about-list li { background: var(--bg-light); border-radius: var(--radius); padding: 12px 14px; color: var(--text); font-weight: 500; }
+        .about-workflow { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; counter-reset: workflow; }
+        .workflow-step { position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px 16px; box-shadow: var(--shadow-sm); }
+        .workflow-step::before { counter-increment: workflow; content: counter(workflow); display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; margin-bottom: 14px; }
+        .workflow-step h3 { font-size: 16px; color: var(--primary); line-height: 1.35; }
+        .about-faq { max-width: 920px; margin: 0 auto; display: grid; gap: 16px; }
+        .about-faq details { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 22px; box-shadow: var(--shadow-sm); }
+        .about-faq summary { cursor: pointer; font-weight: 700; color: var(--primary); }
+        .about-faq p { margin-top: 12px; color: var(--text-light); line-height: 1.7; }
+        @media (max-width: 1024px) { .about-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .about-workflow { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
         @media (max-width: 768px) {
+            .about-geo-section { padding-top: 52px; padding-bottom: 52px; }
             .about-image-hero { min-height: 220px; }
             .about-content-band { margin-top: 0; padding: 34px 0; }
             .about-content-grid { grid-template-columns: 1fr; gap: 26px; }
@@ -83,9 +107,21 @@
             .about-stats-band { padding: 34px 0; }
             .about-stats-band .hero-stats { flex-wrap: wrap; gap: 20px; }
             .about-stats-band .stat-item { min-width: 130px; }
-            .values-grid { grid-template-columns: 1fr; }
+            .values-grid, .about-seo-grid, .about-product-grid, .about-workflow, .about-list { grid-template-columns: 1fr; }
         }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {"@type":"Organization","@id":"https://www.weixingmachinery.com/#organization","name":"Yuyao Wei Xing Machinery Co., Ltd.","url":"https://www.weixingmachinery.com/","email":"kisaweng@outlook.com","telephone":"+86 188 6871 1458"},
+        {"@type":"AboutPage","@id":"https://www.weixingmachinery.com/about/#aboutpage","url":"https://www.weixingmachinery.com/about/","name":"About Yuyao Wei Xing Machinery Co., Ltd.","isPartOf":{"@id":"https://www.weixingmachinery.com/#website"},"about":{"@id":"https://www.weixingmachinery.com/#organization"},"description":"Precision manufacturer of hydraulic fittings, hydraulic adapters, welded tube assemblies, valve components, manifold blocks, hydraulic cylinder parts and custom CNC machined components."},
+        {"@type":"BreadcrumbList","@id":"https://www.weixingmachinery.com/about/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.weixingmachinery.com/"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://www.weixingmachinery.com/about/"}]},
+        {"@type":"FAQPage","@id":"https://www.weixingmachinery.com/about/#faq","mainEntity":[{"@type":"Question","name":"What does Wei Xing Machinery manufacture?","acceptedAnswer":{"@type":"Answer","text":"Wei Xing Machinery manufactures hydraulic fittings, hydraulic adapters, welded tube assemblies, hydraulic manifold blocks, hydraulic valve bodies, valve spools, pistons, hydraulic cylinder parts and custom CNC machined components."}},{"@type":"Question","name":"Can parts be manufactured from drawings?","acceptedAnswer":{"@type":"Answer","text":"Yes. We support drawing-based manufacturing using customer 2D drawings, 3D models and technical specifications."}},{"@type":"Question","name":"Can physical samples be used for development?","acceptedAnswer":{"@type":"Answer","text":"Yes. Physical samples can be reviewed to confirm dimensions, threads, materials, surface finish and application requirements before production planning."}},{"@type":"Question","name":"Which materials can be machined?","acceptedAnswer":{"@type":"Answer","text":"Commonly machined materials include carbon steel, stainless steel, alloy steel, aluminum and brass, subject to drawing and project requirements."}},{"@type":"Question","name":"Do you support custom threads and interfaces?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can manufacture parts with custom threads and hydraulic interfaces according to drawings, samples or confirmed application requirements."}},{"@type":"Question","name":"What information is required before production?","acceptedAnswer":{"@type":"Answer","text":"Before production, please provide drawings or samples, material requirements, thread and interface details, surface treatment needs, quantity, application notes and inspection requirements if available."}}]}
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Top Bar -->
@@ -120,7 +156,7 @@
                     <div class="about-content-grid">
                         <div class="about-text">
                             <h2>Who We Are</h2>
-                            <p>We are a professional hydraulic fittings manufacturer based in China, with more than 20 years of industry experience. We specialize in the development and production of hydraulic fittings, adapters, hose fittings, welded tube assemblies, valve bodies, and custom CNC machined components.</p>
+                            <p>Yuyao Wei Xing Machinery Co., Ltd. is a precision manufacturer of hydraulic fittings, hydraulic adapters, welded tube assemblies, hydraulic manifold blocks, valve components, hydraulic cylinder parts and custom CNC machined components. We support hydraulic equipment manufacturers, industrial machinery companies and OEM customers with drawing-based and sample-based production.</p>
                             <p>With stable manufacturing capability, strict quality control, and flexible customization services, we provide reliable hydraulic connection solutions for customers in construction machinery, agricultural equipment, automotive, marine, energy, and industrial applications. Over the years, our products have served companies across East Asia, Europe, and North America, earning long-term trust from global customers.</p>
                             <p>We are committed to quality, customer-focused service, and delivering high-precision, stable, and cost-effective hydraulic fitting products worldwide.</p>
                         </div>
@@ -145,6 +181,48 @@
             </div>
         </div>
     </section>
+
+
+    <section class="section about-geo-section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">What We Manufacture</span><h2 class="section-title">Main Product Range</h2></div>
+            <div class="about-product-grid">
+                <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/products/">Hydraulic Fittings</a></h3><p>Precision fittings for hydraulic hose and pipeline connections, manufactured to support reliable sealing and assembly in industrial equipment.</p></div>
+                <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/products/bsp-hydraulic-adapters/">BSP Hydraulic Adapters</a></h3><p>Threaded adapters and transition connectors for matching hydraulic ports, tubes and hoses across different interface requirements.</p></div>
+                <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/products/welded-tube-assemblies/">Welded Tube Assemblies</a></h3><p>Custom welded tube and pipe assemblies made according to drawings, routing dimensions and application requirements.</p></div>
+                <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/products/hydraulic-manifold-blocks/">Hydraulic Manifold Blocks</a></h3><p>Machined manifold blocks with ports, cavities and oil passages arranged to customer hydraulic circuit drawings.</p></div>
+                <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/products/hydraulic-valve-bodies/">Hydraulic Valve Bodies</a></h3><p>Valve bodies and related housings produced with controlled machining of sealing surfaces, ports and internal features.</p></div>
+                <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/products/valve-spools-pistons/">Valve Spools & Pistons</a></h3><p>Spools, pistons and precision turned components for hydraulic control and cylinder applications requiring stable dimensions.</p></div>
+                <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/products/hydraulic-cylinder-parts/">Hydraulic Cylinder Parts</a></h3><p>Cylinder-related components such as glands, end caps, bushings and machined parts made to drawing specifications.</p></div>
+                <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/products/custom-cnc-parts/">Custom CNC Parts</a></h3><p>Non-standard CNC turned and milled components for machinery, hydraulic systems and OEM assembly projects.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section about-geo-section">
+        <div class="container">
+            <div class="about-seo-grid">
+                <div class="about-info-card"><h3>Custom Manufacturing Support</h3><p>We support OEM manufacturing based on 2D drawings, 3D models, physical samples, thread and interface requirements, material selection and surface treatment requirements. Small-batch trial production and repeat production can be arranged according to project needs.</p></div>
+                <div class="about-info-card"><h3>Materials & Processes</h3><p>Common materials include carbon steel, stainless steel, alloy steel, aluminum and brass. Manufacturing and coordinated processes include CNC turning, CNC milling, drilling, tapping, boring, thread machining, welding coordination and surface treatment coordination.</p><p>Surface treatment options can be arranged according to drawing and project requirements, including commonly used industrial finishes such as zinc plating, zinc nickel, black oxide, phosphating, passivation and polishing.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section about-geo-section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">Manufacturing Workflow</span><h2 class="section-title">From Requirement Review to Shipment</h2></div>
+            <div class="about-workflow"><div class="workflow-step"><h3>Drawing & Requirement Review</h3></div><div class="workflow-step"><h3>Material Confirmation</h3></div><div class="workflow-step"><h3>CNC Machining</h3></div><div class="workflow-step"><h3>Surface Treatment</h3></div><div class="workflow-step"><h3>Quality Inspection</h3></div><div class="workflow-step"><h3>Packaging & Shipment</h3></div></div>
+        </div>
+    </section>
+
+    <section class="section about-geo-section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">Why Work With Us</span><h2 class="section-title">Practical Support for OEM Hydraulic Projects</h2></div>
+            <ul class="about-list"><li>Hydraulic component manufacturing experience</li><li>Drawing-based custom production</li><li>Common hydraulic thread knowledge</li><li>Material and finish coordination</li><li>Inspection according to drawings</li><li>Clear OEM project communication</li></ul>
+        </div>
+    </section>
+
+
 
     <!-- Our Values -->
     <section class="section" style="background: var(--bg-light);">
@@ -178,7 +256,7 @@
                     </div>
                     <div class="value-content">
                         <h3>Reliability</h3>
-                        <p>When we commit to a delivery date, we honor it. Our streamlined production process ensures consistent on-time delivery rates above 98%.</p>
+                        <p>When we commit to a delivery date, we honor it. Our production communication focuses on confirmed requirements, stable processing and dependable order follow-up.</p>
                     </div>
                 </div>
             </div>
@@ -249,6 +327,20 @@
                     <h3>Digital Transformation</h3>
                     <p>Launched new bilingual website and digital catalog to better serve our growing global customer base.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section about-geo-section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">FAQ</span><h2 class="section-title">About Wei Xing Machinery</h2></div>
+            <div class="about-faq">
+                <details><summary>What does Wei Xing Machinery manufacture?</summary><p>Wei Xing Machinery manufactures hydraulic fittings, hydraulic adapters, welded tube assemblies, hydraulic manifold blocks, hydraulic valve bodies, valve spools, pistons, hydraulic cylinder parts and custom CNC machined components.</p></details>
+                <details><summary>Can parts be manufactured from drawings?</summary><p>Yes. We support drawing-based manufacturing using customer 2D drawings, 3D models and technical specifications.</p></details>
+                <details><summary>Can physical samples be used for development?</summary><p>Yes. Physical samples can be reviewed to confirm dimensions, threads, materials, surface finish and application requirements before production planning.</p></details>
+                <details><summary>Which materials can be machined?</summary><p>Commonly machined materials include carbon steel, stainless steel, alloy steel, aluminum and brass, subject to drawing and project requirements.</p></details>
+                <details><summary>Do you support custom threads and interfaces?</summary><p>Yes. We can manufacture parts with custom threads and hydraulic interfaces according to drawings, samples or confirmed application requirements.</p></details>
+                <details><summary>What information is required before production?</summary><p>Before production, please provide drawings or samples, material requirements, thread and interface details, surface treatment needs, quantity, application notes and inspection requirements if available.</p></details>
             </div>
         </div>
     </section>
