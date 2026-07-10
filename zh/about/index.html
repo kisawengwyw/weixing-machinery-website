@@ -7,9 +7,11 @@
     <title>关于我们 | 威兴机械</title>
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="description" content="了解余姚市威兴机械有限公司——20余年精密液压零部件制造经验。">
+    <meta name="description" content="了解余姚市威兴机械有限公司——液压接头、液压过渡接头、焊接管路总成、液压阀块、阀类零部件、液压缸零部件及定制 CNC 加工件精密制造商。">
+    <link rel="canonical" href="https://www.weixingmachinery.com/zh/about/">
     <link rel="alternate" hreflang="en" href="https://www.weixingmachinery.com/about/">
-    <link rel="alternate" hreflang="zh" href="https://www.weixingmachinery.com/zh/about/">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.weixingmachinery.com/zh/about/">
+    <link rel="alternate" hreflang="x-default" href="https://www.weixingmachinery.com/about/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -75,8 +77,34 @@
         }
         .value-card h3 { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
         .value-card p { font-size: 15px; color: var(--text-light); line-height: 1.7; }
-        @media (max-width: 768px) { .about-image-hero { min-height: 220px; } .about-content-band { margin-top: 0; padding: 34px 0; } .about-content-grid { grid-template-columns: 1fr; gap: 26px; } .about-text h2 { font-size: 28px; } .about-stats-band { padding: 34px 0; } .about-stats-band .hero-stats { flex-wrap: wrap; gap: 20px; } .about-stats-band .stat-item { min-width: 130px; } .values-grid { grid-template-columns: 1fr; } }
+
+        .about-geo-section { padding-top: 72px; padding-bottom: 72px; }
+        .about-seo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+        .about-product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+        .about-product-card, .about-info-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm); transition: transform .25s ease, box-shadow .25s ease; }
+        .about-product-card:hover, .about-info-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .about-product-card h3, .about-info-card h3 { font-size: 19px; color: var(--primary); margin-bottom: 10px; }
+        .about-product-card h3 a { color: inherit; text-decoration: none; }
+        .about-product-card h3 a:hover { color: var(--accent); }
+        .about-product-card p, .about-info-card p, .about-info-card li { color: var(--text-light); font-size: 15px; line-height: 1.7; }
+        .about-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; }
+        .about-list li { background: var(--bg-light); border-radius: var(--radius); padding: 12px 14px; color: var(--text); font-weight: 500; }
+        .about-workflow { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; counter-reset: workflow; }
+        .workflow-step { position: relative; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px 16px; box-shadow: var(--shadow-sm); }
+        .workflow-step::before { counter-increment: workflow; content: counter(workflow); display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; margin-bottom: 14px; }
+        .workflow-step h3 { font-size: 16px; color: var(--primary); line-height: 1.35; }
+        .about-faq { max-width: 920px; margin: 0 auto; display: grid; gap: 16px; }
+        .about-faq details { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 22px; box-shadow: var(--shadow-sm); }
+        .about-faq summary { cursor: pointer; font-weight: 700; color: var(--primary); }
+        .about-faq p { margin-top: 12px; color: var(--text-light); line-height: 1.7; }
+        @media (max-width: 1024px) { .about-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .about-workflow { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (max-width: 768px) {
+            .about-geo-section { padding-top: 52px; padding-bottom: 52px; } .about-image-hero { min-height: 220px; } .about-content-band { margin-top: 0; padding: 34px 0; } .about-content-grid { grid-template-columns: 1fr; gap: 26px; } .about-text h2 { font-size: 28px; } .about-stats-band { padding: 34px 0; } .about-stats-band .hero-stats { flex-wrap: wrap; gap: 20px; } .about-stats-band .stat-item { min-width: 130px; } .values-grid, .about-seo-grid, .about-product-grid, .about-workflow, .about-list { grid-template-columns: 1fr; } }
     </style>
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.weixingmachinery.com/#organization","name":"余姚市威兴机械有限公司","alternateName":"Yuyao Wei Xing Machinery Co., Ltd.","url":"https://www.weixingmachinery.com/","email":"kisaweng@outlook.com","telephone":"+86 188 6871 1458"},{"@type":"AboutPage","@id":"https://www.weixingmachinery.com/zh/about/#aboutpage","url":"https://www.weixingmachinery.com/zh/about/","name":"关于余姚市威兴机械有限公司","about":{"@id":"https://www.weixingmachinery.com/#organization"},"description":"液压接头、液压过渡接头、焊接管路总成、阀类零部件、液压阀块、液压缸零部件及定制 CNC 加工件精密制造商。"},{"@type":"BreadcrumbList","@id":"https://www.weixingmachinery.com/zh/about/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://www.weixingmachinery.com/zh/"},{"@type":"ListItem","position":2,"name":"关于我们","item":"https://www.weixingmachinery.com/zh/about/"}]},{"@type":"FAQPage","@id":"https://www.weixingmachinery.com/zh/about/#faq","mainEntity":[{"@type":"Question","name":"威兴机械主要生产哪些产品？","acceptedAnswer":{"@type":"Answer","text":"威兴机械主要生产液压接头、液压过渡接头、焊接管路总成、液压阀块、液压阀体、阀芯、活塞、液压缸零部件及定制 CNC 加工件。"}},{"@type":"Question","name":"是否支持来图加工？","acceptedAnswer":{"@type":"Answer","text":"支持。我们可根据客户提供的 2D 图纸、3D 模型和技术要求进行来图加工。"}},{"@type":"Question","name":"是否可以根据实物样品开发？","acceptedAnswer":{"@type":"Answer","text":"可以。我们可对实物样品的尺寸、螺纹、材料、表面状态和应用要求进行评估后，再进行生产方案确认。"}},{"@type":"Question","name":"可以加工哪些材料？","acceptedAnswer":{"@type":"Answer","text":"常见可加工材料包括碳钢、不锈钢、合金钢、铝和黄铜，具体以图纸和项目要求为准。"}},{"@type":"Question","name":"是否支持定制螺纹和接口？","acceptedAnswer":{"@type":"Answer","text":"支持。我们可根据图纸、样品或确认的应用要求加工定制螺纹和液压接口。"}},{"@type":"Question","name":"生产前需要客户提供哪些信息？","acceptedAnswer":{"@type":"Answer","text":"生产前建议提供图纸或样品、材料要求、螺纹与接口信息、表面处理要求、数量、应用说明以及检验要求等资料。"}}]}]}
+    </script>
 </head>
 <body>
     <div class="top-bar"><div class="container"><div class="top-bar-left"><span>📧 kisaweng@outlook.com</span><span class="divider">|</span><span>📞 +86 188 6871 1458</span></div><div class="top-bar-right"><a href="https://wa.me/85262235101" target="_blank" class="whatsapp-link">💬 WhatsApp</a><span class="divider">|</span><a href="../../about/" class="lang-switch">EN</a><a href="./" class="lang-switch active">中文</a></div></div></div>
@@ -93,7 +121,7 @@
                     <div class="about-content-grid">
                         <div class="about-text">
                             <h2>我们是谁</h2>
-                            <p>我们是一家来自中国的专业液压管件制造商，拥有二十多年行业经验，长期专注于液压接头、液压适配器、软管接头、焊接管组件、阀体及定制 CNC 零部件的研发与生产。</p>
+                            <p>余姚市威兴机械有限公司是一家专注于液压接头、液压过渡接头、焊接管路总成、液压阀块、阀类零部件、液压缸零部件及定制 CNC 加工件的精密制造企业。我们为液压设备、工业机械和 OEM 客户提供来图、来样及应用需求定制支持。</p>
                             <p>凭借稳定的加工能力、严格的质量控制和灵活的定制服务，我们持续为工程机械、农业机械、汽车、船舶、能源及工业设备领域客户提供可靠的液压连接解决方案。多年来，我们的产品已服务于东亚、欧洲及北美多个国家和地区的企业，赢得了客户的长期信赖。</p>
                             <p>我们始终坚持以质量为核心，以客户需求为导向，为全球客户提供高精度、高稳定性和高性价比的液压管件产品。</p>
                         </div>
@@ -119,13 +147,33 @@
         </div>
     </section>
 
+
+    <section class="section about-geo-section" style="background: var(--bg-light);"><div class="container"><div class="section-header"><span class="section-tag">主要产品范围</span><h2 class="section-title">我们制造的产品</h2></div><div class="about-product-grid">
+        <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/zh/products/">液压接头</a></h3><p>用于液压软管和管路连接的精密接头，帮助设备实现可靠密封与稳定装配。</p></div>
+        <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/zh/products/bsp-hydraulic-adapters/">BSP 液压过渡接头</a></h3><p>根据不同端口、管路和软管接口要求制造螺纹转接件与过渡连接件。</p></div>
+        <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/zh/products/welded-tube-assemblies/">焊接管路总成</a></h3><p>按照图纸、走向尺寸和应用要求定制焊接管件与管路总成。</p></div>
+        <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/zh/products/hydraulic-manifold-blocks/">液压阀块</a></h3><p>根据液压回路图加工油口、阀腔和内部油路，满足集成化液压系统需求。</p></div>
+        <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/zh/products/hydraulic-valve-bodies/">液压阀体</a></h3><p>生产阀体及相关壳体零件，重点控制密封面、油口和内部结构加工质量。</p></div>
+        <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/zh/products/valve-spools-pistons/">阀芯与活塞</a></h3><p>为液压控制和油缸应用加工阀芯、活塞及精密车削零件，关注尺寸稳定性。</p></div>
+        <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/zh/products/hydraulic-cylinder-parts/">液压缸零部件</a></h3><p>可按图纸制造导向套、端盖、衬套及其他液压缸相关加工零件。</p></div>
+        <div class="about-product-card"><h3><a href="https://www.weixingmachinery.com/zh/products/custom-cnc-parts/">定制 CNC 零件</a></h3><p>为机械设备、液压系统和 OEM 装配项目提供非标 CNC 车削与铣削零件。</p></div>
+    </div></div></section>
+
+    <section class="section about-geo-section"><div class="container"><div class="about-seo-grid"><div class="about-info-card"><h3>定制制造支持</h3><p>我们支持根据 2D 图纸、3D 模型、实物样品、螺纹与接口要求、材料选择和表面处理要求进行 OEM 定制制造。可根据项目需求安排小批量试制和重复生产。</p></div><div class="about-info-card"><h3>材料与工艺</h3><p>常见可加工材料包括碳钢、不锈钢、合金钢、铝和黄铜。制造及配套工艺包括 CNC 车削、CNC 铣削、钻孔、攻丝、镗孔、螺纹加工、焊接协作和表面处理协作。</p><p>表面处理可根据图纸和项目要求安排，包括镀锌、锌镍、发黑、磷化、钝化和抛光等常用工业表面处理方式。</p></div></div></div></section>
+
+    <section class="section about-geo-section" style="background: var(--bg-light);"><div class="container"><div class="section-header"><span class="section-tag">制造流程</span><h2 class="section-title">从需求评审到包装发货</h2></div><div class="about-workflow"><div class="workflow-step"><h3>图纸与需求评审</h3></div><div class="workflow-step"><h3>材料确认</h3></div><div class="workflow-step"><h3>CNC 加工</h3></div><div class="workflow-step"><h3>表面处理</h3></div><div class="workflow-step"><h3>质量检验</h3></div><div class="workflow-step"><h3>包装发货</h3></div></div></div></section>
+
+    <section class="section about-geo-section"><div class="container"><div class="section-header"><span class="section-tag">合作优势</span><h2 class="section-title">面向 OEM 液压项目的务实支持</h2></div><ul class="about-list"><li>液压零部件制造经验</li><li>基于图纸的定制生产</li><li>常见液压螺纹知识</li><li>材料与表面处理协调</li><li>按图纸要求进行检验</li><li>清晰的 OEM 项目沟通</li></ul></div></section>
+
+
+
     <section class="section" style="background: var(--bg-light);">
         <div class="container">
             <div class="section-header"><span class="section-tag">核心价值观</span><h2 class="section-title">驱动我们前行的力量</h2></div>
             <div class="values-grid">
                 <div class="value-card"><div class="value-image"><img src="../../assets/images/about-values/precision.webp" alt="威兴机械精密制造" width="640" height="380" loading="lazy"></div><div class="value-content"><h3>精密</h3><p>每个零部件都按精确规格制造。我们持续投入最先进的CNC技术，确保每批次产品的质量一致性。</p></div></div>
                 <div class="value-card"><div class="value-image"><img src="../../assets/images/about-values/partnership.webp" alt="威兴机械合作伙伴与技术支持" width="640" height="380" loading="lazy"></div><div class="value-content"><h3>伙伴</h3><p>我们不只是销售零部件——我们建立合作关系。工程团队与客户紧密协作，共同解决技术难题、优化设计方案。</p></div></div>
-                <div class="value-card"><div class="value-image"><img src="../../assets/images/about-values/reliability.webp" alt="威兴机械可靠质量控制" width="640" height="380" loading="lazy"></div><div class="value-content"><h3>可靠</h3><p>承诺的交期，我们一定兑现。高效的生产流程确保准时交付率超过98%。</p></div></div>
+                <div class="value-card"><div class="value-image"><img src="../../assets/images/about-values/reliability.webp" alt="威兴机械可靠质量控制" width="640" height="380" loading="lazy"></div><div class="value-content"><h3>可靠</h3><p>承诺的交期，我们一定兑现。我们注重确认需求、稳定加工和订单跟进，帮助客户降低沟通成本。</p></div></div>
             </div>
         </div>
     </section>
@@ -160,6 +208,15 @@
             </div>
         </div>
     </section>
+
+    <section class="section about-geo-section" style="background: var(--bg-light);"><div class="container"><div class="section-header"><span class="section-tag">FAQ</span><h2 class="section-title">关于威兴机械</h2></div><div class="about-faq">
+        <details><summary>威兴机械主要生产哪些产品？</summary><p>威兴机械主要生产液压接头、液压过渡接头、焊接管路总成、液压阀块、液压阀体、阀芯、活塞、液压缸零部件及定制 CNC 加工件。</p></details>
+        <details><summary>是否支持来图加工？</summary><p>支持。我们可根据客户提供的 2D 图纸、3D 模型和技术要求进行来图加工。</p></details>
+        <details><summary>是否可以根据实物样品开发？</summary><p>可以。我们可对实物样品的尺寸、螺纹、材料、表面状态和应用要求进行评估后，再进行生产方案确认。</p></details>
+        <details><summary>可以加工哪些材料？</summary><p>常见可加工材料包括碳钢、不锈钢、合金钢、铝和黄铜，具体以图纸和项目要求为准。</p></details>
+        <details><summary>是否支持定制螺纹和接口？</summary><p>支持。我们可根据图纸、样品或确认的应用要求加工定制螺纹和液压接口。</p></details>
+        <details><summary>生产前需要客户提供哪些信息？</summary><p>生产前建议提供图纸或样品、材料要求、螺纹与接口信息、表面处理要求、数量、应用说明以及检验要求等资料。</p></details>
+    </div></div></section>
 
     <section class="cta-section"><div class="container"><div class="cta-content"><h2>期待与您合作</h2><p>无论是标准件采购还是定制方案，我们随时为您服务。</p><div class="cta-actions"><a href="../contact/" class="btn btn-primary btn-lg">联系我们</a><a href="../products/" class="btn btn-outline btn-lg">浏览产品</a></div></div></div></section>
 
