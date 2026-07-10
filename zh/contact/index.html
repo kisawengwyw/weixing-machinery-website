@@ -4,96 +4,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
-    <title>联系我们 | 威兴机械</title>
+    <title>联系液压零部件制造商 | 威兴机械</title>
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="description" content="联系威兴机械获取液压接头、焊接件和阀体零部件报价，24小时内回复。">
+    <meta name="description" content="联系威兴机械，咨询液压接头、液压过渡接头、焊接管路总成、阀类零部件、液压阀块、液压缸零部件和定制 CNC 加工报价。">
+    <link rel="canonical" href="https://www.weixingmachinery.com/zh/contact/">
     <link rel="alternate" hreflang="en" href="https://www.weixingmachinery.com/contact/">
-    <link rel="alternate" hreflang="zh" href="https://www.weixingmachinery.com/zh/contact/">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.weixingmachinery.com/zh/contact/">
+    <link rel="alternate" hreflang="x-default" href="https://www.weixingmachinery.com/contact/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css?v=20260710-contact-geo">
     <style>
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .contact-info h2 { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 20px; }
-        .contact-info > p { font-size: 16px; color: var(--text-light); margin-bottom: 32px; line-height: 1.7; }
-        .contact-methods { display: flex; flex-direction: column; gap: 24px; }
+        .contact-section { padding: 68px 0; }
+        .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 60px; align-items: start; }
+        .contact-info h2, .contact-section-title { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 18px; }
+        .contact-info > p, .contact-section-intro { font-size: 16px; color: var(--text-light); margin-bottom: 32px; line-height: 1.7; max-width: 780px; }
+        .contact-methods { display: flex; flex-direction: column; gap: 22px; }
         .contact-method { display: flex; gap: 16px; align-items: flex-start; }
         .contact-method-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--bg-light); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
         .contact-method h4 { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
-        .contact-method p { font-size: 14px; color: var(--text-light); margin: 0; }
+        .contact-method p { font-size: 14px; color: var(--text-light); margin: 0; overflow-wrap: anywhere; }
         .contact-method a { color: var(--accent); font-weight: 500; }
-        .contact-form { background: #fff; padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
+        .contact-note { margin-top: 28px; padding: 22px; background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+        .contact-note h3 { font-size: 18px; color: var(--primary); margin-bottom: 8px; }
+        .contact-note p { margin: 0; color: var(--text-light); line-height: 1.7; }
+        .contact-form { background: #fff; padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); min-width: 0; }
         .contact-form h3 { font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 24px; }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: var(--radius); font-size: 15px; font-family: inherit; transition: border-color var(--transition); background: #fff; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; max-width: 100%; box-sizing: border-box; padding: 12px 16px; border: 2px solid var(--border); border-radius: var(--radius); font-size: 15px; font-family: inherit; transition: border-color var(--transition); background: #fff; }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
-        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-group textarea { resize: vertical; min-height: 150px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .form-submit { width: 100%; padding: 16px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); font-size: 16px; font-weight: 700; cursor: pointer; transition: background var(--transition); }
         .form-submit:hover { background: var(--accent-hover); }
-        .response-guarantee { text-align: center; margin-top: 16px; font-size: 13px; color: var(--text-muted); }
-        .map-placeholder { margin-top: 60px; height: 300px; background: var(--bg-light); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 16px; border: 1px solid var(--border); }
-        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } .contact-form { padding: 24px; } }
+        .form-helper { margin-top: 16px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+        .form-fallback { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+        .form-fallback a, .location-actions a { display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border-radius: var(--radius); font-weight: 700; font-size: 14px; text-decoration: none; }
+        .btn-accent { background: var(--accent); color: #fff; }
+        .btn-outline { border: 1px solid var(--border); color: var(--primary); background: #fff; }
+        .rfq-info-grid, .inquiry-process-grid { display: grid; gap: 18px; }
+        .rfq-info-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .inquiry-process-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .rfq-card, .process-card, .faq-item, .location-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow-sm); }
+        .rfq-card h3, .process-card h3, .faq-item h3 { color: var(--primary); font-size: 17px; margin-bottom: 8px; }
+        .rfq-card p, .process-card p, .faq-item p, .location-card p { color: var(--text-light); line-height: 1.7; margin: 0; overflow-wrap: anywhere; }
+        .process-step { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 14px; }
+        .location-card { max-width: 860px; }
+        .location-card h2 { color: var(--primary); margin-bottom: 12px; }
+        .location-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+        .contact-faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+        @media (max-width: 992px) { .contact-grid, .rfq-info-grid, .inquiry-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 768px) { .contact-section { padding: 48px 0; } .contact-grid, .rfq-info-grid, .inquiry-process-grid, .contact-faq, .form-row { grid-template-columns: 1fr; } .contact-form { padding: 24px; } .location-actions a, .form-fallback a { width: 100%; } }
     </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://www.weixingmachinery.com/zh/contact/#contactpage",
+      "url": "https://www.weixingmachinery.com/zh/contact/",
+      "name": "联系液压零部件制造商 | 威兴机械",
+      "inLanguage": "zh-CN",
+      "about": {
+        "@id": "https://www.weixingmachinery.com/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://www.weixingmachinery.com/zh/contact/#faq"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.weixingmachinery.com/#organization",
+      "name": "余姚市威兴机械有限公司",
+      "url": "https://www.weixingmachinery.com/",
+      "email": "kisaweng@outlook.com",
+      "telephone": "+86 188 6871 1458",
+      "address": {
+        "@id": "https://www.weixingmachinery.com/zh/contact/#address"
+      },
+      "contactPoint": {
+        "@id": "https://www.weixingmachinery.com/zh/contact/#sales-contact"
+      }
+    },
+    {
+      "@type": "ContactPoint",
+      "@id": "https://www.weixingmachinery.com/zh/contact/#sales-contact",
+      "contactType": "sales",
+      "email": "kisaweng@outlook.com",
+      "telephone": "+86 188 6871 1458",
+      "availableLanguage": [
+        "English",
+        "Chinese"
+      ]
+    },
+    {
+      "@type": "PostalAddress",
+      "@id": "https://www.weixingmachinery.com/zh/contact/#address",
+      "streetAddress": "中国浙江省余姚市河姆渡镇翁方村翁家河西91-1号",
+      "addressLocality": "余姚市",
+      "addressRegion": "浙江省",
+      "addressCountry": "CN"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.weixingmachinery.com/zh/contact/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://www.weixingmachinery.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "联系我们",
+          "item": "https://www.weixingmachinery.com/zh/contact/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.weixingmachinery.com/zh/contact/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "询价时需要提供哪些信息？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "建议提供产品类别、图纸或样品、材料、预计数量、螺纹或接口信息、表面处理、应用场景，以及如有明确要求的检验或包装要求。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "是否可以通过邮件发送图纸或 3D 模型？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。您可以通过邮件将图纸、3D 模型和技术文件发送至 kisaweng@outlook.com，用于项目评估。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "是否可以根据实物样品加工？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "来样开发可沟通，需在评估实物样品和应用要求后确认。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以咨询哪些产品类别？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可咨询液压接头、液压过渡接头、焊接管路总成、液压阀块、液压缸零部件、液压阀体、阀芯、活塞和定制 CNC 零件。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "是否可以沟通定制材料、螺纹和表面处理？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。材料、螺纹、接口标准和表面处理需根据具体项目要求沟通并确认。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何预约到厂参观？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如需到厂参观，请提前通过邮件、电话或 WhatsApp 联系我们安排。"
+          }
+        }
+      ]
+    }
+  ]
+}
+    </script>
 </head>
 <body>
-    <div class="top-bar"><div class="container"><div class="top-bar-left"><span>📧 kisaweng@outlook.com</span><span class="divider">|</span><span>📞 +86 188 6871 1458</span></div><div class="top-bar-right"><a href="https://wa.me/85262235101" target="_blank" class="whatsapp-link">💬 WhatsApp</a><span class="divider">|</span><a href="../../contact/" class="lang-switch">EN</a><a href="./" class="lang-switch active">中文</a></div></div></div>
+    <div class="top-bar"><div class="container"><div class="top-bar-left"><span>📧 kisaweng@outlook.com</span><span class="divider">|</span><span>📞 +86 188 6871 1458</span></div><div class="top-bar-right"><a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer" class="whatsapp-link">💬 WhatsApp</a><span class="divider">|</span><a href="../../contact/" class="lang-switch">EN</a><a href="./" class="lang-switch active">中文</a></div></div></div>
     <header class="header" id="header"><div class="container"><div class="header-inner"><a href="../" class="logo"><div class="logo-icon"><img src="/assets/images/logo.svg" alt="Wei Xing Machinery logo" width="40" height="40"></div><div class="logo-text"><span class="logo-name">威兴机械</span><span class="logo-sub">WEI XING MACHINERY</span></div></a><nav class="main-nav"><a href="../" class="nav-link">首页</a><a href="../products/" class="nav-link">产品中心</a><a href="../about/" class="nav-link">关于我们</a><a href="../quality/" class="nav-link">品质保证</a><a href="../contact/" class="nav-link active">联系我们</a></nav><a href="../contact/" class="header-cta">立即询价</a><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="切换菜单"><span></span><span></span><span></span></button></div></div></header>
     <div class="mobile-menu" id="mobileMenu"><nav class="mobile-nav"><a href="../" class="mobile-nav-link">首页</a><a href="../products/" class="mobile-nav-link">产品中心</a><a href="../about/" class="mobile-nav-link">关于我们</a><a href="../quality/" class="mobile-nav-link">品质保证</a><a href="../contact/" class="mobile-nav-link active">联系我们</a><a href="../contact/" class="mobile-nav-cta">立即询价</a></nav></div>
 
-    <section class="page-hero"><div class="container"><h1>联系我们</h1><p>24小时内获取详细报价，我们随时为您服务</p></div></section>
-
-    <section class="section">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>联系我们</h2>
-                    <p>无论您需要标准件报价、定制项目咨询，还是技术问题解答——我们的团队随时为您服务。</p>
-                    <div class="contact-methods">
-                        <div class="contact-method"><div class="contact-method-icon">📧</div><div><h4>电子邮箱</h4><p><a href="mailto:kisaweng@outlook.com">kisaweng@outlook.com</a></p><p>24小时内回复</p></div></div>
-                        <div class="contact-method"><div class="contact-method-icon">📞</div><div><h4>电话</h4><p><a href="tel:+8657400000000">+86 188 6871 1458</a></p><p>周一至周五 8:00-17:30（北京时间）</p></div></div>
-                        <div class="contact-method"><div class="contact-method-icon">💬</div><div><h4>WhatsApp</h4><p><a href="https://wa.me/85262235101" target="_blank">+852 6223 5101</a></p><p>即时通讯，快速沟通</p></div></div>
-                        <div class="contact-method"><div class="contact-method-icon">📍</div><div><h4>工厂地址</h4><p>浙江省余姚市河姆渡镇翁方村翁家河西91-1号</p><p>欢迎预约参观工厂</p></div></div>
-                        <div class="contact-method"><div class="contact-method-icon">⏰</div><div><h4>响应承诺</h4><p><strong style="color: var(--accent);">24小时报价响应</strong></p><p>标准件通常数小时内回复</p></div></div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>立即询价</h3>
-                    <form id="quoteForm">
-                        <div class="form-row">
-                            <div class="form-group"><label for="name">您的姓名 *</label><input type="text" id="name" name="name" required placeholder="张三"></div>
-                            <div class="form-group"><label for="company">公司名称 *</label><input type="text" id="company" name="company" required placeholder="XX有限公司"></div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group"><label for="email">电子邮箱 *</label><input type="email" id="email" name="email" required placeholder="zhangsan@company.com"></div>
-                            <div class="form-group"><label for="phone">电话 / WhatsApp</label><input type="text" id="phone" name="phone" placeholder="+86 138-XXXX-XXXX"></div>
-                        </div>
-                        <div class="form-group">
-                            <label for="product">产品需求</label>
-                            <select id="product" name="product">
-                                <option value="">请选择产品类别...</option>
-                                <option value="hydraulic">液压接头</option>
-                                <option value="welding">焊接件</option>
-                                <option value="valve">阀体零部件</option>
-                                <option value="custom">定制CNC加工</option>
-                                <option value="other">其他/多品类</option>
-                            </select>
-                        </div>
-                        <div class="form-group"><label for="message">需求描述 *</label><textarea id="message" name="message" required placeholder="请描述您需要的零部件，包括材质、尺寸、数量和特殊要求。您也可以通过邮件发送图纸。"></textarea></div>
-                        <button type="submit" class="form-submit">发送询价</button>
-                        <p class="response-guarantee">🔒 您的信息安全保密，我们将在24小时内回复。</p>
-                    </form>
-                </div>
-            </div>
-            <div class="map-placeholder">📍 浙江省余姚市河姆渡镇翁方村翁家河西91-1号 — 欢迎预约到厂参观</div>
-        </div>
-    </section>
-
-    <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="../" class="footer-logo"><div class="logo-icon footer-logo-mark" aria-hidden="true"><svg viewBox="98.932 -5.851 800 800" focusable="false"><path d="m 169.132,631.275 37.224,-61.218 41.841,-67.838 c 23.961,-39.81 48.339,-80.027 73.113,-119.43 v 0 c 2.847,-4.468 8.946,-4.468 11.385,0 v 0 c 7.716,12.186 14.212,22.748 21.522,33.311 v 0 c 4.066,5.688 3.659,10.968 0,17.06 v 0 c -39.403,62.153 -78.399,127.961 -117.395,190.519 v 0 c -1.22,2.031 -5.366,6.966 -7.806,7.78 v 0 z" transform="matrix(1.3333333,0,0,-1.3333333,0,1066.6667)"/><path d="m 509.396,621.242 c -8.122,-13.406 -23.554,-38.185 -39.403,-63.371 v 0 l -40.621,65.808 c -2.847,4.875 -8.123,7.719 -13.816,7.719 v 0 h -58.9 L 435.461,503.436 C 428.558,492.47 423.283,483.938 420.436,479.47 v 0 l -92.213,145.429 c -2.44,3.655 -7.258,6.651 -11.72,6.651 v 0 c -15.035,-0.406 -53.281,-0.091 -53.281,-0.091 v 0 c 0,0 123.088,-202.36 149.905,-246.64 v 0 c 5.276,-7.311 9.342,-8.528 14.618,-0.812 v 0 0.812 c 1.627,2.844 3.66,6.095 5.693,8.939 v 0 c 10.968,17.06 21.521,38.185 34.117,57.683 v 0 l 43.061,-67.838 c 2.44,-4.065 6.496,-6.502 10.969,-6.502 v 0 l 57.68,1.22 c 0,0 -38.182,63.777 -54.03,89.369 v 0 l -21.521,37.373 c 0,2.843 0.812,6.091 3.242,9.749 v 0 c 8.937,13.812 71.823,116.83 71.823,116.83 v 0 c 0,0 -39.286,-0.467 -49.521,0 v 0 c -0.514,0.023 -1.021,0.035 -1.517,0.035 v 0 c -8.114,0 -13.755,-3.161 -18.345,-10.435" transform="matrix(1.3333333,0,0,-1.3333333,0,1066.6667)"/></svg></div><div class="logo-text"><span class="logo-name">WEI XING</span><span class="logo-sub">MACHINERY</span></div></a><p class="footer-about">专业生产液压接头、焊接件和阀体零部件，坐落于浙江余姚。</p></div><div class="footer-col"><h4>产品中心</h4><ul><li><a href="../products/">液压接头</a></li><li><a href="../products/">焊接件</a></li><li><a href="../products/">阀体零部件</a></li></ul></div><div class="footer-col"><h4>公司信息</h4><ul><li><a href="../about/">关于我们</a></li><li><a href="../quality/">品质保证</a></li><li><a href="../contact/">联系我们</a></li></ul></div><div class="footer-col"><h4>联系方式</h4><div class="footer-contact"><p>📍 浙江省余姚市河姆渡镇翁方村翁家河西91-1号</p><p>📧 kisaweng@outlook.com</p><p>📞 +86 188 6871 1458</p><p>💬 <a href="https://wa.me/85262235101" target="_blank">WhatsApp</a></p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><p>&copy; 2026 余姚市威兴机械有限公司 版权所有</p><div class="footer-lang"><a href="../../">English</a><a href="./" class="active">中文</a></div></div></div></div></footer>
-    <a href="https://wa.me/85262235101" target="_blank" class="whatsapp-float" aria-label="WhatsApp联系"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <section class="page-hero"><div class="container"><h1>联系威兴机械</h1><p>提交图纸、样品和项目要求，咨询液压零部件或定制 CNC 加工方案。</p></div></section>
+    <section class="contact-section"><div class="container"><div class="contact-grid"><div class="contact-info"><h2>沟通您的项目</h2><p>如需标准液压接头、来图加工、来样开发或定制 CNC 零件，可通过以下方式联系我们。提供完整的技术资料有助于进行项目评估并准备更准确的报价。</p><div class="contact-methods"><div class="contact-method"><div class="contact-method-icon">📧</div><div><h4>电子邮箱</h4><p><a href="mailto:kisaweng@outlook.com">kisaweng@outlook.com</a></p></div></div><div class="contact-method"><div class="contact-method-icon">📞</div><div><h4>电话</h4><p><a href="tel:+8618868711458">+86 188 6871 1458</a></p></div></div><div class="contact-method"><div class="contact-method-icon">💬</div><div><h4>WhatsApp</h4><p><a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">+852 6223 5101</a></p></div></div><div class="contact-method"><div class="contact-method-icon">📍</div><div><h4>工厂地址</h4><p>中国浙江省余姚市河姆渡镇翁方村翁家河西91-1号</p><p>如需到厂参观，请提前联系我们安排。</p></div></div></div><div class="contact-note"><h3>报价资料</h3><p>询价时建议提供产品类型、图纸或样品、材料、数量、接口要求及应用信息。</p></div></div><div class="contact-form"><h3>立即询价</h3><form id="quoteForm"><div class="form-row"><div class="form-group"><label for="name">姓名 *</label><input autocomplete="name" type="text" id="name" name="name" required placeholder="张三"></div><div class="form-group"><label for="company">公司 *</label><input autocomplete="organization" type="text" id="company" name="company" required placeholder="XX有限公司"></div></div><div class="form-row"><div class="form-group"><label for="email">邮箱 *</label><input autocomplete="email" type="email" id="email" name="email" required placeholder="zhangsan@company.com"></div><div class="form-group"><label for="phone">电话 / WhatsApp</label><input autocomplete="tel" type="tel" id="phone" name="phone" placeholder="+86 138-XXXX-XXXX"></div></div><div class="form-row"><div class="form-group"><label for="product">产品类别</label><select id="product" name="product"><option value="">请选择产品类别...</option><option value="ORFS 液压接头">ORFS 液压接头</option><option value="BSP 液压过渡接头">BSP 液压过渡接头</option><option value="JIC 扩口接头">JIC 扩口接头</option><option value="NPT 管螺纹接头">NPT 管螺纹接头</option><option value="隔板连接器">隔板连接器</option><option value="液压软管接头">液压软管接头</option><option value="焊接管路总成">焊接管路总成</option><option value="液压阀块">液压阀块</option><option value="液压缸零部件">液压缸零部件</option><option value="液压阀体">液压阀体</option><option value="阀芯与活塞">阀芯与活塞</option><option value="定制 CNC 零件">定制 CNC 零件</option><option value="多个类别 / 其他">多个类别 / 其他</option></select></div><div class="form-group"><label for="quantity">预计数量</label><input type="text" id="quantity" name="quantity" placeholder="样品、500 件、年度用量..."></div></div><div class="form-group"><label for="material">材料或表面处理</label><input type="text" id="material" name="material" placeholder="碳钢、不锈钢、镀锌..."></div><div class="form-group"><label for="message">需求说明 *</label><textarea id="message" name="message" required placeholder="请尽量提供图纸或样品信息、材料、数量、螺纹或接口标准、表面处理、应用场景和检验要求。"></textarea></div><button type="submit" class="form-submit">生成询价邮件</button><p class="form-helper">提交后将在您的邮件应用中生成预填询价邮件。发送前可添加图纸或技术文件附件。本网站不会直接传输表单数据。</p><div class="form-fallback"><a class="btn-accent" href="mailto:kisaweng@outlook.com">发送邮件</a><a class="btn-outline" href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">WhatsApp 沟通</a></div></form></div></div></div></section>
+    <section class="contact-section"><div class="container"><h2 class="contact-section-title">有助于评估询价的信息</h2><div class="rfq-info-grid"><div class="rfq-card"><h3>图纸或样品</h3><p>如有，可提供 2D 图纸、3D 模型或样品信息。</p></div><div class="rfq-card"><h3>产品类别</h3><p>选择接近的产品类别，有助于进行项目评估。</p></div><div class="rfq-card"><h3>材料规格</h3><p>如有明确要求，请提供材料牌号或等同要求。</p></div><div class="rfq-card"><h3>预计数量</h3><p>适用时提供试样、批量或年度数量预估。</p></div><div class="rfq-card"><h3>螺纹与接口</h3><p>如有，请提供螺纹、油口或连接标准。</p></div><div class="rfq-card"><h3>表面处理</h3><p>如有明确要求，请说明电镀、涂层或表面处理。</p></div><div class="rfq-card"><h3>应用信息</h3><p>适用时说明工作条件和应用场景。</p></div><div class="rfq-card"><h3>检验与包装要求</h3><p>如有明确要求，请提供检验、标识或包装需求。</p></div></div></div></section>
+    <section class="contact-section"><div class="container"><h2 class="contact-section-title">询价流程</h2><div class="inquiry-process-grid"><div class="process-card"><div class="process-step">1</div><h3>提交项目信息</h3><p>通过邮件生成表单或直接邮件发送可用项目资料。</p></div><div class="process-card"><div class="process-step">2</div><h3>需求评审</h3><p>评估图纸、样品、材料、数量和应用信息。</p></div><div class="process-card"><div class="process-step">3</div><h3>技术确认</h3><p>报价前可就接口、公差和表面处理等技术细节进行确认。</p></div><div class="process-card"><div class="process-step">4</div><h3>报价与生产规划</h3><p>根据已确认的项目信息准备报价和生产规划。</p></div></div></div></section>
+    <section class="contact-section"><div class="container"><div class="location-card"><h2>工厂位置</h2><p><strong>余姚市威兴机械有限公司</strong></p><p>中国浙江省余姚市河姆渡镇翁方村翁家河西91-1号</p><p>如需到厂参观，请提前联系我们安排。</p><div class="location-actions"><a class="btn-accent" href="mailto:kisaweng@outlook.com">Email</a><a class="btn-outline" href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">WhatsApp</a><a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E5%9B%BD%E6%B5%99%E6%B1%9F%E7%9C%81%E4%BD%99%E5%A7%9A%E5%B8%82%E6%B2%B3%E5%A7%86%E6%B8%A1%E9%95%87%E7%BF%81%E6%96%B9%E6%9D%91%E7%BF%81%E5%AE%B6%E6%B2%B3%E8%A5%BF91-1%E5%8F%B7" target="_blank" rel="noopener noreferrer">在 Google 地图中查看</a></div></div></div></section>
+    <section class="contact-section"><div class="container"><h2 class="contact-section-title">Contact FAQ</h2><div class="contact-faq"><div class="faq-item"><h3>询价时需要提供哪些信息？</h3><p>建议提供产品类别、图纸或样品、材料、预计数量、螺纹或接口信息、表面处理、应用场景，以及如有明确要求的检验或包装要求。</p></div><div class="faq-item"><h3>是否可以通过邮件发送图纸或 3D 模型？</h3><p>可以。您可以通过邮件将图纸、3D 模型和技术文件发送至 kisaweng@outlook.com，用于项目评估。</p></div><div class="faq-item"><h3>是否可以根据实物样品加工？</h3><p>来样开发可沟通，需在评估实物样品和应用要求后确认。</p></div><div class="faq-item"><h3>可以咨询哪些产品类别？</h3><p>可咨询液压接头、液压过渡接头、焊接管路总成、液压阀块、液压缸零部件、液压阀体、阀芯、活塞和定制 CNC 零件。</p></div><div class="faq-item"><h3>是否可以沟通定制材料、螺纹和表面处理？</h3><p>可以。材料、螺纹、接口标准和表面处理需根据具体项目要求沟通并确认。</p></div><div class="faq-item"><h3>如何预约到厂参观？</h3><p>如需到厂参观，请提前通过邮件、电话或 WhatsApp 联系我们安排。</p></div></div></div></section>
+    <script>document.getElementById('quoteForm').addEventListener('submit', function (event) { event.preventDefault(); if (!this.checkValidity()) { this.reportValidity(); return; } const data = new FormData(this); const get = (name) => (data.get(name) || '').toString().trim(); const subject = `询价 - ${get('product') || '产品咨询'} - ${get('company')}`; const body = [`姓名: ${get('name')}`, `公司: ${get('company')}`, `邮箱: ${get('email')}`, `电话或 WhatsApp: ${get('phone')}`, `产品类别: ${get('product')}`, `预计数量: ${get('quantity')}`, `材料或表面处理: ${get('material')}`, '', '需求说明:', get('message')].join('\n'); window.location.href = `mailto:kisaweng@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; });</script>
+    <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="../" class="footer-logo"><div class="logo-icon footer-logo-mark" aria-hidden="true"><svg viewBox="98.932 -5.851 800 800" focusable="false"><path d="m 169.132,631.275 37.224,-61.218 41.841,-67.838 c 23.961,-39.81 48.339,-80.027 73.113,-119.43 v 0 c 2.847,-4.468 8.946,-4.468 11.385,0 v 0 c 7.716,12.186 14.212,22.748 21.522,33.311 v 0 c 4.066,5.688 3.659,10.968 0,17.06 v 0 c -39.403,62.153 -78.399,127.961 -117.395,190.519 v 0 c -1.22,2.031 -5.366,6.966 -7.806,7.78 v 0 z" transform="matrix(1.3333333,0,0,-1.3333333,0,1066.6667)"/><path d="m 509.396,621.242 c -8.122,-13.406 -23.554,-38.185 -39.403,-63.371 v 0 l -40.621,65.808 c -2.847,4.875 -8.123,7.719 -13.816,7.719 v 0 h -58.9 L 435.461,503.436 C 428.558,492.47 423.283,483.938 420.436,479.47 v 0 l -92.213,145.429 c -2.44,3.655 -7.258,6.651 -11.72,6.651 v 0 c -15.035,-0.406 -53.281,-0.091 -53.281,-0.091 v 0 c 0,0 123.088,-202.36 149.905,-246.64 v 0 c 5.276,-7.311 9.342,-8.528 14.618,-0.812 v 0 0.812 c 1.627,2.844 3.66,6.095 5.693,8.939 v 0 c 10.968,17.06 21.521,38.185 34.117,57.683 v 0 l 43.061,-67.838 c 2.44,-4.065 6.496,-6.502 10.969,-6.502 v 0 l 57.68,1.22 c 0,0 -38.182,63.777 -54.03,89.369 v 0 l -21.521,37.373 c 0,2.843 0.812,6.091 3.242,9.749 v 0 c 8.937,13.812 71.823,116.83 71.823,116.83 v 0 c 0,0 -39.286,-0.467 -49.521,0 v 0 c -0.514,0.023 -1.021,0.035 -1.517,0.035 v 0 c -8.114,0 -13.755,-3.161 -18.345,-10.435" transform="matrix(1.3333333,0,0,-1.3333333,0,1066.6667)"/></svg></div><div class="logo-text"><span class="logo-name">WEI XING</span><span class="logo-sub">MACHINERY</span></div></a><p class="footer-about">专业生产液压接头、焊接件和阀体零部件，坐落于浙江余姚。</p></div><div class="footer-col"><h4>产品中心</h4><ul><li><a href="../products/">液压接头</a></li><li><a href="../products/">焊接件</a></li><li><a href="../products/">阀体零部件</a></li></ul></div><div class="footer-col"><h4>公司信息</h4><ul><li><a href="../about/">关于我们</a></li><li><a href="../quality/">品质保证</a></li><li><a href="../contact/">联系我们</a></li></ul></div><div class="footer-col"><h4>联系方式</h4><div class="footer-contact"><p>📍 浙江省余姚市河姆渡镇翁方村翁家河西91-1号</p><p>📧 kisaweng@outlook.com</p><p>📞 +86 188 6871 1458</p><p>💬 <a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">WhatsApp</a></p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><p>&copy; 2026 余姚市威兴机械有限公司 版权所有</p><div class="footer-lang"><a href="../../">English</a><a href="./" class="active">中文</a></div></div></div></div></footer>
+    <a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp联系"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
     <script src="../../js/main.js?v=20260702-2"></script>
 </body>
 </html>
