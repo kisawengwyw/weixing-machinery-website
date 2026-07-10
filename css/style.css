@@ -113,6 +113,48 @@ ul { list-style: none; }
 /* ============================================
    GEO CONTENT SECTIONS
    ============================================ */
+.company-summary-section {
+    padding-top: 48px;
+    padding-bottom: 28px;
+}
+
+.company-summary-section .summary-box {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.capabilities-section {
+    padding-top: 36px;
+    padding-bottom: 60px;
+}
+
+.capabilities-section .section-header {
+    margin-bottom: 32px;
+}
+
+.products-section {
+    padding-top: 64px;
+    padding-bottom: 72px;
+}
+
+.product-family-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+.product-family-section .section-header {
+    margin-bottom: 36px;
+}
+
+.faq-section {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+.faq-section .section-header {
+    margin-bottom: 36px;
+}
+
 .features-grid, .product-family-grid, .faq-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -135,6 +177,25 @@ ul { list-style: none; }
     .features-grid, .product-family-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
+    .company-summary-section {
+        padding-top: 32px;
+        padding-bottom: 20px;
+    }
+
+    .capabilities-section,
+    .products-section,
+    .product-family-section,
+    .faq-section {
+        padding-top: 52px;
+        padding-bottom: 52px;
+    }
+
+    .capabilities-section .section-header,
+    .product-family-section .section-header,
+    .faq-section .section-header {
+        margin-bottom: 28px;
+    }
+
     .features-grid, .product-family-grid, .faq-grid { grid-template-columns: 1fr; }
 }
 
