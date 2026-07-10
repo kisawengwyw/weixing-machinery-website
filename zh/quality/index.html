@@ -7,7 +7,11 @@
     <title>品质保证 | 威兴机械</title>
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="description" content="了解我们严格的质量检测、材质检验和制造流程。每个零部件都符合最高质量标准。">
+    <meta name="description" content="了解威兴机械针对液压接头、过渡接头、焊接管路总成、阀类零部件、液压阀块及定制 CNC 零件实施的材料确认、尺寸检验、螺纹检查、表面检验和出货前检查。">
+    <link rel="canonical" href="https://www.weixingmachinery.com/zh/quality/">
+    <link rel="alternate" hreflang="en" href="https://www.weixingmachinery.com/quality/">
+    <link rel="alternate" hreflang="zh-CN" href="https://www.weixingmachinery.com/zh/quality/">
+    <link rel="alternate" hreflang="x-default" href="https://www.weixingmachinery.com/quality/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -25,49 +29,156 @@
         .cert-detail-text p { font-size: 15px; color: var(--text-light); line-height: 1.8; margin-bottom: 12px; }
         .cert-detail-text ul { list-style: disc; padding-left: 20px; }
         .cert-detail-text ul li { font-size: 15px; color: var(--text-light); margin-bottom: 8px; }
-        @media (max-width: 768px) { .quality-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; } .cert-detail { grid-template-columns: 1fr; } }
+
+        .quality-section { padding: 70px 0; }
+        .quality-section-alt { background: var(--bg-light); }
+        .quality-overview { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 34px 38px; box-shadow: var(--shadow-sm); }
+        .quality-overview p { margin: 0; color: var(--text-light); font-size: 16px; line-height: 1.85; }
+        .quality-focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .quality-focus-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; box-shadow: var(--shadow-sm); }
+        .quality-focus-card h3 { color: var(--primary); font-size: 18px; margin: 0 0 12px; }
+        .quality-focus-card p { color: var(--text-light); font-size: 14px; line-height: 1.7; margin: 0; }
+        .quality-info-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 26px; padding: 0; list-style: none; }
+        .quality-info-list li { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; color: var(--primary); font-size: 14px; font-weight: 600; }
+        .quality-faq { max-width: 980px; margin: 0 auto; display: grid; gap: 16px; }
+        .quality-faq-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 28px; box-shadow: var(--shadow-sm); }
+        .quality-faq-item h3 { margin: 0 0 10px; color: var(--primary); font-size: 18px; }
+        .quality-faq-item p { margin: 0; color: var(--text-light); line-height: 1.75; font-size: 15px; }
+        @media (max-width: 1024px) { .quality-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; } }
+        @media (max-width: 992px) { .quality-focus-grid { grid-template-columns: repeat(2, 1fr); } .quality-info-list { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .quality-section { padding: 50px 0; } .quality-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } .quality-focus-grid { grid-template-columns: 1fr; } .quality-info-list { grid-template-columns: 1fr; } .quality-overview { padding: 26px 24px; } .cert-detail { grid-template-columns: 1fr; } }
+
     </style>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "品质保证 | 威兴机械",
+    "url": "https://www.weixingmachinery.com/zh/quality/",
+    "inLanguage": "zh-CN",
+    "description": "了解威兴机械针对液压接头、过渡接头、焊接管路总成、阀类零部件、液压阀块及定制 CNC 零件实施的材料确认、尺寸检验、螺纹检查、表面检验和出货前检查。"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "余姚市威兴机械有限公司",
+    "url": "https://www.weixingmachinery.com/",
+    "email": "kisaweng@outlook.com",
+    "telephone": "+86 188 6871 1458"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "首页",
+        "item": "https://www.weixingmachinery.com/zh/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "品质保证",
+        "item": "https://www.weixingmachinery.com/zh/quality/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "常见的检验项目有哪些？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "常见项目包括材料确认、关键尺寸、螺纹、密封接口、表面状态、外观、数量、包装以及客户指定要求。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "所有液压接头都会进行压力测试吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "并非每种产品都需要压力测试。当图纸、应用、标准或订单要求明确时，会对指定产品安排测试。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "是否可以提供检验报告？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "在询价或下单时明确要求的情况下，可根据项目要求准备材质文件、尺寸检验记录或测试文件。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "如何检查螺纹和密封接口？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "根据产品要求检查螺纹类型、螺距、配合情况、密封面、锥面、O 型圈槽及适用的接口结构。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "是否可以按照客户指定要求检验？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "可以。检验项目可根据客户提供的图纸、技术规格、关键尺寸和订单要求安排。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "图纸或采购订单中应注明哪些质量要求？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "建议注明图纸版本、关键尺寸、公差、螺纹标准、密封接口、材料规格、表面处理、功能或压力测试要求、所需文件和包装要求。"
+        }
+      }
+    ]
+  }
+]
+    </script>
 </head>
 <body>
     <div class="top-bar"><div class="container"><div class="top-bar-left"><span>📧 kisaweng@outlook.com</span><span class="divider">|</span><span>📞 +86 188 6871 1458</span></div><div class="top-bar-right"><a href="https://wa.me/85262235101" target="_blank" class="whatsapp-link">💬 WhatsApp</a><span class="divider">|</span><a href="../../quality/" class="lang-switch">EN</a><a href="./" class="lang-switch active">中文</a></div></div></div>
     <header class="header" id="header"><div class="container"><div class="header-inner"><a href="../" class="logo"><div class="logo-icon"><img src="/assets/images/logo.svg" alt="Wei Xing Machinery logo" width="40" height="40"></div><div class="logo-text"><span class="logo-name">威兴机械</span><span class="logo-sub">WEI XING MACHINERY</span></div></a><nav class="main-nav"><a href="../" class="nav-link">首页</a><a href="../products/" class="nav-link">产品中心</a><a href="../about/" class="nav-link">关于我们</a><a href="../quality/" class="nav-link active">品质保证</a><a href="../contact/" class="nav-link">联系我们</a></nav><a href="../contact/" class="header-cta">立即询价</a><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="切换菜单"><span></span><span></span><span></span></button></div></div></header>
     <div class="mobile-menu" id="mobileMenu"><nav class="mobile-nav"><a href="../" class="mobile-nav-link">首页</a><a href="../products/" class="mobile-nav-link">产品中心</a><a href="../about/" class="mobile-nav-link">关于我们</a><a href="../quality/" class="mobile-nav-link active">品质保证</a><a href="../contact/" class="mobile-nav-link">联系我们</a><a href="../contact/" class="mobile-nav-cta">立即询价</a></nav></div>
 
-    <section class="page-hero"><div class="container"><h1>品质保证</h1><p>通过严格的测试和检验，确保每个零部件都符合最高质量标准</p></div></section>
+        <section class="page-hero"><div class="container"><h1>品质保证</h1><p>根据产品图纸、技术规格和订单要求实施检验与过程控制。</p></div></section>
 
-    <section class="section">
+    <section class="quality-section quality-section-alt">
         <div class="container">
-            <div class="section-header"><span class="section-tag">质量体系</span><h2 class="section-title">我们的品质承诺</h2><p class="section-desc">品质不只是墙上的证书——它贯穿于制造流程的每一个环节。</p></div>
+            <div class="section-header"><span class="section-tag">检验方法</span><h2 class="section-title">根据图纸与要求实施质量控制</h2></div>
+            <div class="quality-overview"><p>威兴机械针对液压接头、液压过渡接头、焊接管路总成、阀类零部件、液压阀块、液压缸零部件和定制 CNC 加工件实施检验与过程控制。具体检验项目根据产品类型、图纸、关键尺寸、螺纹接口、表面处理要求和客户技术规范确定。</p></div>
+        </div>
+    </section>
+
+    <section class="quality-section">
+        <div class="container">
+            <div class="section-header"><span class="section-tag">质量体系</span><h2 class="section-title">我们的品质承诺</h2><p class="section-desc">根据图纸、订单要求和产品应用选择适用的检验项目。</p></div>
             <div class="quality-grid">
-                <div class="quality-card"><div class="quality-card-icon">🔬</div><h3>来料检验</h3><p>所有原材料均经过光谱分析仪检测，并与材质证书核对。从源头到成品保持全程材质可追溯。</p></div>
-                <div class="quality-card"><div class="quality-card-icon">📐</div><h3>尺寸管控</h3><p>CMM三坐标测量机检测确保每个尺寸符合规格。关键特征公差控制在±0.01mm。</p></div>
-                <div class="quality-card"><div class="quality-card-icon">💧</div><h3>压力测试</h3><p>液压和气压测试验证每个接头的完整性。测试压力按标准安全系数超过额定工作压力。</p></div>
-                <div class="quality-card"><div class="quality-card-icon">🔍</div><h3>表面检验</h3><p>目视和尺寸检测表面光洁度、螺纹质量和涂层完整性。不良品在包装前即被剔除。</p></div>
-                <div class="quality-card"><div class="quality-card-icon">📊</div><h3>统计过程控制</h3><p>关键尺寸SPC监控，确保跨批次质量一致性。持续追踪过程能力指数（Cpk）。</p></div>
-                <div class="quality-card"><div class="quality-card-icon">📋</div><h3>文档管理</h3><p>完整的检验报告、材质证书和测试报告可应需提供。每个订单保持全程可追溯。</p></div>
+                <div class="quality-card"><div class="quality-card-icon">🔬</div><h3>来料与材料确认</h3><p>加工前根据图纸和订单要求确认材料规格、尺寸、外观及可提供的材质文件。</p></div>
+                <div class="quality-card"><div class="quality-card-icon">📐</div><h3>尺寸检验</h3><p>根据图纸要求检查关键尺寸、孔位、直径、长度及公差项目，并采用适合的测量方法。</p></div>
+                <div class="quality-card"><div class="quality-card-icon">🔩</div><h3>螺纹与接口检查</h3><p>根据产品要求检查螺纹类型、螺距、配合情况、密封面、锥面及接口结构。</p></div>
+                <div class="quality-card"><div class="quality-card-icon">🔍</div><h3>表面与处理检查</h3><p>适用时检查毛刺、锐边、加工纹路、清洁度、镀层外观及可见表面缺陷。</p></div>
+                <div class="quality-card"><div class="quality-card-icon">💧</div><h3>功能或压力测试</h3><p>当图纸、应用或订单有要求时，可针对指定接头和组件安排功能、密封或压力测试。</p></div>
+                <div class="quality-card"><div class="quality-card-icon">📋</div><h3>最终检查与文件</h3><p>出货前确认外观、数量、包装及指定检验项目；材质或检验文件可根据项目要求准备。</p></div>
             </div>
         </div>
     </section>
 
-    <section class="production-process">
-        <div class="container">
-            <div class="section-header fade-in"><span class="section-tag">生产流程</span><h2 class="section-title">生产流程</h2><p class="section-desc">从原材料检验到最终包装出货，每一道工序都经过严格控制，确保液压零部件质量稳定可靠。</p></div>
-            <div class="process-grid">
-                <div class="process-step"><div class="process-number">01</div><div class="process-icon">🔍</div><h3>原材料检验</h3><p>检查钢材、锻件和材质证明，确保生产前材料符合要求。</p></div>
-                <div class="process-step"><div class="process-number">02</div><div class="process-icon">⚙️</div><h3>CNC 加工</h3><p>通过数控车削和铣削加工液压接头及定制 CNC 零件。</p></div>
-                <div class="process-step"><div class="process-number">03</div><div class="process-icon">◇</div><h3>去毛刺</h3><p>去除尖角和毛刺，提高产品安全性和装配质量。</p></div>
-                <div class="process-step"><div class="process-number">04</div><div class="process-icon">◌</div><h3>清洗</h3><p>清除加工后的铁屑、油污和表面杂质。</p></div>
-                <div class="process-step"><div class="process-number">05</div><div class="process-icon">▣</div><h3>表面处理</h3><p>根据产品要求进行镀锌、钝化或其他表面处理。</p></div>
-                <div class="process-step"><div class="process-number">06</div><div class="process-icon">📐</div><h3>尺寸检验</h3><p>检查关键尺寸、螺纹、密封面和公差要求。</p></div>
-                <div class="process-step"><div class="process-number">07</div><div class="process-icon">🔩</div><h3>装配</h3><p>根据产品需要安装 O 型圈、螺母、套筒或相关配件。</p></div>
-                <div class="process-step"><div class="process-number">08</div><div class="process-icon">💧</div><h3>压力测试</h3><p>对指定液压接头和组件进行压力测试。</p></div>
-                <div class="process-step"><div class="process-number">09</div><div class="process-icon">✓</div><h3>最终检验</h3><p>出货前确认外观、数量、标识和包装要求。</p></div>
-                <div class="process-step"><div class="process-number">10</div><div class="process-icon">▤</div><h3>包装出货</h3><p>对产品进行安全包装，适合出口运输和长途交付。</p></div>
-            </div>
-        </div>
-    </section>
+    <section class="quality-section quality-section-alt"><div class="container"><div class="section-header"><span class="section-tag">检验重点</span><h2 class="section-title">不同产品检验重点</h2></div><div class="quality-focus-grid"><div class="quality-focus-card"><h3>液压接头与过渡接头</h3><p>螺纹、密封面、锥面、O 型圈槽、六角尺寸和表面状态。</p></div><div class="quality-focus-card"><h3>液压软管接头</h3><p>螺纹或旋转接口、软管尾结构、套筒匹配和装配尺寸。</p></div><div class="quality-focus-card"><h3>焊接管路总成</h3><p>管路走向尺寸、接头位置、焊缝外观、清洁度和接口对中。</p></div><div class="quality-focus-card"><h3>液压阀块与阀体</h3><p>油口位置、阀腔尺寸、内部油路、密封面和去毛刺情况。</p></div><div class="quality-focus-card"><h3>阀芯、活塞与液压缸零部件</h3><p>直径、台阶、沟槽、孔位、表面状态及配合相关尺寸。</p></div><div class="quality-focus-card"><h3>定制 CNC 零件</h3><p>图纸规定尺寸、材料、螺纹、表面处理及客户指定关键特征。</p></div></div></div></section>
 
-    <section class="cta-section"><div class="container"><div class="cta-content"><h2>需要质量文档？</h2><p>每个订单均可提供材质证书、检验报告和测试证书。</p><div class="cta-actions"><a href="../contact/" class="btn btn-primary btn-lg">申请文档</a><a href="../products/" class="btn btn-outline btn-lg">浏览产品</a></div></div></div></section>
+    <section class="production-process"><div class="container"><div class="section-header fade-in"><span class="section-tag">生产流程</span><h2 class="section-title">生产流程</h2><p class="section-desc">从原材料检验到最终包装出货，每一道工序都根据产品要求和指定检验范围进行控制。</p></div><div class="process-grid"><div class="process-step"><div class="process-number">01</div><div class="process-icon">🔍</div><h3>原材料检验</h3><p>生产前确认钢材、锻件、尺寸、外观及可提供的材质文件。</p></div><div class="process-step"><div class="process-number">02</div><div class="process-icon">⚙️</div><h3>CNC 加工</h3><p>通过数控车削和铣削加工液压接头及定制 CNC 零件。</p></div><div class="process-step"><div class="process-number">03</div><div class="process-icon">◇</div><h3>去毛刺</h3><p>去除尖角和毛刺，提高产品安全性和装配质量。</p></div><div class="process-step"><div class="process-number">04</div><div class="process-icon">◌</div><h3>清洗</h3><p>清除加工后的铁屑、油污和表面杂质。</p></div><div class="process-step"><div class="process-number">05</div><div class="process-icon">▣</div><h3>表面处理</h3><p>根据产品要求进行镀锌、钝化或其他表面处理。</p></div><div class="process-step"><div class="process-number">06</div><div class="process-icon">📐</div><h3>尺寸检验</h3><p>根据图纸检查关键尺寸、螺纹、密封面和指定公差要求。</p></div><div class="process-step"><div class="process-number">07</div><div class="process-icon">🔩</div><h3>装配</h3><p>根据产品需要安装 O 型圈、螺母、套筒或相关配件。</p></div><div class="process-step"><div class="process-number">08</div><div class="process-icon">💧</div><h3>功能 / 压力测试</h3><p>根据图纸、技术规格或订单要求，对指定产品进行功能、密封或压力测试。</p></div><div class="process-step"><div class="process-number">09</div><div class="process-icon">✓</div><h3>最终检验</h3><p>出货前确认外观、数量、指定尺寸和包装要求。</p></div><div class="process-step"><div class="process-number">10</div><div class="process-icon">▤</div><h3>包装出货</h3><p>对产品进行安全包装，适合出口运输和长途交付。</p></div></div></div></section>
+
+    <section class="quality-section quality-section-alt"><div class="container"><div class="section-header"><span class="section-tag">检验要求确认</span><h2 class="section-title">检验要求确认</h2><p class="section-desc">询价或下单时提供以下信息，有助于在生产前明确检验范围。</p></div><ul class="quality-info-list"><li>图纸版本</li><li>关键尺寸</li><li>公差要求</li><li>螺纹标准</li><li>密封接口</li><li>材料规格</li><li>表面处理</li><li>功能或压力测试要求</li><li>所需检验文件</li><li>包装要求</li></ul></div></section>
+
+    <section class="quality-section"><div class="container"><div class="section-header"><span class="section-tag">FAQ</span><h2 class="section-title">常见问题</h2></div><div class="quality-faq"><div class="quality-faq-item"><h3>常见的检验项目有哪些？</h3><p>常见项目包括材料确认、关键尺寸、螺纹、密封接口、表面状态、外观、数量、包装以及客户指定要求。</p></div><div class="quality-faq-item"><h3>所有液压接头都会进行压力测试吗？</h3><p>并非每种产品都需要压力测试。当图纸、应用、标准或订单要求明确时，会对指定产品安排测试。</p></div><div class="quality-faq-item"><h3>是否可以提供检验报告？</h3><p>在询价或下单时明确要求的情况下，可根据项目要求准备材质文件、尺寸检验记录或测试文件。</p></div><div class="quality-faq-item"><h3>如何检查螺纹和密封接口？</h3><p>根据产品要求检查螺纹类型、螺距、配合情况、密封面、锥面、O 型圈槽及适用的接口结构。</p></div><div class="quality-faq-item"><h3>是否可以按照客户指定要求检验？</h3><p>可以。检验项目可根据客户提供的图纸、技术规格、关键尺寸和订单要求安排。</p></div><div class="quality-faq-item"><h3>图纸或采购订单中应注明哪些质量要求？</h3><p>建议注明图纸版本、关键尺寸、公差、螺纹标准、密封接口、材料规格、表面处理、功能或压力测试要求、所需文件和包装要求。</p></div></div></div></section>
+
+    <section class="cta-section"><div class="container"><div class="cta-content"><h2>需要检验或材质文件？</h2><p>可根据项目要求沟通并准备材质文件、尺寸检验记录或测试文件。</p><div class="cta-actions"><a href="../contact/" class="btn btn-primary btn-lg">沟通质量要求</a><a href="../products/" class="btn btn-outline btn-lg">浏览产品</a></div></div></div></section>
 
     <footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-col"><a href="../" class="footer-logo"><div class="logo-icon footer-logo-mark" aria-hidden="true"><svg viewBox="98.932 -5.851 800 800" focusable="false"><path d="m 169.132,631.275 37.224,-61.218 41.841,-67.838 c 23.961,-39.81 48.339,-80.027 73.113,-119.43 v 0 c 2.847,-4.468 8.946,-4.468 11.385,0 v 0 c 7.716,12.186 14.212,22.748 21.522,33.311 v 0 c 4.066,5.688 3.659,10.968 0,17.06 v 0 c -39.403,62.153 -78.399,127.961 -117.395,190.519 v 0 c -1.22,2.031 -5.366,6.966 -7.806,7.78 v 0 z" transform="matrix(1.3333333,0,0,-1.3333333,0,1066.6667)"/><path d="m 509.396,621.242 c -8.122,-13.406 -23.554,-38.185 -39.403,-63.371 v 0 l -40.621,65.808 c -2.847,4.875 -8.123,7.719 -13.816,7.719 v 0 h -58.9 L 435.461,503.436 C 428.558,492.47 423.283,483.938 420.436,479.47 v 0 l -92.213,145.429 c -2.44,3.655 -7.258,6.651 -11.72,6.651 v 0 c -15.035,-0.406 -53.281,-0.091 -53.281,-0.091 v 0 c 0,0 123.088,-202.36 149.905,-246.64 v 0 c 5.276,-7.311 9.342,-8.528 14.618,-0.812 v 0 0.812 c 1.627,2.844 3.66,6.095 5.693,8.939 v 0 c 10.968,17.06 21.521,38.185 34.117,57.683 v 0 l 43.061,-67.838 c 2.44,-4.065 6.496,-6.502 10.969,-6.502 v 0 l 57.68,1.22 c 0,0 -38.182,63.777 -54.03,89.369 v 0 l -21.521,37.373 c 0,2.843 0.812,6.091 3.242,9.749 v 0 c 8.937,13.812 71.823,116.83 71.823,116.83 v 0 c 0,0 -39.286,-0.467 -49.521,0 v 0 c -0.514,0.023 -1.021,0.035 -1.517,0.035 v 0 c -8.114,0 -13.755,-3.161 -18.345,-10.435" transform="matrix(1.3333333,0,0,-1.3333333,0,1066.6667)"/></svg></div><div class="logo-text"><span class="logo-name">WEI XING</span><span class="logo-sub">MACHINERY</span></div></a><p class="footer-about">专业生产液压接头、焊接件和阀体零部件，坐落于浙江余姚。</p></div><div class="footer-col"><h4>产品中心</h4><ul><li><a href="../products/">液压接头</a></li><li><a href="../products/">焊接件</a></li><li><a href="../products/">阀体零部件</a></li></ul></div><div class="footer-col"><h4>公司信息</h4><ul><li><a href="../about/">关于我们</a></li><li><a href="../quality/">品质保证</a></li><li><a href="../contact/">联系我们</a></li></ul></div><div class="footer-col"><h4>联系方式</h4><div class="footer-contact"><p>📍 浙江省余姚市河姆渡镇翁方村翁家河西91-1号</p><p>📧 kisaweng@outlook.com</p><p>📞 +86 188 6871 1458</p><p>💬 <a href="https://wa.me/85262235101" target="_blank">WhatsApp</a></p></div></div></div><div class="footer-bottom"><div class="footer-bottom-inner"><p>&copy; 2026 余姚市威兴机械有限公司 版权所有</p><div class="footer-lang"><a href="../../">English</a><a href="./" class="active">中文</a></div></div></div></div></footer>
     <a href="https://wa.me/85262235101" target="_blank" class="whatsapp-float" aria-label="WhatsApp联系"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
