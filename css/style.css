@@ -109,6 +109,35 @@ ul { list-style: none; }
 .exhibition-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
 .exhibition-card img { display: block; width: 100%; height: 260px; object-fit: cover; }
 
+
+/* ============================================
+   GEO CONTENT SECTIONS
+   ============================================ */
+.features-grid, .product-family-grid, .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.feature-card, .family-card, .faq-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    transition: all var(--transition);
+}
+.feature-card:hover, .family-card:hover, .faq-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.feature-card h3, .family-card h3, .faq-card h3 { font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+.feature-card p, .family-card p, .faq-card p { font-size: 14px; color: var(--text-light); line-height: 1.7; }
+.family-card { text-decoration: none; color: inherit; }
+.family-card span { display: inline-block; margin-top: 12px; color: var(--accent); font-weight: 700; font-size: 14px; }
+.faq-section { background: #fff; }
+@media (max-width: 1024px) {
+    .features-grid, .product-family-grid, .faq-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+    .features-grid, .product-family-grid, .faq-grid { grid-template-columns: 1fr; }
+}
+
 /* ============================================
    TOP BAR
    ============================================ */
@@ -530,7 +559,7 @@ ul { list-style: none; }
 }
 .process-timeline {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 0;
     position: relative;
 }
@@ -538,8 +567,8 @@ ul { list-style: none; }
     content: '';
     position: absolute;
     top: 28px;
-    left: 12.5%;
-    width: 75%;
+    left: 8.333%;
+    width: 83.334%;
     height: 2px;
     background: linear-gradient(90deg, var(--accent), var(--primary));
     opacity: 0.3;
