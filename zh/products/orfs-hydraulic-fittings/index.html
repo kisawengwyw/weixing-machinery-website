@@ -45,6 +45,13 @@
         .summary-box { padding: 24px; background: var(--bg-light); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); margin: 20px 0 24px; }
         .summary-box h3 { font-size: 18px; color: var(--primary); margin-bottom: 10px; }
         .summary-box p { font-size: 15px; color: var(--text-light); line-height: 1.8; margin: 0; }
+        .related-guide-section { background: #fff; }
+        .related-guide-card { display: block; max-width: 860px; margin: 0 auto; padding: 28px; background: var(--bg-light); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius-lg); transition: var(--transition); }
+        .related-guide-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .related-guide-card h3 { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .related-guide-card p { font-size: 15px; color: var(--text-light); line-height: 1.7; margin-bottom: 16px; }
+        .related-guide-link { color: var(--accent); font-weight: 700; font-size: 15px; }
+        @media (max-width: 768px) { .related-guide-card { padding: 22px; } }
         @media (max-width: 768px) { .product-detail { grid-template-columns: 1fr; } .features-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -443,6 +450,21 @@
   ]
 }
     </script>
+
+
+    <section class="section related-guide-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">相关技术指南</span>
+                <h2 class="section-title">相关技术指南</h2>
+            </div>
+            <a href="/zh/guides/orfs-vs-jic-fittings/" class="related-guide-card">
+                <h3>ORFS 与 JIC 接头对比：密封方式、结构与选型</h3>
+                <p>比较 O 形圈端面密封与 JIC 37° 扩口连接的密封结构、安装注意事项和选型信息。</p>
+                <span class="related-guide-link">查看 ORFS 与 JIC 密封方式对比</span>
+            </a>
+        </div>
+    </section>
 
 
     <section class="section related-products-section">
