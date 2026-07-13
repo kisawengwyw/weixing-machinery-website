@@ -52,6 +52,13 @@
         .selection-advice { padding: 32px; background: var(--bg-light); border-radius: var(--radius-lg); border-left: 4px solid var(--primary); margin-top: 24px; }
         .selection-advice p { font-size: 15px; color: var(--text-light); line-height: 1.8; margin: 0 0 12px; }
         .selection-advice p:last-child { margin-bottom: 0; }
+        .related-guide-section { background: #fff; }
+        .related-guide-card { display: block; max-width: 860px; margin: 0 auto; padding: 28px; background: var(--bg-light); border: 1px solid var(--border); border-left: 4px solid var(--secondary); border-radius: var(--radius-lg); transition: var(--transition); }
+        .related-guide-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .related-guide-card h3 { font-size: 20px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .related-guide-card p { font-size: 15px; color: var(--text-light); line-height: 1.7; margin-bottom: 16px; }
+        .related-guide-link { color: var(--secondary); font-weight: 700; font-size: 15px; }
+        @media (max-width: 768px) { .related-guide-card { padding: 22px; } }
         @media (max-width: 768px) { .product-detail { grid-template-columns: 1fr; } .features-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -223,6 +230,21 @@
     }
   ]
 }</script>
+
+    <section class="section related-guide-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Related Technical Guide</span>
+                <h2 class="section-title">Related Technical Guide</h2>
+            </div>
+            <a href="/guides/bsp-vs-npt-threads/" class="related-guide-card">
+                <h3>BSP vs NPT Threads: Differences, Sealing and Identification</h3>
+                <p>Understand BSPP, BSPT and NPT thread forms, sealing methods and identification requirements before specifying adapters.</p>
+                <span class="related-guide-link">Learn the differences between BSP and NPT threads</span>
+            </a>
+        </div>
+    </section>
+
 
     <section class="section related-products-section">
         <div class="container">
