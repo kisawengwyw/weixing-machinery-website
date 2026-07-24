@@ -1,5 +1,7 @@
 <?php
 declare(strict_types=1);
+use PHPMailer\PHPMailer\PHPMailer;
+
 error_reporting(0);
 ini_set('display_errors', '0');
 header('Content-Type: application/json; charset=utf-8');
@@ -43,10 +45,6 @@ function respond(int $code, string $errorCode, array $extra = []): void {
 function success(string $reference): void { http_response_code(200); echo json_encode(['success'=>true,'reference'=>$reference], JSON_UNESCAPED_UNICODE); exit; }
 function clean(string $value, int $max): string { $value = trim(preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', '', $value)); return mb_substr($value, 0, $max, 'UTF-8'); }
 function header_safe(string $value): string { return str_replace(["\r", "\n"], '', $value); }
-function rfc2047(string $value): string { return '=?UTF-8?B?' . base64_encode(header_safe($value)) . '?='; }
-function ascii_filename(string $name, string $ext): string { $base = preg_replace('/\.[^.]*$/', '', header_safe($name)); $base = preg_replace('/[^A-Za-z0-9._-]+/', '_', iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $base) ?: 'drawing'); $base = trim((string)$base, '._-'); if ($base === '') { $base = 'drawing'; } return substr($base, 0, 80) . '.' . preg_replace('/[^A-Za-z0-9]/', '', $ext); }
-function attachment_params(string $name, string $ext): string { $fallback = ascii_filename($name, $ext); $encoded = rawurlencode(header_safe($name)); return 'name="' . $fallback . '"; name*=UTF-8\'\'' . $encoded; }
-function disposition_params(string $name, string $ext): string { $fallback = ascii_filename($name, $ext); $encoded = rawurlencode(header_safe($name)); return 'filename="' . $fallback . '"; filename*=UTF-8\'\'' . $encoded; }
 function reference(): string { return 'WX-' . gmdate('Ymd') . '-' . strtoupper(bin2hex(random_bytes(2))); }
 function is_under(string $path, string $parent): bool { $path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR; $parent = rtrim($parent, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR; return strncmp($path, $parent, strlen($parent)) === 0; }
 function has_bad_signature(string $path): bool {
@@ -54,6 +52,12 @@ function has_bad_signature(string $path): bool {
     $trimmed = ltrim($chunk);
     return str_starts_with($chunk, "MZ") || str_starts_with($chunk, "\x7FELF") || preg_match('/<\?(php|=)?/i', $chunk) === 1 || preg_match('/^#!\s*\/(bin|usr\/bin|usr\/env)/', $trimmed) === 1 || preg_match('/<(html|script|body|iframe)\b/i', $chunk) === 1 || preg_match('/\b(function|eval|document\.write|window\.)\s*[\(=]/i', $chunk) === 1;
 }
+
+$autoloadPath = dirname(__DIR__) . '/vendor/autoload.php';
+if (!is_file($autoloadPath)) {
+    respond(503, 'SMTP_NOT_CONFIGURED', ['reference'=>reference()]);
+}
+require $autoloadPath;
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') respond(405, 'METHOD_NOT_ALLOWED');
 $origin = $_SERVER['HTTP_ORIGIN'] ?? ($_SERVER['HTTP_REFERER'] ?? '');
@@ -75,15 +79,21 @@ foreach (['name','company','email','product_category','requirements'] as $requir
 if (!filter_var($fields['email'], FILTER_VALIDATE_EMAIL)) respond(422, 'INVALID_EMAIL');
 
 $configPath = dirname($_SERVER['DOCUMENT_ROOT'] ?? __DIR__) . '/rfq-config.php';
-if (!is_file($configPath)) respond(503, 'MAIL_NOT_CONFIGURED', ['reference'=>reference()]);
+if (!is_file($configPath)) respond(503, 'SMTP_NOT_CONFIGURED', ['reference'=>reference()]);
 $config = require $configPath;
+if (!is_array($config)) respond(503, 'SMTP_NOT_CONFIGURED', ['reference'=>reference()]);
+$smtpHost = trim((string)($config['smtp_host'] ?? ''));
+$smtpPort = (int)($config['smtp_port'] ?? 0);
+$smtpSecure = strtolower(trim((string)($config['smtp_secure'] ?? '')));
+$smtpUsername = filter_var($config['smtp_username'] ?? '', FILTER_VALIDATE_EMAIL);
+$smtpPassword = (string)($config['smtp_password'] ?? '');
 $fromEmail = filter_var($config['from_email'] ?? '', FILTER_VALIDATE_EMAIL);
 $fromName = header_safe((string)($config['from_name'] ?? 'Wei Xing Machinery RFQ'));
 $toEmail = filter_var($config['to_email'] ?? RECIPIENT, FILTER_VALIDATE_EMAIL) ?: RECIPIENT;
 $tempDir = realpath((string)($config['temp_dir'] ?? ''));
 $docRoot = realpath($_SERVER['DOCUMENT_ROOT'] ?? __DIR__);
-if (!$fromEmail || !$tempDir || !is_dir($tempDir) || !is_writable($tempDir) || ($docRoot && is_under($tempDir, $docRoot))) {
-    respond(503, 'MAIL_NOT_CONFIGURED', ['reference'=>reference()]);
+if ($smtpHost === '' || $smtpPort !== 465 || $smtpSecure !== 'smtps' || !$smtpUsername || $smtpPassword === '' || !$fromEmail || strcasecmp($fromEmail, $smtpUsername) !== 0 || !$tempDir || !is_dir($tempDir) || !is_writable($tempDir) || ($docRoot && is_under($tempDir, $docRoot))) {
+    respond(503, 'SMTP_NOT_CONFIGURED', ['reference'=>reference()]);
 }
 
 $fileQueue = []; $fileLines = []; $total = 0;
@@ -130,17 +140,41 @@ foreach ($fileQueue as $file) {
 }
 $ref = reference();
 $subjectText = header_safe('[Website RFQ] [' . $ref . '] ' . $fields['product_category'] . ' - ' . $fields['company']);
-$subject = rfc2047($subjectText);
 $body = "Reference: $ref\n";
 foreach ($fields as $key => $value) { $body .= ucfirst(str_replace('_', ' ', $key)) . ": " . $value . "\n"; }
 $body .= "Files:\n" . ($fileLines ? implode("\n", $fileLines) : 'No files uploaded') . "\n";
-$boundary = 'WXRFQ_' . bin2hex(random_bytes(12));
-$headers = ['From: ' . $fromName . ' <' . header_safe($fromEmail) . '>', 'Reply-To: ' . header_safe($fields['email']), 'MIME-Version: 1.0', 'Content-Type: multipart/mixed; boundary="' . $boundary . '"'];
-$message = "--$boundary\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n$body\r\n";
-foreach ($attachments as $attachment) {
-    $message .= "--$boundary\r\nContent-Type: {$attachment['mime']}; " . attachment_params($attachment['name'], $attachment['ext']) . "\r\nContent-Transfer-Encoding: base64\r\nContent-Disposition: attachment; " . disposition_params($attachment['name'], $attachment['ext']) . "\r\n\r\n" . chunk_split(base64_encode((string)file_get_contents($attachment['path']))) . "\r\n";
+
+$mail = null;
+try {
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->Host = $smtpHost;
+    $mail->SMTPAuth = true;
+    $mail->Username = $smtpUsername;
+    $mail->Password = $smtpPassword;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port = 465;
+    $mail->CharSet = 'UTF-8';
+    $mail->Timeout = 20;
+
+    $mail->setFrom($fromEmail, $fromName);
+    $mail->addAddress($toEmail);
+    $mail->addReplyTo($fields['email'], $fields['name']);
+    $mail->Subject = $subjectText;
+    $mail->Body = $body;
+    $mail->isHTML(false);
+
+    foreach ($attachments as $attachment) {
+        $mail->addAttachment($attachment['path'], $attachment['name'], PHPMailer::ENCODING_BASE64, $attachment['mime']);
+    }
+
+    $mail->send();
+} catch (Throwable $e) {
+    $message = strtolower($e->getMessage() . ' ' . ($mail ? $mail->ErrorInfo : ''));
+    if (str_contains($message, 'authenticate') || str_contains($message, 'password') || str_contains($message, 'username')) {
+        respond(502, 'SMTP_AUTH_FAILED');
+    }
+    respond(502, 'SMTP_SEND_FAILED');
 }
-$message .= "--$boundary--";
-if (!@mail($toEmail, $subject, $message, implode("\r\n", $headers))) respond(502, 'MAIL_SEND_FAILED');
 $hits[] = $now; @file_put_contents($rateFile, json_encode($hits), LOCK_EX);
 success($ref);

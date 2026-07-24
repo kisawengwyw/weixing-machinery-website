@@ -1,0 +1,8 @@
+{
+  "name": "weixing-machinery/website",
+  "description": "Wei Xing Machinery website",
+  "license": "proprietary",
+  "require": {
+    "phpmailer/phpmailer": "^7.1"
+  }
+}
