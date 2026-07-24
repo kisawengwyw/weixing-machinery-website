@@ -1,10 +1,15 @@
 <?php
+// Copy this file to rfq-config.php one level above public_html.
+// Keep the real SMTP password only in that non-public rfq-config.php file.
+// Never commit real mailbox passwords, SMTP passwords, or production rfq-config.php to GitHub.
 return [
-    // Create and verify a same-domain mailbox on Hostinger before production use.
-    'from_email' => getenv('RFQ_FROM_EMAIL') ?: 'rfq@weixingmachinery.com',
+    'smtp_host' => 'smtp.hostinger.com',
+    'smtp_port' => 465,
+    'smtp_secure' => 'smtps',
+    'smtp_username' => 'rfq@weixingmachinery.com',
+    'smtp_password' => 'CHANGE_ME',
+    'from_email' => 'rfq@weixingmachinery.com',
     'from_name' => 'Wei Xing Machinery RFQ',
-    'to_email' => getenv('RFQ_TO_EMAIL') ?: 'kisaweng@outlook.com',
-    // Optional: set to a non-public directory outside public_html. Defaults to system temp.
-    'temp_dir' => getenv('RFQ_TEMP_DIR') ?: sys_get_temp_dir(),
-    // This endpoint uses PHP mail(). Configure Hostinger mail transport for the from_email domain.
+    'to_email' => 'kisaweng@outlook.com',
+    'temp_dir' => '/absolute/private/path/outside/public_html/rfq-temp',
 ];
