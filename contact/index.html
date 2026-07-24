@@ -1,196 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <title>Contact Hydraulic Components Manufacturer | Wei Xing Machinery</title>
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="description" content="Contact Wei Xing Machinery for hydraulic fittings, adapters, welded tube assemblies, valve components, manifold blocks, cylinder parts and custom CNC machining quotations.">
-    <link rel="canonical" href="https://www.weixingmachinery.com/contact/">
-    <link rel="alternate" hreflang="en" href="https://www.weixingmachinery.com/contact/">
-    <link rel="alternate" hreflang="zh-CN" href="https://www.weixingmachinery.com/zh/contact/">
-    <link rel="alternate" hreflang="x-default" href="https://www.weixingmachinery.com/contact/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css?v=20260710-contact-geo">
-    <style>
-        .contact-section { padding: 68px 0; }
-        .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 60px; align-items: start; }
-        .contact-info h2, .contact-section-title { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 18px; }
-        .contact-info > p, .contact-section-intro { font-size: 16px; color: var(--text-light); margin-bottom: 32px; line-height: 1.7; max-width: 780px; }
-        .contact-methods { display: flex; flex-direction: column; gap: 22px; }
-        .contact-method { display: flex; gap: 16px; align-items: flex-start; }
-        .contact-method-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--bg-light); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
-        .contact-method h4 { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
-        .contact-method p { font-size: 14px; color: var(--text-light); margin: 0; overflow-wrap: anywhere; }
-        .contact-method a { color: var(--accent); font-weight: 500; }
-        .contact-note { margin-top: 28px; padding: 22px; background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-lg); }
-        .contact-note h3 { font-size: 18px; color: var(--primary); margin-bottom: 8px; }
-        .contact-note p { margin: 0; color: var(--text-light); line-height: 1.7; }
-        .contact-form { background: #fff; padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--border); box-shadow: var(--shadow-sm); min-width: 0; }
-        .contact-form h3 { font-size: 24px; font-weight: 700; color: var(--primary); margin-bottom: 24px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; max-width: 100%; box-sizing: border-box; padding: 12px 16px; border: 2px solid var(--border); border-radius: var(--radius); font-size: 15px; font-family: inherit; transition: border-color var(--transition); background: #fff; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--accent); }
-        .form-group textarea { resize: vertical; min-height: 150px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .form-submit { width: 100%; padding: 16px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); font-size: 16px; font-weight: 700; cursor: pointer; transition: background var(--transition); }
-        .form-submit:hover { background: var(--accent-hover); }
-        .form-helper { margin-top: 16px; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
-        .form-fallback { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
-        .form-fallback a, .location-actions a { display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border-radius: var(--radius); font-weight: 700; font-size: 14px; text-decoration: none; }
-        .btn-accent { background: var(--accent); color: #fff; }
-        .btn-outline { border: 1px solid var(--border); color: var(--primary); background: #fff; }
-        .rfq-info-grid, .inquiry-process-grid { display: grid; gap: 18px; }
-        .rfq-info-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .inquiry-process-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-        .rfq-card, .process-card, .faq-item, .location-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; box-shadow: var(--shadow-sm); }
-        .rfq-card h3, .process-card h3, .faq-item h3 { color: var(--primary); font-size: 17px; margin-bottom: 8px; }
-        .rfq-card p, .process-card p, .faq-item p, .location-card p { color: var(--text-light); line-height: 1.7; margin: 0; overflow-wrap: anywhere; }
-        .inquiry-step-number { width: 36px; height: 36px; padding: 0; box-sizing: border-box; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; line-height: 1; margin-bottom: 14px; flex-shrink: 0; }
-        .location-card { max-width: 860px; margin: 0 auto; }
-        .location-card h2 { color: var(--primary); margin-bottom: 12px; }
-        .location-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
-        .contact-faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-        @media (max-width: 992px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } .rfq-info-grid, .inquiry-process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-        @media (max-width: 768px) { .contact-section { padding: 48px 0; } .contact-grid, .rfq-info-grid, .inquiry-process-grid, .contact-faq, .form-row { grid-template-columns: 1fr; } .contact-form { padding: 24px; } .location-actions a, .form-fallback a { width: 100%; } }
-    </style>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ContactPage",
-      "@id": "https://www.weixingmachinery.com/contact/#contactpage",
-      "url": "https://www.weixingmachinery.com/contact/",
-      "name": "Contact Hydraulic Components Manufacturer | Wei Xing Machinery",
-      "inLanguage": "en",
-      "about": {
-        "@id": "https://www.weixingmachinery.com/#organization"
-      },
-      "mainEntity": {
-        "@id": "https://www.weixingmachinery.com/contact/#faq"
-      }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://www.weixingmachinery.com/#organization",
-      "name": "Yuyao Wei Xing Machinery Co., Ltd.",
-      "url": "https://www.weixingmachinery.com/",
-      "email": "kisaweng@outlook.com",
-      "telephone": "+86 188 6871 1458",
-      "address": {
-        "@id": "https://www.weixingmachinery.com/contact/#address"
-      },
-      "contactPoint": {
-        "@id": "https://www.weixingmachinery.com/contact/#sales-contact"
-      }
-    },
-    {
-      "@type": "ContactPoint",
-      "@id": "https://www.weixingmachinery.com/contact/#sales-contact",
-      "contactType": "sales",
-      "email": "kisaweng@outlook.com",
-      "telephone": "+86 188 6871 1458",
-      "availableLanguage": [
-        "English",
-        "Chinese"
-      ]
-    },
-    {
-      "@type": "PostalAddress",
-      "@id": "https://www.weixingmachinery.com/contact/#address",
-      "streetAddress": "No. 91-1, Wengjiahe West, Wengfang Village, Hemudu Town, Yuyao City, Zhejiang Province, China",
-      "addressLocality": "Yuyao City",
-      "addressRegion": "Zhejiang Province",
-      "addressCountry": "CN"
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://www.weixingmachinery.com/contact/#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.weixingmachinery.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Contact",
-          "item": "https://www.weixingmachinery.com/contact/"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.weixingmachinery.com/contact/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What information should I send for a quotation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Please share the product category, drawings or samples, material, estimated quantity, thread or interface details, surface treatment, application and inspection or packaging requirements where available."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I send drawings or 3D models by email?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. You can send drawings, 3D models and technical files by email to kisaweng@outlook.com for project review."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can you manufacture parts from physical samples?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sample-based development can be discussed after the physical samples and application requirements are evaluated."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which product categories can I inquire about?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can inquire about hydraulic fittings, adapters, welded tube assemblies, manifold blocks, cylinder parts, valve bodies, valve spools, pistons and custom CNC parts."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can custom materials, threads and finishes be discussed?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Materials, threads, interface standards and surface treatments can be discussed and confirmed according to the project requirements."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I arrange a factory visit?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Please contact us in advance by email, phone or WhatsApp so a factory visit can be arranged."
-          }
-        }
-      ]
-    }
-  ]
-}
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Send RFQ and Drawings | Wei Xing Machinery</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="description" content="Send RFQ details and upload drawings for hydraulic components, welded tube assemblies, valve parts and custom CNC machining review.">
+<link rel="canonical" href="https://www.weixingmachinery.com/contact/">
+<link rel="alternate" hreflang="en" href="https://www.weixingmachinery.com/contact/">
+<link rel="alternate" hreflang="zh-CN" href="https://www.weixingmachinery.com/zh/contact/">
+<link rel="alternate" hreflang="x-default" href="https://www.weixingmachinery.com/contact/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=20260710-contact-geo">
+<link rel="stylesheet" href="../css/contact-rfq.css?v=20260724">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ContactPage","@id":"https://www.weixingmachinery.com/contact/#contactpage","url":"https://www.weixingmachinery.com/contact/","name":"Send Your RFQ and Drawings | Wei Xing Machinery","inLanguage":"en","about":{"@id":"https://www.weixingmachinery.com/#organization"},"mainEntity":{"@id":"https://www.weixingmachinery.com/contact/#faq"}},{"@type":"Organization","@id":"https://www.weixingmachinery.com/#organization","name":"Yuyao Wei Xing Machinery Co., Ltd.","url":"https://www.weixingmachinery.com/","email":"kisaweng@outlook.com","telephone":"+86 188 6871 1458","address":{"@id":"https://www.weixingmachinery.com/contact/#address"},"contactPoint":{"@id":"https://www.weixingmachinery.com/contact/#sales-contact"}},{"@type":"ContactPoint","@id":"https://www.weixingmachinery.com/contact/#sales-contact","contactType":"sales","email":"kisaweng@outlook.com","telephone":"+86 188 6871 1458","availableLanguage":["English","Chinese"]},{"@type":"PostalAddress","@id":"https://www.weixingmachinery.com/contact/#address","streetAddress":"No. 91-1, Wengjiahe West, Wengfang Village, Hemudu Town, Yuyao City, Zhejiang Province, China","addressLocality":"Yuyao City","addressRegion":"Zhejiang Province","addressCountry":"CN"},{"@type":"BreadcrumbList","@id":"https://www.weixingmachinery.com/contact/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.weixingmachinery.com/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://www.weixingmachinery.com/contact/"}]},{"@type":"FAQPage","@id":"https://www.weixingmachinery.com/contact/#faq","mainEntity":[{"@type":"Question","name":"What information should I send for quotation?","acceptedAnswer":{"@type":"Answer","text":"Please send the product category, drawing or sample information, material, estimated quantity, interface or thread standard, application notes, finish, inspection and packaging requirements when available."}},{"@type":"Question","name":"Which drawing formats can I upload?","acceptedAnswer":{"@type":"Answer","text":"You can upload PDF, JPG, PNG, STEP/STP, IGES/IGS, DWG, DXF and ZIP files, up to 5 files with an 8 MB per-file and 12 MB total limit."}},{"@type":"Question","name":"Can you review a physical sample?","acceptedAnswer":{"@type":"Answer","text":"Yes. Sample-based projects can be reviewed after the sample details, application and related requirements are discussed."}},{"@type":"Question","name":"What happens if my files are larger than 12 MB?","acceptedAnswer":{"@type":"Answer","text":"Please include a secure cloud link in the project requirements field, or email the files directly to kisaweng@outlook.com."}}]}]}</script>
 </head>
 <body>
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
-            <div class="top-bar-left"><span>📧 kisaweng@outlook.com</span><span class="divider">|</span><span>📞 +86 188 6871 1458</span></div>
-            <div class="top-bar-right"><a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer" class="whatsapp-link">💬 WhatsApp</a><span class="divider">|</span><a href="../contact/" class="lang-switch active">EN</a><a href="../zh/contact/" class="lang-switch">中文</a></div>
+            <div class="top-bar-left">
+<span>📧 kisaweng@outlook.com</span>
+<span class="divider">|</span>
+<span>📞 +86 188 6871 1458</span>
+</div>
+            <div class="top-bar-right">
+<a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer" class="whatsapp-link">💬 WhatsApp</a>
+<span class="divider">|</span>
+<a href="../contact/" class="lang-switch active">EN</a>
+<a href="../zh/contact/" class="lang-switch">中文</a>
+</div>
         </div>
     </div>
 
@@ -198,47 +41,364 @@
     <header class="header" id="header">
         <div class="container">
             <div class="header-inner">
-                <a href="../" class="logo"><div class="logo-icon"><img src="/assets/images/logo.svg" alt="Wei Xing Machinery logo" width="40" height="40"></div><div class="logo-text"><span class="logo-name">WEI XING</span><span class="logo-sub">MACHINERY</span></div></a>
-                <nav class="main-nav"><a href="../" class="nav-link">Home</a><a href="../products/" class="nav-link">Products</a><a href="../about/" class="nav-link">About Us</a><a href="../quality/" class="nav-link">Quality</a><a href="../contact/" class="nav-link active">Contact</a></nav>
+                <a href="../" class="logo">
+<div class="logo-icon">
+<img src="/assets/images/logo.svg" alt="Wei Xing Machinery logo" width="40" height="40">
+</div>
+<div class="logo-text">
+<span class="logo-name">WEI XING</span>
+<span class="logo-sub">MACHINERY</span>
+</div>
+</a>
+                <nav class="main-nav">
+<a href="../" class="nav-link">Home</a>
+<a href="../products/" class="nav-link">Products</a>
+<a href="../about/" class="nav-link">About Us</a>
+<a href="../quality/" class="nav-link">Quality</a>
+<a href="../contact/" class="nav-link active">Contact</a>
+</nav>
                 <a href="../contact/" class="header-cta">Get a Quote</a>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+<span>
+</span>
+<span>
+</span>
+<span>
+</span>
+</button>
             </div>
         </div>
     </header>
-    <div class="mobile-menu" id="mobileMenu"><nav class="mobile-nav"><a href="../" class="mobile-nav-link">Home</a><a href="../products/" class="mobile-nav-link">Products</a><a href="../about/" class="mobile-nav-link">About Us</a><a href="../quality/" class="mobile-nav-link">Quality</a><a href="../contact/" class="mobile-nav-link active">Contact</a><a href="../contact/" class="mobile-nav-cta">Get a Quote</a></nav></div>
+    <div class="mobile-menu" id="mobileMenu">
+<nav class="mobile-nav">
+<a href="../" class="mobile-nav-link">Home</a>
+<a href="../products/" class="mobile-nav-link">Products</a>
+<a href="../about/" class="mobile-nav-link">About Us</a>
+<a href="../quality/" class="mobile-nav-link">Quality</a>
+<a href="../contact/" class="mobile-nav-link active">Contact</a>
+<a href="../contact/" class="mobile-nav-cta">Get a Quote</a>
+</nav>
+</div>
 
     <!-- Page Hero -->
-    <section class="page-hero"><div class="container"><h1>Contact Wei Xing Machinery</h1><p>Send your drawings, samples and project requirements for hydraulic components or custom CNC machining review.</p></div></section>
-    <section class="contact-section"><div class="container"><div class="contact-grid"><div class="contact-info"><h2>Discuss Your Project</h2><p>Contact us for standard hydraulic fittings, drawing-based parts, sample-based development or custom CNC machining. Providing complete technical information helps us review the project and prepare a more accurate quotation.</p><div class="contact-methods">
-    <div class="contact-method"><div class="contact-method-icon">📧</div><div><h4>Email</h4><p><a href="mailto:kisaweng@outlook.com">kisaweng@outlook.com</a></p></div></div>
-    <div class="contact-method"><div class="contact-method-icon">📞</div><div><h4>Phone</h4><p><a href="tel:+8618868711458">+86 188 6871 1458</a></p></div></div>
-    <div class="contact-method"><div class="contact-method-icon">💬</div><div><h4>WhatsApp</h4><p><a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">+852 6223 5101</a></p></div></div>
-    <div class="contact-method"><div class="contact-method-icon">📍</div><div><h4>Factory Address</h4><p>No. 91-1, Wengjiahe West, Wengfang Village, Hemudu Town, Yuyao City, Zhejiang Province, China</p><p>Please contact us in advance to arrange a factory visit.</p></div></div></div>
-    <div class="contact-note"><h3>Quotation Information</h3><p>For quotation review, please provide product type, drawings or samples, material, quantity, interface requirements and application details where available.</p></div></div>
-    <div class="contact-form"><h3>Request a Quote</h3><form id="quoteForm"><div class="form-row"><div class="form-group"><label for="name">Name *</label><input autocomplete="name" type="text" id="name" name="name" required placeholder="John Smith"></div><div class="form-group"><label for="company">Company *</label><input autocomplete="organization" type="text" id="company" name="company" required placeholder="Your Company Ltd."></div></div><div class="form-row"><div class="form-group"><label for="email">Email *</label><input autocomplete="email" type="email" id="email" name="email" required placeholder="john@company.com"></div><div class="form-group"><label for="phone">Phone / WhatsApp</label><input autocomplete="tel" type="tel" id="phone" name="phone" placeholder="+1 234 567 8900"></div></div><div class="form-row"><div class="form-group"><label for="product">Product Category</label><select id="product" name="product"><option value="">Select a category...</option><option value="ORFS Hydraulic Fittings">ORFS Hydraulic Fittings</option><option value="BSP Hydraulic Adapters">BSP Hydraulic Adapters</option><option value="JIC Flare Fittings">JIC Flare Fittings</option><option value="NPT Pipe Fittings">NPT Pipe Fittings</option><option value="Bulkhead Connectors">Bulkhead Connectors</option><option value="Hydraulic Hose Fittings">Hydraulic Hose Fittings</option><option value="Welded Tube Assemblies">Welded Tube Assemblies</option><option value="Hydraulic Manifold Blocks">Hydraulic Manifold Blocks</option><option value="Hydraulic Cylinder Parts">Hydraulic Cylinder Parts</option><option value="Hydraulic Valve Bodies">Hydraulic Valve Bodies</option><option value="Valve Spools & Pistons">Valve Spools & Pistons</option><option value="Custom CNC Parts">Custom CNC Parts</option><option value="Multiple Categories / Other">Multiple Categories / Other</option></select></div><div class="form-group"><label for="quantity">Estimated Quantity</label><input type="text" id="quantity" name="quantity" placeholder="Prototype, 500 pcs, annual volume..."></div></div><div class="form-group"><label for="material">Material or Surface Treatment</label><input type="text" id="material" name="material" placeholder="Carbon steel, stainless steel, zinc plating..."></div><div class="form-group"><label for="message">Requirements *</label><textarea id="message" name="message" required placeholder="Please include drawing or sample information, material, quantity, thread or interface standard, surface treatment, application and inspection requirements where available."></textarea></div><button type="submit" class="form-submit">Prepare Email Inquiry</button><p class="form-helper">Submitting this form opens a prefilled email in your email application. Please attach drawings or specification files before sending. No form data is transmitted through this website.</p><div class="form-fallback"><a class="btn-accent" href="mailto:kisaweng@outlook.com">Email Us</a><a class="btn-outline" href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></form></div></div></div></section>
-    <section class="contact-section"><div class="container"><h2 class="contact-section-title">Information That Helps Us Review Your RFQ</h2><div class="rfq-info-grid"><div class="rfq-card"><h3>Drawings or Samples</h3><p>Share 2D drawings, 3D models or sample information where available.</p></div><div class="rfq-card"><h3>Product Category</h3><p>Select the closest product category to help route the review.</p></div><div class="rfq-card"><h3>Material Specification</h3><p>Include material grades or equivalent requirements if specified.</p></div><div class="rfq-card"><h3>Estimated Quantity</h3><p>Provide trial, batch or annual quantity estimates when applicable.</p></div><div class="rfq-card"><h3>Thread & Interface</h3><p>List thread, port or connection standards where available.</p></div><div class="rfq-card"><h3>Surface Treatment</h3><p>Specify plating, coating or finish requirements if specified.</p></div><div class="rfq-card"><h3>Application Details</h3><p>Describe working conditions and application details when applicable.</p></div><div class="rfq-card"><h3>Inspection & Packaging Requirements</h3><p>Share inspection, marking or packaging needs if specified.</p></div></div></div></section>
-    <section class="contact-section"><div class="container"><h2 class="contact-section-title">Inquiry Process</h2><div class="inquiry-process-grid"><div class="process-card"><div class="inquiry-step-number">1</div><h3>Submit Project Information</h3><p>Send available project details using the email-preparation form or direct email.</p></div><div class="process-card"><div class="inquiry-step-number">2</div><h3>Requirement Review</h3><p>We review drawings, samples, materials, quantities and application information.</p></div><div class="process-card"><div class="inquiry-step-number">3</div><h3>Technical Clarification</h3><p>Technical details such as interfaces, tolerances and finishes may be clarified before quotation.</p></div><div class="process-card"><div class="inquiry-step-number">4</div><h3>Quotation & Production Planning</h3><p>Quotation and production planning are prepared according to confirmed project information.</p></div></div></div></section>
-    <section class="contact-section"><div class="container"><div class="location-card"><h2>Factory Location</h2><p><strong>Yuyao Wei Xing Machinery Co., Ltd.</strong></p><p>No. 91-1, Wengjiahe West, Wengfang Village, Hemudu Town, Yuyao City, Zhejiang Province, China</p><p>Please contact us in advance to arrange a visit.</p><div class="location-actions"><a class="btn-accent" href="mailto:kisaweng@outlook.com">Email</a><a class="btn-outline" href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">WhatsApp</a><a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=No.%2091-1%2C%20Wengjiahe%20West%2C%20Wengfang%20Village%2C%20Hemudu%20Town%2C%20Yuyao%20City%2C%20Zhejiang%20Province%2C%20China" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></div></div></div></section>
-    <section class="contact-section"><div class="container"><h2 class="contact-section-title">Contact FAQ</h2><div class="contact-faq"><div class="faq-item"><h3>What information should I send for a quotation?</h3><p>Please share the product category, drawings or samples, material, estimated quantity, thread or interface details, surface treatment, application and inspection or packaging requirements where available.</p></div><div class="faq-item"><h3>Can I send drawings or 3D models by email?</h3><p>Yes. You can send drawings, 3D models and technical files by email to kisaweng@outlook.com for project review.</p></div><div class="faq-item"><h3>Can you manufacture parts from physical samples?</h3><p>Sample-based development can be discussed after the physical samples and application requirements are evaluated.</p></div><div class="faq-item"><h3>Which product categories can I inquire about?</h3><p>You can inquire about hydraulic fittings, adapters, welded tube assemblies, manifold blocks, cylinder parts, valve bodies, valve spools, pistons and custom CNC parts.</p></div><div class="faq-item"><h3>Can custom materials, threads and finishes be discussed?</h3><p>Yes. Materials, threads, interface standards and surface treatments can be discussed and confirmed according to the project requirements.</p></div><div class="faq-item"><h3>How can I arrange a factory visit?</h3><p>Please contact us in advance by email, phone or WhatsApp so a factory visit can be arranged.</p></div></div></div></section>
-    <script>
-        document.getElementById('quoteForm').addEventListener('submit', function (event) { event.preventDefault(); if (!this.checkValidity()) { this.reportValidity(); return; } const data = new FormData(this); const get = (name) => (data.get(name) || '').toString().trim(); const subject = `RFQ - ${get('product') || 'Product Inquiry'} - ${get('company')}`; const body = [`Name: ${get('name')}`, `Company: ${get('company')}`, `Email: ${get('email')}`, `Phone or WhatsApp: ${get('phone')}`, `Product Category: ${get('product')}`, `Estimated Quantity: ${get('quantity')}`, `Material or Finish: ${get('material')}`, '', 'Requirements:', get('message')].join('\n'); window.location.href = `mailto:kisaweng@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`; });
-    </script>
-    <!-- Footer -->
+
+<section class="page-hero rfq-hero">
+<div class="container">
+<h1>Send Your RFQ and Drawings</h1>
+<p>Share your drawings, 3D models, sample information and quantity for hydraulic components, welded tube assemblies, valve parts and custom CNC machining review.</p>
+</div>
+</section>
+<section class="contact-section">
+<div class="container">
+<div class="contact-grid">
+<aside class="contact-info">
+<h2>Project Review and Direct Contact</h2>
+<p>We review standard product enquiries, drawing-based parts, sample-based projects and custom manufacturing requirements. Complete technical information helps us evaluate manufacturability and prepare a more accurate quotation.</p>
+<div class="contact-methods">
+<div class="contact-method">
+<div class="contact-method-icon">📧</div>
+<div>
+<h4>Email</h4>
+<p>
+<a href="mailto:kisaweng@outlook.com">kisaweng@outlook.com</a>
+</p>
+</div>
+</div>
+<div class="contact-method">
+<div class="contact-method-icon">📞</div>
+<div>
+<h4>Phone</h4>
+<p>
+<a href="tel:+8618868711458">+86 188 6871 1458</a>
+</p>
+</div>
+</div>
+<div class="contact-method">
+<div class="contact-method-icon">💬</div>
+<div>
+<h4>WhatsApp</h4>
+<p>
+<a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">+852 6223 5101</a>
+</p>
+</div>
+</div>
+<div class="contact-method">
+<div class="contact-method-icon">📍</div>
+<div>
+<h4>Factory Address</h4>
+<p>No. 91-1, Wengjiahe West, Wengfang Village, Hemudu Town, Yuyao City, Zhejiang Province, China</p>
+</div>
+</div>
+</div>
+<div class="contact-note">
+<h3>Before You Submit</h3>
+<p>A complete 2D drawing is usually sufficient for a simple part. For complex machined parts or assemblies, a 2D drawing and STEP model are recommended. Drawings are used only for quotation and manufacturing review.</p>
+</div>
+</aside>
+<div class="contact-form">
+<h2>Request a Manufacturing Quote</h2>
+<form data-rfq-form data-lang="en" action="/contact/submit-rfq.php" method="post" enctype="multipart/form-data">
+<input type="hidden" name="loaded_at" value="">
+<div class="hp-field">
+<label for="website">Website</label>
+<input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+</div>
+<fieldset class="rfq-fieldset">
+<legend>Contact Information</legend>
+<div class="form-row">
+<div class="form-group">
+<label for="name">Name *</label>
+<input id="name" name="name" autocomplete="name" required>
+</div>
+<div class="form-group">
+<label for="company">Company *</label>
+<input id="company" name="company" autocomplete="organization" required>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="email">Email *</label>
+<input type="email" id="email" name="email" autocomplete="email" required>
+</div>
+<div class="form-group">
+<label for="phone">Phone / WhatsApp</label>
+<input id="phone" name="phone" autocomplete="tel">
+</div>
+</div>
+<div class="form-group">
+<label for="country">Country / Region</label>
+<input id="country" name="country" autocomplete="country-name">
+</div>
+</fieldset>
+<fieldset class="rfq-fieldset">
+<legend>Project Details</legend>
+<div class="form-row">
+<div class="form-group">
+<label for="product_category">Product Category *</label>
+<select id="product_category" name="product_category" required>
+<option value="">Select a category...</option>
+<option>ORFS Hydraulic Fittings</option>
+<option>BSP Hydraulic Adapters</option>
+<option>JIC Flare Fittings</option>
+<option>NPT Pipe Fittings</option>
+<option>Bulkhead Connectors</option>
+<option>Hydraulic Hose Fittings</option>
+<option>Welded Tube Assemblies</option>
+<option>Hydraulic Manifold Blocks</option>
+<option>Hydraulic Cylinder Parts</option>
+<option>Hydraulic Valve Bodies</option>
+<option>Valve Spools & Pistons</option>
+<option>Custom CNC Parts</option>
+<option>Multiple Categories / Other</option>
+</select>
+</div>
+<div class="form-group">
+<label for="part_number">Part Name / Drawing Number</label>
+<input id="part_number" name="part_number">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label for="quantity">Estimated Quantity</label>
+<input id="quantity" name="quantity" placeholder="Prototype, 50 pcs, 500 pcs, annual volume...">
+</div>
+<div class="form-group">
+<label for="material">Material / Surface Finish</label>
+<input id="material" name="material">
+</div>
+</div>
+<div class="form-group">
+<label for="requirements">Project Requirements *</label>
+<textarea id="requirements" name="requirements" required placeholder="Please include application, interface or thread standard, critical dimensions, tolerances when available, finish, inspection requirements, packaging requirements and other project notes.">
+</textarea>
+</div>
+</fieldset>
+<fieldset class="rfq-fieldset">
+<legend>Drawings and Technical Files</legend>
+<div class="file-drop-zone" data-drop-zone>
+<p>Drag files here, or use the file picker below.</p>
+<input class="file-input" data-file-input id="files" name="files[]" type="file" multiple accept=".pdf,.jpg,.jpeg,.png,.step,.stp,.iges,.igs,.dwg,.dxf,.zip">
+<p class="file-help">Upload up to 5 files. Accepted formats: PDF, JPG, PNG, STEP/STP, IGES/IGS, DWG, DXF and ZIP. Maximum 8 MB per file and 12 MB total. For larger projects, include a secure cloud link in the requirements field.</p>
+<ul class="selected-files" data-file-list>
+</ul>
+</div>
+<p class="drawing-note">One complete 2D drawing may be enough for a simple part. Complex machined parts usually benefit from a 2D drawing plus a STEP model. Welded or multi-part assemblies may require an assembly drawing and related component information.</p>
+</fieldset>
+<button class="form-submit" data-submit type="submit">Send RFQ & Drawings</button>
+<div class="form-status" data-form-status aria-live="polite">
+</div>
+<div class="form-fallback">
+<a class="btn-accent" href="mailto:kisaweng@outlook.com">Email Drawings</a>
+<a class="btn-outline" href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<section class="contact-section">
+<div class="container">
+<h2 class="contact-section-title">What to Send for Quotation</h2>
+<div class="rfq-info-grid">
+<div class="rfq-card">
+<h3>Drawings and Models</h3>
+<p>Send 2D drawings, STEP models or sample information to define the part and review scope.</p>
+</div>
+<div class="rfq-card">
+<h3>Material and Quantity</h3>
+<p>Share material grades, acceptable alternatives, prototype quantities, batch needs or annual volume.</p>
+</div>
+<div class="rfq-card">
+<h3>Interfaces and Application</h3>
+<p>Include thread, port, connection standards and application conditions for technical review.</p>
+</div>
+<div class="rfq-card">
+<h3>Finish, Inspection and Packaging</h3>
+<p>Note finish, inspection, marking and packaging needs when they are specified.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="contact-section">
+<div class="container">
+<h2 class="contact-section-title">How the RFQ Process Works</h2>
+<div class="inquiry-process-grid">
+<div class="process-card">
+<div class="inquiry-step-number">1</div>
+<h3>Submit RFQ and Files</h3>
+<p>Send project requirements through the online form and upload drawings or technical files when available.</p>
+</div>
+<div class="process-card">
+<div class="inquiry-step-number">2</div>
+<h3>Manufacturing Review and Clarification</h3>
+<p>We review manufacturability and clarify key technical details when more information is needed.</p>
+</div>
+<div class="process-card">
+<div class="inquiry-step-number">3</div>
+<h3>Quotation and Project Confirmation</h3>
+<p>After project details are confirmed, quotation and next project arrangements can be discussed.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="contact-section">
+<div class="container">
+<div class="location-card">
+<h2>Factory Contact and Location</h2>
+<p>
+<strong>Yuyao Wei Xing Machinery Co., Ltd.</strong>
+</p>
+<p>No. 91-1, Wengjiahe West, Wengfang Village, Hemudu Town, Yuyao City, Zhejiang Province, China</p>
+<div class="location-actions">
+<a class="btn-accent" href="mailto:kisaweng@outlook.com">Email</a>
+<a class="btn-outline" href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+<a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E5%9B%BD%E6%B5%99%E6%B1%9F%E7%9C%81%E4%BD%99%E5%A7%9A%E5%B8%82%E6%B2%B3%E5%A7%86%E6%B8%A1%E9%95%87%E7%BF%81%E6%96%B9%E6%9D%91%E7%BF%81%E5%AE%B6%E6%B2%B3%E8%A5%BF91-1%E5%8F%B7" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
+</div>
+</div>
+</div>
+</section>
+<section class="contact-section">
+<div class="container">
+<h2 class="contact-section-title">Compact FAQ</h2>
+<div class="contact-faq">
+<div class="faq-item">
+<h3>What information should I send for quotation?</h3>
+<p>Please send the product category, drawing or sample information, material, estimated quantity, interface or thread standard, application notes, finish, inspection and packaging requirements when available.</p>
+</div>
+<div class="faq-item">
+<h3>Which drawing formats can I upload?</h3>
+<p>You can upload PDF, JPG, PNG, STEP/STP, IGES/IGS, DWG, DXF and ZIP files, up to 5 files with an 8 MB per-file and 12 MB total limit.</p>
+</div>
+<div class="faq-item">
+<h3>Can you review a physical sample?</h3>
+<p>Yes. Sample-based projects can be reviewed after the sample details, application and related requirements are discussed.</p>
+</div>
+<div class="faq-item">
+<h3>What happens if my files are larger than 12 MB?</h3>
+<p>Please include a secure cloud link in the project requirements field, or email the files directly to kisaweng@outlook.com.</p>
+</div>
+</div>
+</div>
+</section>
+<script src="../js/contact-rfq.js?v=20260724">
+</script>
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="../" class="footer-logo"><div class="logo-icon footer-logo-mark" aria-hidden="true"><svg viewBox="98.932 -5.851 800 800" focusable="false"><path d="m 169.132,631.275 37.224,-61.218 41.841,-67.838 c 23.961,-39.81 48.339,-80.027 73.113,-119.43 v 0 c 2.847,-4.468 8.946,-4.468 11.385,0 v 0 c 7.716,12.186 14.212,22.748 21.522,33.311 v 0 c 4.066,5.688 3.659,10.968 0,17.06 v 0 c -39.403,62.153 -78.399,127.961 -117.395,190.519 v 0 c -1.22,2.031 -5.366,6.966 -7.806,7.78 v 0 z" transform="matrix(1.3333333,0,0,-1.3333333,0,1066.6667)"/><path d="m 509.396,621.242 c -8.122,-13.406 -23.554,-38.185 -39.403,-63.371 v 0 l -40.621,65.808 c -2.847,4.875 -8.123,7.719 -13.816,7.719 v 0 h -58.9 L 435.461,503.436 C 428.558,492.47 423.283,483.938 420.436,479.47 v 0 l -92.213,145.429 c -2.44,3.655 -7.258,6.651 -11.72,6.651 v 0 c -15.035,-0.406 -53.281,-0.091 -53.281,-0.091 v 0 c 0,0 123.088,-202.36 149.905,-246.64 v 0 c 5.276,-7.311 9.342,-8.528 14.618,-0.812 v 0 0.812 c 1.627,2.844 3.66,6.095 5.693,8.939 v 0 c 10.968,17.06 21.521,38.185 34.117,57.683 v 0 l 43.061,-67.838 c 2.44,-4.065 6.496,-6.502 10.969,-6.502 v 0 l 57.68,1.22 c 0,0 -38.182,63.777 -54.03,89.369 v 0 l -21.521,37.373 c 0,2.843 0.812,6.091 3.242,9.749 v 0 c 8.937,13.812 71.823,116.83 71.823,116.83 v 0 c 0,0 -39.286,-0.467 -49.521,0 v 0 c -0.514,0.023 -1.021,0.035 -1.517,0.035 v 0 c -8.114,0 -13.755,-3.161 -18.345,-10.435" transform="matrix(1.3333333,0,0,-1.3333333,0,1066.6667)"/></svg></div><div class="logo-text"><span class="logo-name">WEI XING</span><span class="logo-sub">MACHINERY</span></div></a>
+                    <a href="../" class="footer-logo">
+<div class="logo-icon footer-logo-mark" aria-hidden="true">
+<svg viewBox="98.932 -5.851 800 800" focusable="false">
+<path d="m 169.132,631.275 37.224,-61.218 41.841,-67.838 c 23.961,-39.81 48.339,-80.027 73.113,-119.43 v 0 c 2.847,-4.468 8.946,-4.468 11.385,0 v 0 c 7.716,12.186 14.212,22.748 21.522,33.311 v 0 c 4.066,5.688 3.659,10.968 0,17.06 v 0 c -39.403,62.153 -78.399,127.961 -117.395,190.519 v 0 c -1.22,2.031 -5.366,6.966 -7.806,7.78 v 0 z" transform="matrix(1.3333333,0,0,-1.3333333,0,1066.6667)"/>
+<path d="m 509.396,621.242 c -8.122,-13.406 -23.554,-38.185 -39.403,-63.371 v 0 l -40.621,65.808 c -2.847,4.875 -8.123,7.719 -13.816,7.719 v 0 h -58.9 L 435.461,503.436 C 428.558,492.47 423.283,483.938 420.436,479.47 v 0 l -92.213,145.429 c -2.44,3.655 -7.258,6.651 -11.72,6.651 v 0 c -15.035,-0.406 -53.281,-0.091 -53.281,-0.091 v 0 c 0,0 123.088,-202.36 149.905,-246.64 v 0 c 5.276,-7.311 9.342,-8.528 14.618,-0.812 v 0 0.812 c 1.627,2.844 3.66,6.095 5.693,8.939 v 0 c 10.968,17.06 21.521,38.185 34.117,57.683 v 0 l 43.061,-67.838 c 2.44,-4.065 6.496,-6.502 10.969,-6.502 v 0 l 57.68,1.22 c 0,0 -38.182,63.777 -54.03,89.369 v 0 l -21.521,37.373 c 0,2.843 0.812,6.091 3.242,9.749 v 0 c 8.937,13.812 71.823,116.83 71.823,116.83 v 0 c 0,0 -39.286,-0.467 -49.521,0 v 0 c -0.514,0.023 -1.021,0.035 -1.517,0.035 v 0 c -8.114,0 -13.755,-3.161 -18.345,-10.435" transform="matrix(1.3333333,0,0,-1.3333333,0,1066.6667)"/>
+</svg>
+</div>
+<div class="logo-text">
+<span class="logo-name">WEI XING</span>
+<span class="logo-sub">MACHINERY</span>
+</div>
+</a>
                     <p class="footer-about">Professional manufacturer of hydraulic fittings, welding parts, and valve components based in Yuyao City, Zhejiang Province.</p>
                 </div>
-                <div class="footer-col"><h4>Products</h4><ul><li><a href="../products/">Hydraulic Fittings</a></li><li><a href="../products/">Welding Parts</a></li><li><a href="../products/">Valve Components</a></li><li><a href="../products/">Custom CNC</a></li></ul></div>
-                <div class="footer-col"><h4>Company</h4><ul><li><a href="../about/">About Us</a></li><li><a href="../quality/">Quality</a></li><li><a href="../contact/">Contact</a></li></ul></div>
-                <div class="footer-col"><h4>Contact</h4><div class="footer-contact"><p>📍 No. 91-1, Wengjiahe West, Wengfang Village, Hemudu Town, Yuyao City, Zhejiang Province</p><p>📧 kisaweng@outlook.com</p><p>📞 +86 188 6871 1458</p><p>💬 <a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">WhatsApp</a></p></div></div>
+                <div class="footer-col">
+<h4>Products</h4>
+<ul>
+<li>
+<a href="../products/">Hydraulic Fittings</a>
+</li>
+<li>
+<a href="../products/">Welding Parts</a>
+</li>
+<li>
+<a href="../products/">Valve Components</a>
+</li>
+<li>
+<a href="../products/">Custom CNC</a>
+</li>
+</ul>
+</div>
+                <div class="footer-col">
+<h4>Company</h4>
+<ul>
+<li>
+<a href="../about/">About Us</a>
+</li>
+<li>
+<a href="../quality/">Quality</a>
+</li>
+<li>
+<a href="../contact/">Contact</a>
+</li>
+</ul>
+</div>
+                <div class="footer-col">
+<h4>Contact</h4>
+<div class="footer-contact">
+<p>📍 No. 91-1, Wengjiahe West, Wengfang Village, Hemudu Town, Yuyao City, Zhejiang Province</p>
+<p>📧 kisaweng@outlook.com</p>
+<p>📞 +86 188 6871 1458</p>
+<p>💬 <a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</p>
+</div>
+</div>
             </div>
-            <div class="footer-bottom"><div class="footer-bottom-inner"><p>&copy; 2026 Yuyao Wei Xing Machinery Co., Ltd.</p><div class="footer-lang"><a href="../" class="active">English</a><a href="../zh/">中文</a></div></div></div>
+            <div class="footer-bottom">
+<div class="footer-bottom-inner">
+<p>&copy; 2026 Yuyao Wei Xing Machinery Co., Ltd.</p>
+<div class="footer-lang">
+<a href="../" class="active">English</a>
+<a href="../zh/">中文</a>
+</div>
+</div>
+</div>
         </div>
     </footer>
-    <a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-    <script src="../js/main.js?v=20260702-2"></script>
+    <a href="https://wa.me/85262235101" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="WhatsApp">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+</svg>
+</a>
+    <script src="../js/main.js?v=20260702-2">
+</script>
 </body>
 </html>
