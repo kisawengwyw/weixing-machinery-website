@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "images:home": "node scripts/optimize-home-images.mjs"
+  },
+  "devDependencies": {
+    "sharp": "0.34.3"
+  }
+}
