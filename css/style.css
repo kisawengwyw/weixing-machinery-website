@@ -635,7 +635,7 @@ ul { list-style: none; }
     position: relative;
     background-image:
         linear-gradient(rgba(255,255,255,0.84), rgba(255,255,255,0.84)),
-        url('../assets/images/process/process-bg.webp');
+        url('../assets/images/home/process/process-bg-1600.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -974,6 +974,11 @@ ul { list-style: none; }
     .process-step::after { display: none; }
 }
 @media (max-width: 768px) {
+    .process-section {
+        background-image:
+            linear-gradient(rgba(255,255,255,0.84), rgba(255,255,255,0.84)),
+            url('../assets/images/home/process/process-bg-768.webp');
+    }
     .production-process { padding: 56px 0; }
     .process-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .process-step { padding: 24px 20px; }
