@@ -1,0 +1,58 @@
+name: Optimize Homepage Images
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out current branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate optimized images
+        run: npm run images:home
+
+      - name: Report generated image dimensions and sizes
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const sharp = require('sharp');
+          async function walk(dir) {
+            for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+              const file = path.join(dir, entry.name);
+              if (entry.isDirectory()) await walk(file);
+              else {
+                const { width, height } = await sharp(file).metadata();
+                console.log(`${file}: ${width}x${height}, ${(fs.statSync(file).size / 1024).toFixed(1)} KiB`);
+              }
+            }
+          }
+          walk('assets/images/home').catch((error) => { console.error(error); process.exit(1); });
+          NODE
+
+      - name: Commit generated images when changed
+        run: |
+          git status --short
+          git add assets/images/home
+          if git diff --cached --quiet; then
+            echo "No generated image changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Generate optimized homepage images"
+          git push origin HEAD:${GITHUB_REF_NAME}
