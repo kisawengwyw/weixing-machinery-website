@@ -1,0 +1,24 @@
+name: Check Sitewide Footers
+
+on:
+  pull_request:
+    paths:
+      - "**/*.html"
+      - "scripts/check-sitewide-footers.mjs"
+      - "package.json"
+      - ".github/workflows/check-sitewide-footers.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm run check:footers
+      - run: git diff --check
