@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "images:home": "node scripts/optimize-home-images.mjs"
+    "images:home": "node scripts/optimize-home-images.mjs",
+    "images:products": "node scripts/optimize-product-images.mjs"
   },
   "devDependencies": {
     "sharp": "0.34.3"

@@ -1,0 +1,111 @@
+name: Optimize Product Images
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - 'assets/images/products/**'
+      - 'products/**/index.html'
+      - 'zh/products/**/index.html'
+      - 'scripts/optimize-product-images.mjs'
+      - '.github/workflows/optimize-product-images.yml'
+      - 'package.json'
+      - 'package-lock.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: optimize-product-images-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  optimize:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (
+        github.event.pull_request.head.repo.full_name == github.repository &&
+        github.actor != 'github-actions[bot]'
+      )
+    runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: ${{ github.head_ref || github.ref_name }}
+    steps:
+      - name: Check out the current branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate responsive product images and report
+        run: |
+          npm run images:products
+          find assets/images/products -type f -name '*-w*.webp' -print0 | sort -z | xargs -0 sha256sum > /tmp/product-images-first.sha256
+
+      - name: Output generated image dimensions and sizes
+        run: |
+          node --input-type=module <<'NODE'
+          import { readdir, stat } from 'node:fs/promises';
+          import sharp from 'sharp';
+          const files = (await readdir('assets/images/products', { recursive: true }))
+            .filter((file) => /-w\d+\.webp$/.test(file)).sort();
+          for (const file of files) {
+            const path = `assets/images/products/${file}`;
+            const metadata = await sharp(path).metadata();
+            console.log(`${path}: ${metadata.width}x${metadata.height}, ${(await stat(path)).size} bytes`);
+          }
+          NODE
+
+      - name: Validate images and HTML
+        run: |
+          npm run images:products
+          find assets/images/products -type f -name '*-w*.webp' -print0 | sort -z | xargs -0 sha256sum > /tmp/product-images-second.sha256
+          cmp /tmp/product-images-first.sha256 /tmp/product-images-second.sha256
+          git diff --check
+          ! find assets/images/products -type f -size 0 -print -quit | grep .
+          ! find assets/images/products -type f -name '*-w*-w*.webp' -print -quit | grep .
+          node --input-type=module <<'NODE'
+          import { execFileSync } from 'node:child_process';
+          import { readFile, readdir } from 'node:fs/promises';
+          const files = (await readdir('products', { recursive: true })).filter((file) => /index\.html$/.test(file)).map((file) => `products/${file}`)
+            .concat((await readdir('zh/products', { recursive: true })).filter((file) => /index\.html$/.test(file)).map((file) => `zh/products/${file}`))
+            .filter((file) => file.split('/').length === (file.startsWith('zh/') ? 4 : 3));
+          if (files.length !== 24) throw new Error(`Expected 24 product pages, found ${files.length}`);
+          const gallery = (html) => html.match(/<div class="product-gallery">([\s\S]*?)<div class="gallery-dots">/)?.[1] ?? '';
+          const alts = (html) => [...gallery(html).matchAll(/<img\b[^>]*\balt="([^"]*)"/g)].map((match) => match[1]);
+          for (const file of files) {
+            const current = await readFile(file, 'utf8');
+            const original = execFileSync('git', ['show', `origin/master:${file}`], { encoding: 'utf8' });
+            if (alts(current).length !== 5) throw new Error(`${file}: expected five gallery images`);
+            if (JSON.stringify(alts(current)) !== JSON.stringify(alts(original))) throw new Error(`${file}: gallery Alt text changed`);
+          }
+          console.log('Validated five gallery images and unchanged Alt text on 24 pages.');
+          NODE
+
+      - name: Show working tree
+        run: git status --short
+
+      - name: Commit generated files to the current PR branch
+        run: |
+          git add 'assets/images/products/**/*-w*.webp' 'products/**/index.html' 'zh/products/**/index.html' docs/product-image-optimization-report.md package-lock.json
+          if git diff --cached --quiet; then
+            echo 'No generated product image changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore: refresh responsive product images [skip ci]'
+          git push origin "HEAD:${TARGET_BRANCH}"
