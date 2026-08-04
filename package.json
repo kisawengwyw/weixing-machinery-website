@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "images:home": "node scripts/optimize-home-images.mjs",
-    "images:products": "node scripts/optimize-product-images.mjs"
+    "images:products": "node scripts/optimize-product-images.mjs",
+    "check:footers": "node scripts/check-sitewide-footers.mjs"
   },
   "devDependencies": {
     "sharp": "0.34.3"
