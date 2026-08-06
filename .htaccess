@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Canonicalize the apex domain to the HTTPS www origin.
+RewriteCond %{HTTP_HOST} ^weixingmachinery\.com$ [NC]
+RewriteRule ^ https://www.weixingmachinery.com%{REQUEST_URI} [R=301,L,NE]
+
+# Serve the branded repository page for all missing URLs.
+ErrorDocument 404 /404.html

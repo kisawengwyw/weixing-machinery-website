@@ -8,6 +8,7 @@ on:
       - "**/*.php"
       - "assets/**"
       - "favicon.ico"
+      - ".htaccess"
       - "favicon.svg"
       - "apple-touch-icon.png"
       - "**/*.webp"
@@ -24,10 +25,14 @@ on:
       - "scripts/test-site-link-checker.mjs"
       - "scripts/check-production-site.mjs"
       - "scripts/test-production-health-check.mjs"
+      - "scripts/generate-site-icons.mjs"
+      - "scripts/test-hosting-config.mjs"
       - "docs/production-health-check.md"
+      - "docs/hostinger-routing-and-icons.md"
       - "package.json"
       - ".github/workflows/check-site-links.yml"
       - ".github/workflows/check-production-site.yml"
+      - ".github/workflows/optimize-home-images.yml"
   workflow_dispatch:
 permissions:
   contents: read
@@ -39,8 +44,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - run: npm ci
       - run: npm run test:links-checker
       - run: npm run test:production-checker
+      - run: npm run test:hosting-config
+      - run: npm run check:icons
       - run: npm run check:links
       - run: npm run check:footers
       - run: git diff --check

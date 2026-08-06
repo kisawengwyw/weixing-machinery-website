@@ -14,8 +14,9 @@ permissions:
 jobs:
   optimize:
     if: >-
-      github.event_name == 'workflow_dispatch' ||
-      github.event.pull_request.head.repo.full_name == github.repository
+      github.actor != 'github-actions[bot]' &&
+      (github.event_name == 'workflow_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
     env:
       TARGET_BRANCH: ${{ github.head_ref || github.ref_name }}
@@ -40,7 +41,9 @@ jobs:
           fi
 
       - name: Generate optimized images
-        run: npm run images:home
+        run: |
+          npm run images:home
+          npm run images:icons
 
       - name: Report generated image dimensions and sizes
         run: |
@@ -61,15 +64,28 @@ jobs:
           walk('assets/images/home').catch((error) => { console.error(error); process.exit(1); });
           NODE
 
+      - name: Verify site icons
+        run: |
+          npm run check:icons
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const sharp = require('sharp');
+          Promise.all([sharp('favicon.svg').metadata(), sharp('apple-touch-icon.png').metadata()])
+            .then(([, icon]) => {
+              if (icon.format !== 'png' || icon.width !== 180 || icon.height !== 180 || fs.statSync('apple-touch-icon.png').size === 0) process.exit(1);
+            })
+            .catch((error) => { console.error(error); process.exit(1); });
+          NODE
+
       - name: Commit generated images when changed
         run: |
           git status --short
-          git add assets/images/home package-lock.json
+          git add assets/images/home apple-touch-icon.png package-lock.json
           if git diff --cached --quiet; then
-            echo "No generated image changes to commit."
+            echo "No generated homepage or site icon changes to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Generate optimized homepage images"
+          git commit -m "Generate homepage and site icon assets"
           git push origin HEAD:${TARGET_BRANCH}
