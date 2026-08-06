@@ -22,6 +22,9 @@ on:
       - "robots.txt"
       - "scripts/check-site-links.mjs"
       - "scripts/test-site-link-checker.mjs"
+      - "scripts/check-production-site.mjs"
+      - "scripts/test-production-health-check.mjs"
+      - "docs/production-health-check.md"
       - "package.json"
       - ".github/workflows/check-site-links.yml"
   workflow_dispatch:
@@ -36,6 +39,7 @@ jobs:
         with:
           node-version: 22
       - run: npm run test:links-checker
+      - run: npm run test:production-checker
       - run: npm run check:links
       - run: npm run check:footers
       - run: git diff --check
