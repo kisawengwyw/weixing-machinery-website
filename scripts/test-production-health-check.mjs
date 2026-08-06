@@ -78,7 +78,13 @@ try {
   await test('sitemap GET 429 only warns', async () => { const audit = new HealthAudit({ origin, fetch: async () => new Response('limited', { status: 429 }) }); const result = await audit.sitemap(); assert.equal(audit.errors.length, 0); assert.equal(audit.warnings.filter((item) => item.type === 'unverified').length, 1); assert.equal(result.unverified, true); });
   await test('404 GET 429 only warns', async () => { const audit = new HealthAudit({ origin, fetch: async () => new Response('limited', { status: 429 }) }); await audit.missing(origin + '/missing'); assert.equal(audit.errors.length, 0); assert.equal(audit.warnings.filter((item) => item.type === 'unverified').length, 1); });
   await test('redirect GET 429 only warns', async () => { const audit = new HealthAudit({ origin, fetch: async () => new Response('limited', { status: 429 }) }); await audit.redirect(origin + '/start', origin + '/'); assert.equal(audit.errors.length, 0); assert.equal(audit.warnings.filter((item) => item.type === 'unverified').length, 1); });
-  await test('resource 404 reports status', async () => { const audit = await pageAudit('/resource-404-page/'); await audit.checkResource([...audit.resources][0]); has(audit, 'resource-status'); });
+  await test('resource 404 reports only status', async () => {
+    const audit = await pageAudit('/resource-404-page/');
+    await audit.checkResource([...audit.resources][0]);
+    has(audit, 'resource-status');
+    assert.equal(audit.errors.filter(({ type }) => ['resource-status', 'resource-html', 'resource-content-type'].includes(type)).length, 1);
+    assert.equal(audit.errors.some(({ type }) => type === 'resource-html' || type === 'resource-content-type'), false);
+  });
   await test('resource HTML reports HTML error', async () => { const audit = await pageAudit('/html-resource-page/'); await audit.checkResource([...audit.resources][0]); has(audit, 'resource-html'); });
   await test('PNG text/plain MIME fails', async () => { const audit = new HealthAudit({ origin }); await audit.checkResource(origin + '/wrong.png'); has(audit, 'resource-content-type'); });
   await test('CSS image/png MIME fails', async () => { const audit = new HealthAudit({ origin }); await audit.checkResource(origin + '/wrong.css'); has(audit, 'resource-content-type'); });

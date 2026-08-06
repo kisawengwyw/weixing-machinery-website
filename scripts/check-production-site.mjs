@@ -181,7 +181,11 @@ export class HealthAudit {
       } catch (error) { this.add('ERROR', error.code === 'CROSS_ORIGIN_REDIRECT' ? 'cross-origin-redirect' : 'resource-network', 'HTML', url.href, response, `GET fallback failed: ${error.message}`); return; }
     }
     if (response.status === 403 || response.status === 429) return;
-    if (response.status !== 200) this.add('ERROR', 'resource-status', 'HTML', url.href, response, 'Expected HTTP 200');
+    if (response.status !== 200) {
+      this.add('ERROR', 'resource-status', 'HTML', url.href, response, 'Expected HTTP 200');
+      this.counts.resources++;
+      return;
+    }
     if (/text\/html/i.test(type)) this.add('ERROR', 'resource-html', 'HTML', url.href, response, 'Static resource returned HTML');
     else if (bodyBytes && /^\s*(?:<!doctype\s+html|<html\b)/i.test(new TextDecoder().decode(bodyBytes.slice(0, 512)))) this.add('ERROR', 'resource-html', 'HTML', url.href, response, 'Static resource body contains HTML');
     if (!length) this.add('ERROR', 'resource-empty', 'HTML', url.href, response, 'Static resource is empty');
