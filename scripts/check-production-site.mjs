@@ -34,6 +34,9 @@ export function safeNormalized(raw, base) {
   if (!url.search && !url.pathname.endsWith('/') && !url.pathname.split('/').pop().includes('.')) url.pathname += '/';
   return url.href;
 }
+function crossOriginError(from, to) {
+  const error = new Error(`Redirect from ${from} to forbidden production origin ${to}`); error.code = 'CROSS_ORIGIN_REDIRECT'; return error;
+}
 
 export class HealthAudit {
   constructor(options = {}) {
@@ -46,6 +49,18 @@ export class HealthAudit {
   }
   add(level, type, source, url, response, detail) { (level === 'ERROR' ? this.errors : this.warnings).push(issue(level, type, source, url, response, detail)); }
   async request(url, { method = 'GET', redirects = true } = {}) {
+    if (redirects && this.origin === PRODUCTION_ORIGIN) {
+      let current = url;
+      for (let redirectsSeen = 0; redirectsSeen <= 5; redirectsSeen++) {
+        const response = await this.request(current, { method, redirects: false });
+        const location = response.headers.get('location');
+        if (!(response.status >= 300 && response.status < 400 && location)) return response;
+        const next = safeUrl(location, current);
+        if (!next || next.protocol !== 'https:' || next.origin !== PRODUCTION_ORIGIN || next.username || next.password) throw crossOriginError(current, location);
+        current = next.href;
+      }
+      throw new Error(`Redirect chain for ${url} exceeds 5 redirects`);
+    }
     let last;
     for (let attempt = 0; attempt < 3; attempt++) {
       try {
@@ -70,6 +85,7 @@ export class HealthAudit {
       try { response = await this.request(parsed.href, { redirects: false }); }
       catch (error) { this.add('ERROR', 'redirect-network', start, parsed.href, null, error.message); return; }
       const location = response.headers.get('location'); chain.push({ url: parsed.href, status: response.status, location });
+      if (response.status === 403 || response.status === 429) { this.counts.redirects++; return; }
       if (!(response.status >= 300 && response.status < 400 && location)) {
         this.counts.redirects++;
         if (safeNormalized(parsed.href) !== safeNormalized(expected)) this.add('ERROR', 'redirect-target', start, parsed.href, response, `Expected ${expected}; chain ${JSON.stringify(chain)}`);
@@ -103,9 +119,14 @@ export class HealthAudit {
       else if (actual !== safeNormalized(expected)) this.add('ERROR', 'hreflang-target', url, raw, page.response, `Expected ${expected}`);
     }
   }
+  checkSitemapKeyPages(result, keyPages) {
+    if (result.unverified || !result.formatValid) return;
+    const sitemapSet = new Set(result.validUrls.map((url) => safeNormalized(url)));
+    for (const keyPage of keyPages) if (!sitemapSet.has(safeNormalized(keyPage))) this.add('ERROR', 'sitemap-missing-key-page', 'sitemap', keyPage, null, 'Required key page is missing from sitemap');
+  }
   async checkPage(url, source = 'sitemap', expectedText) {
     let response;
-    try { response = await this.request(url); } catch (error) { this.add('ERROR', 'page-network', source, url, null, error.message); return; }
+    try { response = await this.request(url); } catch (error) { this.add('ERROR', error.code === 'CROSS_ORIGIN_REDIRECT' ? 'cross-origin-redirect' : 'page-network', source, url, null, error.message); return; }
     let html; try { html = await response.text(); } catch (error) { this.add('ERROR', 'page-network', source, url, response, `Could not read body: ${error.message}`); return; }
     const contentType = response.headers.get('content-type') || '';
     if (response.status === 403 || response.status === 429) return;
@@ -149,7 +170,7 @@ export class HealthAudit {
     if (!url) { this.add('ERROR', 'invalid-resource-url', 'HTML', raw, null, 'Resource URL is malformed'); return; }
     let response;
     try { response = await this.request(url.href, { method: 'HEAD' }); }
-    catch (error) { this.add('ERROR', 'resource-network', 'HTML', url.href, null, error.message); return; }
+    catch (error) { this.add('ERROR', error.code === 'CROSS_ORIGIN_REDIRECT' ? 'cross-origin-redirect' : 'resource-network', 'HTML', url.href, null, error.message); return; }
     if (response.status === 403 || response.status === 429) return;
     let type = (response.headers.get('content-type') || '').split(';')[0].trim(); let bodyBytes;
     let lengthHeader = response.headers.get('content-length'); let length = lengthHeader === null ? NaN : Number(lengthHeader);
@@ -157,7 +178,7 @@ export class HealthAudit {
       try {
         response = await this.request(url.href); type = (response.headers.get('content-type') || '').split(';')[0].trim();
         bodyBytes = new Uint8Array(await response.arrayBuffer()); length = bodyBytes.byteLength;
-      } catch (error) { this.add('ERROR', 'resource-network', 'HTML', url.href, response, `GET fallback failed: ${error.message}`); return; }
+      } catch (error) { this.add('ERROR', error.code === 'CROSS_ORIGIN_REDIRECT' ? 'cross-origin-redirect' : 'resource-network', 'HTML', url.href, response, `GET fallback failed: ${error.message}`); return; }
     }
     if (response.status === 403 || response.status === 429) return;
     if (response.status !== 200) this.add('ERROR', 'resource-status', 'HTML', url.href, response, 'Expected HTTP 200');
@@ -176,8 +197,9 @@ export class HealthAudit {
   }
   async sitemap() {
     const sitemapUrl = `${this.origin}/sitemap.xml`; let response;
-    try { response = await this.request(sitemapUrl); } catch (error) { this.add('ERROR', 'sitemap-network', 'sitemap', sitemapUrl, null, error.message); return { validUrls: [], allLocs: [] }; }
-    let xml; try { xml = await response.text(); } catch (error) { this.add('ERROR', 'sitemap-network', 'sitemap', sitemapUrl, response, error.message); return { validUrls: [], allLocs: [] }; }
+    try { response = await this.request(sitemapUrl); } catch (error) { this.add('ERROR', error.code === 'CROSS_ORIGIN_REDIRECT' ? 'cross-origin-redirect' : 'sitemap-network', 'sitemap', sitemapUrl, null, error.message); return { validUrls: [], allLocs: [], unverified: false, formatValid: false }; }
+    if (response.status === 403 || response.status === 429) return { validUrls: [], allLocs: [], unverified: true, formatValid: false };
+    let xml; try { xml = await response.text(); } catch (error) { this.add('ERROR', 'sitemap-network', 'sitemap', sitemapUrl, response, error.message); return { validUrls: [], allLocs: [], unverified: false, formatValid: false }; }
     if (response.status !== 200) this.add('ERROR', 'sitemap-status', 'sitemap', sitemapUrl, response, 'Expected HTTP 200');
     const type = (response.headers.get('content-type') || '').toLowerCase();
     const hasUrlset = /^\s*(?:<\?xml\b[^?]*\?>\s*)?<urlset\b[^>]*>[\s\S]*<\/urlset\s*>\s*$/i.test(xml);
@@ -189,10 +211,12 @@ export class HealthAudit {
     if (!xml.trim()) this.add('ERROR', 'sitemap-empty', 'sitemap', sitemapUrl, response, 'Sitemap body is empty');
     if (!hasUrlset) this.add('ERROR', 'sitemap-urlset', 'sitemap', sitemapUrl, response, 'Missing valid urlset root element');
     for (const pattern of BAD_BODY) if (pattern.test(xml)) this.add('ERROR', 'sitemap-error-body', 'sitemap', sitemapUrl, response, `Matched ${pattern}`);
-    const allLocs = [...xml.matchAll(/<loc(?:\s[^>]*)?>\s*([^<]*)\s*<\/loc>/gi)].map((match) => match[1].replace(/&amp;/g, '&').trim()).filter(Boolean);
-    if (!allLocs.length) this.add('ERROR', 'sitemap-loc', 'sitemap', sitemapUrl, response, 'Sitemap must contain at least one non-empty loc');
+    const allLocs = [...xml.matchAll(/<loc(?:\s[^>]*)?>\s*([^<]*)\s*<\/loc>/gi)].map((match) => match[1].replace(/&amp;/g, '&').trim());
+    if (allLocs.some((loc) => !loc)) this.add('ERROR', 'empty-sitemap-loc', 'sitemap', sitemapUrl, response, 'Sitemap contains an empty loc');
+    if (!allLocs.some(Boolean)) this.add('ERROR', 'sitemap-loc', 'sitemap', sitemapUrl, response, 'Sitemap must contain at least one non-empty loc');
     const validUrls = []; const seen = new Map();
     for (const raw of allLocs) {
+      if (!raw) continue;
       const url = safeUrl(raw); let valid = true;
       if (!url) { this.add('ERROR', 'invalid-sitemap-url', 'sitemap', raw, response, 'loc is not a parseable URL'); continue; }
       const key = safeNormalized(url.href);
@@ -202,11 +226,13 @@ export class HealthAudit {
       }
       if (valid) validUrls.push(url.href);
     }
-    this.counts.sitemap = allLocs.length; return { validUrls, allLocs };
+    const formatValid = response.status === 200 && hasUrlset && allLocs.some(Boolean) && !/text\/html/i.test(type) && (/^(?:application|text)\/xml(?:\s*;|$)/i.test(type) || /^application\/octet-stream(?:\s*;|$)/i.test(type));
+    this.counts.sitemap = allLocs.length; return { validUrls, allLocs, unverified: false, formatValid };
   }
   async missing(raw) {
     const url = safeUrl(raw); if (!url) { this.add('ERROR', 'invalid-404-url', '404 audit', raw, null, '404 test URL is malformed'); return; }
-    let response; try { response = await this.request(url.href); } catch (error) { this.add('ERROR', '404-network', '404 audit', url.href, null, error.message); return; }
+    let response; try { response = await this.request(url.href); } catch (error) { this.add('ERROR', error.code === 'CROSS_ORIGIN_REDIRECT' ? 'cross-origin-redirect' : '404-network', '404 audit', url.href, null, error.message); return; }
+    if (response.status === 403 || response.status === 429) return;
     let html; try { html = await response.text(); } catch (error) { this.add('ERROR', '404-network', '404 audit', url.href, response, error.message); return; }
     const custom = /page not found|页面未找到|>\s*404\s*</i.test(html);
     if (response.status === 200 && custom) this.add('WARNING', 'soft-404', '404 audit', url.href, response, 'Custom 404 body returned HTTP 200; configure a real 404 status');
@@ -225,7 +251,8 @@ export class HealthAudit {
   async endpoint(raw) {
     const url = safeUrl(raw); if (!url) { this.add('ERROR', 'invalid-form-endpoint-url', 'contact form', raw, null, 'Endpoint URL is malformed'); return; }
     let response; try { response = await this.request(url.href, { method: 'HEAD' }); }
-    catch (error) { this.add('WARNING', 'form-endpoint-network', 'contact form', url.href, null, error.message); return; }
+    catch (error) { this.add(error.code === 'CROSS_ORIGIN_REDIRECT' ? 'ERROR' : 'WARNING', error.code === 'CROSS_ORIGIN_REDIRECT' ? 'cross-origin-redirect' : 'form-endpoint-network', 'contact form', url.href, null, error.message); return; }
+    if (response.status === 403 || response.status === 429) return;
     if (response.status === 404) this.add('ERROR', 'form-endpoint', 'contact form', url.href, response, 'Endpoint returned 404');
     else if (![200, 204, 405, 403, 429].includes(response.status)) this.add('WARNING', 'form-endpoint', 'contact form', url.href, response, 'Endpoint existence is uncertain');
     this.counts.forms++;
@@ -242,15 +269,16 @@ async function pool(items, limit, fn, audit, type = 'audit-task') {
 export async function runAudit(options = {}) {
   const audit = new HealthAudit(options); const started = Date.now(); const single = options.url;
   if (!single) for (const start of ['http://weixingmachinery.com/', 'http://www.weixingmachinery.com/', 'https://weixingmachinery.com/', `${audit.origin}/`]) await audit.redirect(start);
-  const sitemapResult = single ? { validUrls: [], allLocs: [] } : await audit.sitemap(); const sitemapUrls = sitemapResult.validUrls;
+  const sitemapResult = single ? { validUrls: [], allLocs: [], unverified: false, formatValid: false } : await audit.sitemap(); const sitemapUrls = sitemapResult.validUrls;
   const keys = new Map([
     [`${audit.origin}/`, ['hydraulic', '液压']], [`${audit.origin}/zh/`, ['液压']], [`${audit.origin}/products/`, ['products', '产品']], [`${audit.origin}/zh/products/`, ['产品']],
     [`${audit.origin}/contact/`, ['contact']], [`${audit.origin}/zh/contact/`, ['联系']], [`${audit.origin}/products/orfs-hydraulic-fittings/`, ['orfs']], [`${audit.origin}/zh/products/orfs-hydraulic-fittings/`, ['orfs']],
     [`${audit.origin}/products/custom-cnc-parts/`, ['cnc']], [`${audit.origin}/zh/products/custom-cnc-parts/`, ['cnc']],
   ]);
+  if (!single) audit.checkSitemapKeyPages(sitemapResult, keys.keys());
   const pageUrls = single ? [single] : [...new Set([...sitemapUrls, ...keys.keys()])];
   await pool(pageUrls, 5, (url) => audit.checkPage(url, sitemapUrls.includes(url) ? 'sitemap' : 'key page', keys.get(url)), audit, 'page-task');
-  if (!single) {
+  if (!single && !sitemapResult.unverified) {
     const set = new Set(sitemapUrls.map((url) => safeNormalized(url)));
     for (const url of sitemapUrls) {
       const parsedUrl = safeUrl(url); if (!parsedUrl) continue; const chinese = parsedUrl.pathname === '/zh/' || parsedUrl.pathname.startsWith('/zh/');
@@ -258,6 +286,8 @@ export async function runAudit(options = {}) {
       if (!set.has(safeNormalized(counterpart))) audit.add('ERROR', 'language-pair', 'sitemap', url, audit.pages.get(url)?.response, `Missing sitemap counterpart ${counterpart}`); else audit.counts.pairs += chinese ? 0 : 1;
       const page = audit.pages.get(url); if (page) audit.validateLanguageTargets(url, page, chinese ? counterpart : url, chinese ? url : counterpart);
     }
+  }
+  if (!single) {
     for (const resource of ['/favicon.ico', '/favicon.svg', '/apple-touch-icon.png', '/css/style.css', '/js/main.js', '/assets/images/logo.svg']) audit.resources.add(audit.origin + resource);
     await pool(['/health-check-missing-page/', '/a/b/health-check-missing/', '/zh/a/b/health-check-missing/'].map((path) => audit.origin + path), 3, (url) => audit.missing(url), audit, '404-task');
   }

@@ -6,6 +6,8 @@ The production health check is a read-only audit of `https://www.weixingmachiner
 
 The audit recognizes common Hostinger, PHP, gateway, and GitHub Pages error bodies rather than trusting an HTTP 200 response alone. Sitemap page and unique-resource totals are reported at the end of every run.
 
+When the sitemap is successfully verified, every required key page must also be listed in it. If the sitemap request is blocked, the checker still audits the hard-coded key pages. A final `403` or `429` response produces only an **unverified** warning for that item, rather than deterministic follow-on errors. All production pages, resources, 404 probes, and form endpoints must remain on the canonical HTTPS `www` origin throughout redirects.
+
 ## Safety guarantees
 
 The checker only makes `GET` and `HEAD` requests. It does **not** execute JavaScript, carry cookies, submit RFQ forms, send email, upload files, invoke WhatsApp, read SMTP configuration, use secrets, or change production. Form endpoints are probed without query parameters or form data; no `POST` request exists in the checker. It writes no report or generated file to the repository.
@@ -28,7 +30,7 @@ npm run test:production-checker
 
 ## GitHub Actions
 
-The production audit runs automatically every Monday at 02:20 UTC. After a Hostinger deployment has completed, open **Actions**, choose **Check Production Website**, and select **Run workflow** to run it on demand. Pull requests run only the local fixture test through the existing site-check workflow; they do not contact production.
+The production audit runs automatically every Monday at 02:20 UTC. After a Hostinger deployment has completed, open **Actions**, choose **Check Production Website**, and select **Run workflow** to run it on demand. The workflow has a 30-minute timeout. Pull requests run only the local fixture test through the existing site-check workflow; they do not contact production.
 
 ## Reading results
 

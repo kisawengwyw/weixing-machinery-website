@@ -27,6 +27,7 @@ on:
       - "docs/production-health-check.md"
       - "package.json"
       - ".github/workflows/check-site-links.yml"
+      - ".github/workflows/check-production-site.yml"
   workflow_dispatch:
 permissions:
   contents: read
