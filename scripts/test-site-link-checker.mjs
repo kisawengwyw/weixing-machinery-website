@@ -24,11 +24,15 @@ const cases=[
  ['javascript link','javascript URL',r=>edit(r,'index.html',s=>s.replace('</body>','<a href="javascript:void(0)">bad</a></body>'))],
  ['unsafe target blank','unsafe target blank',r=>edit(r,'index.html',s=>s.replace('</body>','<a href="https://example.com" target="_blank">x</a></body>'))],
  ['self-only orphan','orphan page',r=>{mkdirSync(path.join(r,'solo'));mkdirSync(path.join(r,'zh/solo'));const solo=page().replaceAll(`${PROD}/`,`${PROD}/solo/`).replace('href="zh/"','href="./"').replace('href="zh/">pair','href="./">self');writeFileSync(path.join(r,'solo/index.html'),solo);writeFileSync(path.join(r,'zh/solo/index.html'),page('zh-CN'));edit(r,'sitemap.xml',s=>s.replace('</urlset>',`<url><loc>${PROD}/solo/</loc></url><url><loc>${PROD}/zh/solo/</loc></url></urlset>`));}],
- ['404 preview root escape','404 preview escape',r=>edit(r,'404.html',s=>s.replace(`${PROD}/favicon.ico`,'/favicon.ico'))],
- ['404 nested relative resource','404 simulation',r=>edit(r,'404.html',s=>s.replace(`${PROD}/favicon.ico`,'../../favicon.ico'))],
+ ['404 preview favicon','404 non-production origin',r=>edit(r,'404.html',s=>s.replace(`${PROD}/favicon.ico`,'https://sundaylee3100-ljl.github.io/weixing-machinery-website/favicon.ico'))],
+ ['404 external Home','404 non-production origin',r=>edit(r,'404.html',s=>s.replace(`${PROD}/">Home`,'https://example.com/">Home'))],
+ ['404 lookalike origin','404 non-production origin',r=>edit(r,'404.html',s=>s.replace(`${PROD}/">Home`,'https://www.weixingmachinery.com.evil.example/">Home'))],
+ ['404 HTTP production origin','404 insecure protocol',r=>edit(r,'404.html',s=>s.replace(`${PROD}/">Home`,'http://www.weixingmachinery.com/">Home'))],
+ ['404 root-relative URL','404 relative URL',r=>edit(r,'404.html',s=>s.replace(`${PROD}/favicon.ico`,'/favicon.ico'))],
+ ['404 nested relative resource','404 relative URL',r=>edit(r,'404.html',s=>s.replace(`${PROD}/favicon.ico`,'../../favicon.ico'))],
  ['malformed percent survives','malformed encoding',r=>edit(r,'index.html',s=>s.replace('</body>','<a href="%E0%A4%A">bad</a></body>'))]
 ];
 for(const [name,kind,fn] of cases){const result=mutate(fn);assert.ok(result.errors.length>0,`${name} fixture must fail`);assert.ok(has(result,kind),`${name} should report ${kind}; got ${result.errors.map(e=>e.kind)}`);console.log(`PASS mutation: ${name}`);}
 const dynamic=auditSite(base());assert.equal(dynamic.stats.jsStatic,0);assert.ok(dynamic.runtime.some(x=>x.expression==='form.action'&&/HTML form action/.test(x.covered)));console.log('PASS mutation: dynamic fetch is a runtime dependency');
-const good=auditSite(base());assert.equal(good.errors.length,0,good.errors.map(e=>`${e.kind}: ${e.detail}`).join('\n'));console.log('PASS fixture: correct site');
+const good=auditSite(base());assert.equal(good.errors.length,0,good.errors.map(e=>`${e.kind}: ${e.detail}`).join('\n'));assert.deepEqual(good.simulations,[`${PROD}/missing/`,`${PROD}/a/b/missing/`,`${PROD}/products/a/b/missing/`,`${PROD}/zh/a/b/missing/`,'https://sundaylee3100-ljl.github.io/weixing-machinery-website/missing/','https://sundaylee3100-ljl.github.io/weixing-machinery-website/a/b/missing/']);console.log('PASS fixture: correct site');
 console.log(`All ${cases.length+2} site-link checker tests passed.`);

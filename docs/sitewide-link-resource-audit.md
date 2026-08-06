@@ -98,7 +98,7 @@ The checker rejects duplicate locations, non-production origins, missing canonic
 
 ## 404 Validation
 
-The checker applies `new URL(rawUrl, simulatedPageUrl)` to link, script, image, source/srcset, anchor, form, poster, object, favicon, stylesheet, logo, navigation, CTA, body-button, and Footer URL attributes. Relative or root-relative 404 references fail; stable production-domain absolute URLs pass.
+The checker actually executes all six deployment contexts below. For every `href`, `src`, `srcset`, `action`, `poster`, and `data` value in `404.html`, it calls `new URL(rawUrl, simulatedPageUrl)` in each context and verifies that the result does not change with deployment depth. It also requires the resolved URL to use HTTPS and compares its parsed `origin` exactly with `https://www.weixingmachinery.com`. Relative and root-relative references fail, and GitHub Pages is permitted only as a simulation context—never as a 404 internal target. The sole external exception is `https://wa.me/85262235101`, whose blank-target security attributes are checked separately.
 
 | Simulated URL | URL construction | Project-path escape | Required target stability | Result |
 | --- | --- | --- | --- | --- |
@@ -122,7 +122,7 @@ External HTTP validation was not executed. The deterministic scan checks `target
 
 ## Checker Mutation Tests
 
-Twenty standard-library tests include 18 failing mutations plus dynamic-runtime and fully valid fixtures. They prove detection of missing pages/assets, fragments, duplicate IDs, hreflang/canonical errors, sitemap parity, robots blocking, 404 links, invalid `/zh/assets/`, JavaScript links, unsafe blank targets, self-only orphans, both 404 deployment failure modes, malformed encoding, and runtime `fetch(form.action)` classification.
+24 standard-library tests include 22 failing mutations, one dynamic-runtime classification fixture, and one fully valid fixture. They prove detection of missing pages/assets, fragments, duplicate IDs, hreflang/canonical errors, sitemap parity, robots blocking, 404 links, invalid `/zh/assets/`, JavaScript links, unsafe blank targets, self-only orphans, preview and non-production 404 targets, lookalike origins, insecure HTTP, relative 404 URLs, malformed encoding, and runtime `fetch(form.action)` classification.
 
 ## Out-of-Scope / Not Executed
 

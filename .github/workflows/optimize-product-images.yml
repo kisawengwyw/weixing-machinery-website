@@ -102,10 +102,10 @@ jobs:
         run: |
           git add 'assets/images/products/**/*-w*.webp' 'products/**/index.html' 'zh/products/**/index.html' docs/product-image-optimization-report.md package-lock.json
           if git diff --cached --quiet; then
-            echo 'No generated product image changes to commit.'
+            echo 'No substantive product image changes to commit.'
             exit 0
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'chore: refresh responsive product images [skip ci]'
+          git commit -m 'chore: refresh responsive product images'
           git push origin "HEAD:${TARGET_BRANCH}"

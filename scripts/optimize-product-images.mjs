@@ -214,7 +214,16 @@ async function writeReport(results, pageValidation, failures, skipped) {
   if (failures.length) failures.forEach((f) => lines.push(`- FAILED \`${f.source}\`: ${f.error}`));
   lines.push('', '## Test Scope', '', '- Automated Sharp readability, dimensions, responsive markup, paths, loading priority, and file-existence checks were executed.', '- Browser visual testing was not executed by the optimization script. Visual content is not altered except for deterministic resizing and WebP encoding.', '');
   await mkdir(resolve(root, 'docs'), { recursive: true });
-  await writeFile(resolve(root, 'docs/product-image-optimization-report.md'), `${lines.join('\n')}\n`);
+  const reportPath = resolve(root, 'docs/product-image-optimization-report.md');
+  const report = `${lines.join('\n')}\n`;
+  let previous = '';
+  try { previous = await readFile(reportPath, 'utf8'); } catch (error) { if (error.code !== 'ENOENT') throw error; }
+  const withoutAuditDate = (value) => value.replace(/^- Audit date: .*$/m, '- Audit date:');
+  if (previous && withoutAuditDate(previous) === withoutAuditDate(report)) {
+    console.log('No substantive product image changes to commit.');
+  } else {
+    await writeFile(reportPath, report);
+  }
   return { originalTotal, desktopTotal, mobileTotal, mobileGenerated, largeGenerated, largeSkipped };
 }
 

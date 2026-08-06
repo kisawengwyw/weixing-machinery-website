@@ -40,6 +40,17 @@ export function auditSite(root=process.cwd()){
   const stats={internalLinks:0,resources:0,fragments:0,css:0,forms:0,jsStatic:0};
   function check(source,element,attribute,raw,{resource=false,seo=false,countGraph=false}={}){
     if(raw===undefined)return; if(raw===''){add('empty URL',source,raw,'','URL attribute is empty');return;}
+    if(source==='404.html'){
+      if(raw==='https://wa.me/85262235101')return;
+      let url;
+      try{url=new URL(raw)}catch{
+        const absolute=/^[a-z][a-z\d+.-]*:/i.test(raw);
+        add(absolute?'404 invalid production URL':'404 relative URL',source,raw,'',absolute?'URL cannot be parsed':'404 URLs must be absolute');
+        return;
+      }
+      if(url.protocol!=='https:'){add('404 insecure protocol',source,raw,url.href,'404 URLs must use HTTPS');return;}
+      if(url.origin!==PROD){add('404 non-production origin',source,raw,url.origin,`origin must equal ${PROD}`);return;}
+    }
     const kind=classify(raw);
     if(kind==='javascript'){add('javascript URL',source,raw,'','prohibited scheme');return;}
     if(kind==='special'){
@@ -104,8 +115,22 @@ export function auditSite(root=process.cwd()){
     for(const m of js.matchAll(/\bfetch\s*\(\s*(["'])(.*?)\1|\.open\s*\(\s*[^,]+,\s*(["'])(.*?)\3|new\s+URL\s*\(\s*(["'])(.*?)\5|(?:window\.)?location(?:\.href)?\s*=\s*(["'])(.*?)\7/g)){const raw=m[2]??m[4]??m[6]??m[8];stats.jsStatic++;check(source,'script','static URL',raw,{resource:false});}
     for(const m of js.matchAll(/\bfetch\s*\(\s*([^"'`][^,)]*)/g)){const expr=m[1].trim();runtime.push({source,expression:expr,covered:/form\.action/.test(expr)?'HTML form action is checked':'runtime validation required'});}
   }
-  const simulations=[`${PROD}/missing/`,`${PROD}/a/b/missing/`,`${PROD}/products/a/b/missing/`,`${PROD}/zh/a/b/missing/`,`${PREVIEW}/missing/`,`${PREVIEW}/a/b/missing/`];
-  const four=parsed.get('404.html')||[];for(const simulated of simulations)for(const t of four){const values=[];for(const k of ['href','src','action','poster','data'])if(k in t.attrs)values.push([k,t.attrs[k]]);if('srcset'in t.attrs)for(const c of t.attrs.srcset.split(','))values.push(['srcset',c.trim().split(/\s+/)[0]]);for(const [key,raw] of values){if(!raw||classify(raw)==='special'||classify(raw)==='external')continue;if(classify(raw)==='internal')add('404 simulation','404.html',raw,simulated,'404 URL must use a stable production-domain absolute URL');let resolved;try{resolved=new URL(raw,simulated)}catch{add('404 simulation','404.html',raw,simulated,'URL construction failed');continue;}if(resolved.origin===new URL(PREVIEW).origin&&!resolved.pathname.startsWith('/weixing-machinery-website/'))add('404 preview escape','404.html',raw,resolved.href,`escaped project path under ${simulated}`);if(!/^https?:$/.test(resolved.protocol))add('404 simulation','404.html',raw,resolved.href,'unsupported resolved protocol');}}
+  const simulationPages=[`${PROD}/missing/`,`${PROD}/a/b/missing/`,`${PROD}/products/a/b/missing/`,`${PROD}/zh/a/b/missing/`,`${PREVIEW}/missing/`,`${PREVIEW}/a/b/missing/`];
+  const simulations=[];
+  const four=parsed.get('404.html')||[], fourUrls=[];
+  for(const t of four){for(const key of ['href','src','action','poster','data'])if(key in t.attrs)fourUrls.push(t.attrs[key]);if('srcset'in t.attrs)for(const candidate of t.attrs.srcset.split(',').map(x=>x.trim()).filter(Boolean))fourUrls.push(candidate.split(/\s+/)[0]);}
+  const firstResolution=new Map();
+  for(const simulatedPageUrl of simulationPages){
+    for(const rawUrl of fourUrls){
+      let resolved;
+      try{resolved=new URL(rawUrl,simulatedPageUrl)}catch{add('404 invalid production URL','404.html',rawUrl,simulatedPageUrl,'new URL(rawUrl, simulatedPageUrl) failed');continue;}
+      const first=firstResolution.get(rawUrl);if(first===undefined)firstResolution.set(rawUrl,resolved.href);else if(first!==resolved.href)add('404 simulation mismatch','404.html',rawUrl,resolved.href,`resolved as ${first} in another deployment context`);
+      if(rawUrl==='https://wa.me/85262235101')continue;
+      if(resolved.protocol!=='https:'){add('404 insecure protocol','404.html',rawUrl,resolved.href,'404 URLs must use HTTPS');continue;}
+      if(resolved.origin!==PROD)add('404 non-production origin','404.html',rawUrl,resolved.origin,`origin must equal ${PROD}`);
+    }
+    simulations.push(simulatedPageUrl);
+  }
   const orphans=indexable.filter(p=>!['index.html','products/index.html','guides/index.html','zh/index.html','zh/products/index.html','zh/guides/index.html'].includes(p)&&(inbound.get(p)?.size||0)===0);for(const p of orphans)add('orphan page',p,'',p,'no inbound <a>/<area> link from another public page');
   const deadEnds=indexable.filter(p=>(outbound.get(p)?.size||0)===0);for(const p of deadEnds)add('dead-end page',p,'',p,'no internal page outlink to another page');
   for(const [center,prefix] of [['products/index.html','products/'],['zh/products/index.html','zh/products/'],['guides/index.html','guides/'],['zh/guides/index.html','zh/guides/']])for(const p of indexable.filter(x=>x.startsWith(prefix)&&x!==center))if(!inbound.get(p)?.has(center))add('missing center entry',p,'',center,`detail is not linked from ${center}`);
