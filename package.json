@@ -6,7 +6,10 @@
     "check:footers": "node scripts/check-sitewide-footers.mjs",
     "check:links": "node scripts/check-site-links.mjs",
     "check:links:external": "node scripts/check-site-links.mjs --check-external",
-    "test:links-checker": "node scripts/test-site-link-checker.mjs"
+    "test:links-checker": "node scripts/test-site-link-checker.mjs",
+    "check:production": "node scripts/check-production-site.mjs",
+    "check:production:verbose": "node scripts/check-production-site.mjs --verbose",
+    "test:production-checker": "node scripts/test-production-health-check.mjs"
   },
   "devDependencies": {
     "sharp": "0.34.3"
