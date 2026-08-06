@@ -3,7 +3,10 @@
   "scripts": {
     "images:home": "node scripts/optimize-home-images.mjs",
     "images:products": "node scripts/optimize-product-images.mjs",
-    "check:footers": "node scripts/check-sitewide-footers.mjs"
+    "check:footers": "node scripts/check-sitewide-footers.mjs",
+    "check:links": "node scripts/check-site-links.mjs",
+    "check:links:external": "node scripts/check-site-links.mjs --check-external",
+    "test:links-checker": "node scripts/test-site-link-checker.mjs"
   },
   "devDependencies": {
     "sharp": "0.34.3"
