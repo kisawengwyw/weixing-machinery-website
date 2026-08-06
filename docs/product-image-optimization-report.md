@@ -2,7 +2,7 @@
 
 ## Summary
 
-- Audit date: 2026-08-04
+- Audit date: 2026-08-06
 - Product categories: 12
 - Pages: 24
 - Original images: 60
