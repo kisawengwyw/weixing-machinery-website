@@ -23,6 +23,8 @@ on:
       - "robots.txt"
       - "scripts/check-site-links.mjs"
       - "scripts/test-site-link-checker.mjs"
+      - "scripts/check-accessibility.mjs"
+      - "scripts/test-accessibility-checker.mjs"
       - "scripts/check-production-site.mjs"
       - "scripts/test-production-health-check.mjs"
       - "scripts/generate-site-icons.mjs"
@@ -45,6 +47,8 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
+      - run: npm run test:accessibility-checker
+      - run: npm run check:accessibility
       - run: npm run test:links-checker
       - run: npm run test:production-checker
       - run: npm run test:hosting-config
