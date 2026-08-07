@@ -4,6 +4,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // --- Header scroll effect ---
     const header = document.getElementById('header');
     let lastScroll = 0;
@@ -23,19 +25,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobileMenu');
 
     if (mobileMenuBtn && mobileMenu) {
+        const isChinese = document.documentElement.lang.toLowerCase().startsWith('zh');
+        const openLabel = isChinese ? '打开导航菜单' : 'Open navigation menu';
+        const closeLabel = isChinese ? '关闭导航菜单' : 'Close navigation menu';
+
+        function setMobileMenu(open, returnFocus) {
+            mobileMenuBtn.classList.toggle('active', open);
+            mobileMenu.classList.toggle('active', open);
+            mobileMenuBtn.setAttribute('aria-expanded', String(open));
+            mobileMenuBtn.setAttribute('aria-label', open ? closeLabel : openLabel);
+            mobileMenu.setAttribute('aria-hidden', String(!open));
+            mobileMenu.toggleAttribute('inert', !open);
+            document.body.style.overflow = open ? 'hidden' : '';
+
+            if (open) {
+                const firstControl = mobileMenu.querySelector('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (firstControl) firstControl.focus();
+            } else if (returnFocus) {
+                mobileMenuBtn.focus();
+            }
+        }
+
         mobileMenuBtn.addEventListener('click', function() {
-            this.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            setMobileMenu(!mobileMenu.classList.contains('active'), false);
         });
 
         // Close on link click
         mobileMenu.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
-                mobileMenuBtn.classList.remove('active');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
+                setMobileMenu(false, false);
             });
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                setMobileMenu(false, true);
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                setMobileMenu(false, false);
+            }
         });
     }
 
@@ -50,6 +81,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             counter.dataset.animated = 'true';
             const target = parseInt(counter.dataset.target, 10);
+            if (prefersReducedMotion) {
+                counter.textContent = target >= 1000 ? target.toLocaleString() : target;
+                return;
+            }
             const duration = 2000;
             const start = performance.now();
 
@@ -105,8 +140,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    window.addEventListener('scroll', handleFadeIn);
-    handleFadeIn(); // Initial check
+    if (prefersReducedMotion) {
+        document.querySelectorAll('.fade-in').forEach(function(el) { el.classList.add('visible'); });
+    } else {
+        window.addEventListener('scroll', handleFadeIn);
+        handleFadeIn(); // Initial check
+    }
 
     // --- Smooth scroll for anchor links ---
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
@@ -114,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
             }
         });
     });
@@ -129,10 +168,22 @@ document.addEventListener('DOMContentLoaded', function() {
         var current = 0;
 
         function showImage(index) {
-            images.forEach(function(img) { img.classList.remove('active'); });
-            dots.forEach(function(dot) { dot.classList.remove('active'); });
-            if (images[index]) images[index].classList.add('active');
-            if (dots[index]) dots[index].classList.add('active');
+            images.forEach(function(img) {
+                img.classList.remove('active');
+                img.setAttribute('aria-hidden', 'true');
+            });
+            dots.forEach(function(dot) {
+                dot.classList.remove('active');
+                dot.setAttribute('aria-current', 'false');
+            });
+            if (images[index]) {
+                images[index].classList.add('active');
+                images[index].setAttribute('aria-hidden', 'false');
+            }
+            if (dots[index]) {
+                dots[index].classList.add('active');
+                dots[index].setAttribute('aria-current', 'true');
+            }
             current = index;
         }
 
@@ -145,11 +196,15 @@ document.addEventListener('DOMContentLoaded', function() {
         dots.forEach(function(dot, i) {
             dot.addEventListener('click', function() { showImage(i); });
         });
-
-        // Auto-rotate every 4 seconds
-        setInterval(function() {
-            showImage(current < images.length - 1 ? current + 1 : 0);
-        }, 4000);
+        gallery.addEventListener('keydown', function(event) {
+            if (/^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName)) return;
+            if (event.key === 'ArrowLeft') showImage(current > 0 ? current - 1 : images.length - 1);
+            else if (event.key === 'ArrowRight') showImage(current < images.length - 1 ? current + 1 : 0);
+            else if (event.key === 'Home') showImage(0);
+            else if (event.key === 'End') showImage(images.length - 1);
+            else return;
+            event.preventDefault();
+        });
     }
 
 });
