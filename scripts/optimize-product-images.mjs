@@ -17,6 +17,15 @@ const pagePaths = slugs.flatMap((slug) => [
 const generatedPattern = /-w\d+\.webp$/i;
 const imagePattern = /<img\b[^>]*>/gi;
 const attr = (tag, name) => tag.match(new RegExp(`\\b${name}=["']([^"']*)["']`, 'i'))?.[1] ?? '';
+const hasClass = (tag, token) => attr(tag, 'class').split(/\s+/).includes(token);
+const openingDivPattern = /<div\b[^>]*>/gi;
+const galleryMarkup = (html) => {
+  const divs = [...html.matchAll(openingDivPattern)];
+  const gallery = divs.find((match) => hasClass(match[0], 'product-gallery'));
+  if (!gallery) return '';
+  const dots = divs.find((match) => match.index > gallery.index && hasClass(match[0], 'gallery-dots'));
+  return dots ? html.slice(gallery.index + gallery[0].length, dots.index) : '';
+};
 const formatBytes = (bytes) => `${(bytes / 1024).toFixed(1)} KiB`;
 const pct = (saved, total) => total ? `${(saved * 100 / total).toFixed(1)}%` : '0.0%';
 const webPath = (value) => value.replace(/^\.\.\/\.\.\/(?:\.\.\/)?/, '');
@@ -26,7 +35,7 @@ async function collectUsage() {
   const pages = [];
   for (const pagePath of pagePaths) {
     const html = await readFile(resolve(root, pagePath), 'utf8');
-    const gallery = html.match(/<div class="product-gallery">([\s\S]*?)<div class="gallery-dots">/i)?.[1] ?? '';
+    const gallery = galleryMarkup(html);
     const tags = gallery.match(imagePattern) ?? [];
     pages.push({ pagePath, html, tags });
     for (const tag of tags) {
@@ -146,7 +155,8 @@ function validatePages(pages, results) {
     const errors = [];
     if ((html.match(/<h1\b/gi) ?? []).length !== 1) errors.push('H1 count');
     if (tags.length !== 5) errors.push(`gallery images: ${tags.length}`);
-    if ((html.match(/class="gallery-dot(?: active)?"/g) ?? []).length !== 5) errors.push('gallery dots');
+    const dotCount = [...html.matchAll(/<button\b[^>]*>/gi)].filter((match) => hasClass(match[0], 'gallery-dot')).length;
+    if (dotCount !== 5) errors.push(`gallery dots: ${dotCount}`);
     tags.forEach((tag, index) => {
       for (const name of ['src', 'srcset', 'sizes', 'width', 'height', 'alt']) if (!attr(tag, name)) errors.push(`image ${index + 1} missing ${name}`);
       if (index === 0 && (attr(tag, 'loading') === 'lazy' || attr(tag, 'fetchpriority') !== 'high')) errors.push('first image priority');
