@@ -41,6 +41,10 @@ export function auditSite(root=process.cwd()){
   function check(source,element,attribute,raw,{resource=false,seo=false,countGraph=false}={}){
     if(raw===undefined)return; if(raw===''){add('empty URL',source,raw,'','URL attribute is empty');return;}
     if(source==='404.html'){
+      // Same-document fragments remain valid wherever the custom 404 is served.
+      if(raw.startsWith('#')) {
+        // Continue through normal local fragment/ID validation below.
+      } else {
       if(raw==='https://wa.me/85262235101')return;
       let url;
       try{url=new URL(raw)}catch{
@@ -50,6 +54,7 @@ export function auditSite(root=process.cwd()){
       }
       if(url.protocol!=='https:'){add('404 insecure protocol',source,raw,url.href,'404 URLs must use HTTPS');return;}
       if(url.origin!==PROD){add('404 non-production origin',source,raw,url.origin,`origin must equal ${PROD}`);return;}
+      }
     }
     const kind=classify(raw);
     if(kind==='javascript'){add('javascript URL',source,raw,'','prohibited scheme');return;}
@@ -122,6 +127,7 @@ export function auditSite(root=process.cwd()){
   const firstResolution=new Map();
   for(const simulatedPageUrl of simulationPages){
     for(const rawUrl of fourUrls){
+      if(rawUrl.startsWith('#')) continue;
       let resolved;
       try{resolved=new URL(rawUrl,simulatedPageUrl)}catch{add('404 invalid production URL','404.html',rawUrl,simulatedPageUrl,'new URL(rawUrl, simulatedPageUrl) failed');continue;}
       const first=firstResolution.get(rawUrl);if(first===undefined)firstResolution.set(rawUrl,resolved.href);else if(first!==resolved.href)add('404 simulation mismatch','404.html',rawUrl,resolved.href,`resolved as ${first} in another deployment context`);

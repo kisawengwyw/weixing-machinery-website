@@ -8,6 +8,8 @@
     "check:icons": "node scripts/generate-site-icons.mjs --check",
     "check:links": "node scripts/check-site-links.mjs",
     "check:links:external": "node scripts/check-site-links.mjs --check-external",
+    "check:accessibility": "node scripts/check-accessibility.mjs",
+    "test:accessibility-checker": "node scripts/test-accessibility-checker.mjs",
     "test:links-checker": "node scripts/test-site-link-checker.mjs",
     "check:production": "node scripts/check-production-site.mjs",
     "check:production:verbose": "node scripts/check-production-site.mjs --verbose",
