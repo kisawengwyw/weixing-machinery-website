@@ -84,7 +84,15 @@ jobs:
             .concat((await readdir('zh/products', { recursive: true })).filter((file) => /index\.html$/.test(file)).map((file) => `zh/products/${file}`))
             .filter((file) => file.split('/').length === (file.startsWith('zh/') ? 4 : 3));
           if (files.length !== 24) throw new Error(`Expected 24 product pages, found ${files.length}`);
-          const gallery = (html) => html.match(/<div class="product-gallery">([\s\S]*?)<div class="gallery-dots">/)?.[1] ?? '';
+          const attr = (tag, name) => tag.match(new RegExp(`\\b${name}=["']([^"']*)["']`, 'i'))?.[1] ?? '';
+          const hasClass = (tag, token) => attr(tag, 'class').split(/\s+/).includes(token);
+          const gallery = (html) => {
+            const divs = [...html.matchAll(/<div\b[^>]*>/gi)];
+            const galleryStart = divs.find((match) => hasClass(match[0], 'product-gallery'));
+            if (!galleryStart) return '';
+            const dots = divs.find((match) => match.index > galleryStart.index && hasClass(match[0], 'gallery-dots'));
+            return dots ? html.slice(galleryStart.index + galleryStart[0].length, dots.index) : '';
+          };
           const alts = (html) => [...gallery(html).matchAll(/<img\b[^>]*\balt="([^"]*)"/g)].map((match) => match[1]);
           for (const file of files) {
             const current = await readFile(file, 'utf8');
