@@ -35,7 +35,7 @@ replaceExact(
 replaceExact('<h2 class="section-title">Hydraulic Manifold Block Manufacturing Capabilities</h2>', '<h2 class="section-title">Hydraulic Manifold Precision Machining Capabilities</h2>');
 replaceExact(`"name": "${oldTitle}"`, `"name": "${newTitle}"`);
 replaceExact(`"description": "${oldDescription}"`, `"description": "${newDescription}"`);
-replaceExact('"name": "Hydraulic Manifold Blocks"', '"name": "Hydraulic Manifold Precision Machining and Custom Blocks"');
+replaceExact('"name": "Hydraulic Manifold Blocks"', '"name": "Hydraulic Manifold Precision Machining and Custom Blocks"', 2);
 
 if (!html.includes('<h1>Hydraulic Manifold Precision Machining & Custom Blocks</h1>')) {
   throw new Error('Target H1 was not applied.');
