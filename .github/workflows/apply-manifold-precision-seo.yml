@@ -1,0 +1,35 @@
+name: Apply Manifold Precision SEO Patch
+
+on:
+  push:
+    branches:
+      - seo/hydraulic-manifold-precision-machining
+    paths:
+      - '.github/workflows/apply-manifold-precision-seo.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo/hydraulic-manifold-precision-machining
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply guarded SEO patch
+        run: node scripts/apply-manifold-precision-seo-patch.mjs
+      - name: Remove one-time files
+        run: |
+          rm scripts/apply-manifold-precision-seo-patch.mjs
+          rm .github/workflows/apply-manifold-precision-seo.yml
+      - name: Commit final page-only change
+        run: |
+          git add products/hydraulic-manifold-blocks/index.html scripts/apply-manifold-precision-seo-patch.mjs .github/workflows/apply-manifold-precision-seo.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'SEO: strengthen hydraulic manifold precision machining intent'
+          git push
